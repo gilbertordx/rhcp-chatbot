@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/gilbertordx/logbook/issues"
   },
-  "homepage": "https://github.com/gilbertordx/logbook#readme"
+  "homepage": "https://github.com/gilbertordx/logbook#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
 }
