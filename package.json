@@ -1,0 +1,19 @@
+{
+  "name": "logbook",
+  "version": "1.0.0",
+  "description": "App to track training sessions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gilbertordx/logbook.git"
+  },
+  "author": "Gilberto Ramos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gilbertordx/logbook/issues"
+  },
+  "homepage": "https://github.com/gilbertordx/logbook#readme"
+}
