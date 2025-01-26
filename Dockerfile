@@ -5,3 +5,4 @@ COPY ../package.json /logbook
 RUN npm install
 COPY . /logbook
 CMD npm start
+

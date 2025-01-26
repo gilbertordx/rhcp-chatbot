@@ -10,6 +10,7 @@ services:
       - POSTGRES_USER=$DB_USER
       - POSTGRES_PASSWORD=$DB_PASSWORD
       - POSTGRES_DB=$DB_USER
+      - POSTGRES_DB_DIALECT=postgres
     ports:
       - $POSTGRESDB_LOCAL_PORT:$DB_PORT
     volumes:
@@ -29,6 +30,7 @@ services:
       - DB_PASSWORD=$DB_PASSWORD
       - DB_NAME=$DB_NAME
       - DB_PORT=$DB_PORT
+      - DB_DIALECT=postgres
     stdin_open: true
     tty: true
 

@@ -1,14 +1,16 @@
-module.exports = {
-    HOST: process.env.DB_HOST || "localhost",
-    USER: process.env.DB_USER || "root",
-    PASSWORD: process.env.DB_PASSWORD || "root",
-    DB: process.env.DB_NAME || "logbook-db",
-    port: process.env.DB_PORT || 5432,
-    dialect: "postgres",
-    pool: {
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000
-    },
+require('dotenv').config();
+
+const sqlConfig = {
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    dialect: process.env.DB_DIALECT || 'postgres',
+    port: process.env.DB_PORT,
 };
+
+const config = {
+    local: sqlConfig, 
+};
+
+module.exports = config;
