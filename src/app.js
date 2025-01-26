@@ -1,6 +1,8 @@
 const express = require('express')
+require("dotenv").config();
+
 const app = express()
-const port = 3000
+const port = process.env.NODE_DOCKER_PORT || 8080;
 
 app.get('/', (req, res) =>  {
     res.send('Health!')
