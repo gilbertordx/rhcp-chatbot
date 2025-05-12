@@ -1,0 +1,218 @@
+{
+  "name": "RHCP Corpus",
+  "locale": "en-US",
+  "data": [
+    {
+      "intent": "band.members",
+      "utterances": [
+        "who are the members of RHCP",
+        "who is in the band",
+        "who are the current members",
+        "who plays in RHCP",
+        "who are the Red Hot Chili Peppers",
+        "who is in the Red Hot Chili Peppers"
+      ],
+      "answers": [
+        "The current members of Red Hot Chili Peppers are Anthony Kiedis (vocals), Flea (bass), John Frusciante (guitar), and Chad Smith (drums).",
+        "RHCP consists of Anthony Kiedis on vocals, Flea on bass, John Frusciante on guitar, and Chad Smith on drums.",
+        "The band members are Anthony Kiedis (vocals), Flea (bass), John Frusciante (guitar), and Chad Smith (drums)."
+      ]
+    },
+    {
+      "intent": "band.history",
+      "utterances": [
+        "when was RHCP formed",
+        "how did the band start",
+        "what's the history of RHCP",
+        "when did they start",
+        "how long has the band been around",
+        "when did RHCP begin"
+      ],
+      "answers": [
+        "Red Hot Chili Peppers was formed in 1983 in Los Angeles, California. The original members were Anthony Kiedis, Flea, Hillel Slovak, and Jack Irons.",
+        "The band started in 1983 in LA. They've been making music for over 40 years now!",
+        "RHCP began in 1983 in Los Angeles. They've had some member changes over the years but have maintained their unique sound throughout their career."
+      ]
+    },
+    {
+      "intent": "album.info",
+      "utterances": [
+        "what albums do they have",
+        "list their albums",
+        "what are their albums",
+        "tell me about their albums",
+        "what records have they made",
+        "what are their records"
+      ],
+      "answers": [
+        "Some of their most famous albums include 'Blood Sugar Sex Magik' (1991), 'Californication' (1999), 'By the Way' (2002), 'Stadium Arcadium' (2006), and 'Unlimited Love' (2022).",
+        "Their discography includes 'Blood Sugar Sex Magik', 'Californication', 'By the Way', 'Stadium Arcadium', and their latest 'Unlimited Love'.",
+        "They've released many albums, with some of the most popular being 'Blood Sugar Sex Magik', 'Californication', 'By the Way', and 'Stadium Arcadium'."
+      ]
+    },
+    {
+      "intent": "song.info",
+      "utterances": [
+        "what are their most popular songs",
+        "what are their hits",
+        "name some of their songs",
+        "what songs should I listen to",
+        "what are their best songs",
+        "recommend some songs"
+      ],
+      "answers": [
+        "Some of their biggest hits include 'Under the Bridge', 'Californication', 'Scar Tissue', 'Otherside', 'By the Way', 'Dani California', and 'Snow (Hey Oh)'.",
+        "You should definitely check out 'Under the Bridge', 'Californication', 'Scar Tissue', and 'Otherside'. These are some of their most iconic songs.",
+        "Their most popular songs are 'Under the Bridge', 'Californication', 'Scar Tissue', 'Otherside', and 'By the Way'."
+      ]
+    },
+    {
+      "intent": "song.lyrics",
+      "utterances": [
+        "what are the lyrics to [song]",
+        "tell me the lyrics of [song]",
+        "what does [song] mean",
+        "what's the meaning of [song]",
+        "explain the lyrics of [song]",
+        "what's [song] about"
+      ],
+      "answers": [
+        "I can help you with lyrics! Just tell me which song you're interested in, and I'll share the lyrics and their meaning.",
+        "Which song would you like to know about? I can tell you the lyrics and what they mean.",
+        "I'd be happy to share the lyrics and meaning of any RHCP song. Which one interests you?"
+      ]
+    },
+    {
+      "intent": "band.style",
+      "utterances": [
+        "what kind of music do they play",
+        "what's their music style",
+        "what genre are they",
+        "what type of music is RHCP",
+        "how would you describe their sound",
+        "what's their musical style"
+      ],
+      "answers": [
+        "Red Hot Chili Peppers are known for their unique blend of funk, rock, and punk. They've also incorporated elements of psychedelic rock, rap, and alternative rock throughout their career.",
+        "Their style is primarily funk rock, but they've evolved to include elements of alternative rock, punk, and psychedelic rock. They're known for their distinctive sound that combines Flea's funky bass lines with rock guitar riffs.",
+        "RHCP's music is a fusion of funk, rock, and punk, with their signature style featuring funky bass lines, rock guitar, and Anthony Kiedis's unique vocal delivery."
+      ]
+    },
+    {
+      "intent": "album.specific",
+      "utterances": [
+        "tell me about [album]",
+        "what's [album] about",
+        "when was [album] released",
+        "who produced [album]",
+        "what songs are on [album]",
+        "what's special about [album]",
+        "what's the story behind [album]"
+      ],
+      "answers": [
+        "I can tell you all about that album! Just let me know which one you're interested in, and I'll share its release date, tracklist, and interesting facts.",
+        "Which album would you like to know more about? I can tell you about its release, production, and the songs on it.",
+        "I'd be happy to share details about any RHCP album. Which one interests you?"
+      ]
+    },
+    {
+      "intent": "member.biography",
+      "utterances": [
+        "tell me about [member]",
+        "who is [member]",
+        "what's [member]'s background",
+        "what does [member] do in the band",
+        "what instruments does [member] play",
+        "what's [member]'s story",
+        "how did [member] join the band"
+      ],
+      "answers": [
+        "I can tell you all about that band member! Just let me know which one you're interested in, and I'll share their background, role in the band, and interesting facts.",
+        "Which band member would you like to know more about? I can tell you about their musical journey and contributions to RHCP.",
+        "I'd be happy to share details about any RHCP member. Which one interests you?"
+      ]
+    },
+    {
+      "intent": "song.specific",
+      "utterances": [
+        "tell me about [song]",
+        "what's [song] about",
+        "when was [song] released",
+        "what album is [song] from",
+        "what's the meaning of [song]",
+        "what inspired [song]",
+        "who wrote [song]"
+      ],
+      "answers": [
+        "I can tell you all about that song! Just let me know which one you're interested in, and I'll share its story, meaning, and interesting facts.",
+        "Which song would you like to know more about? I can tell you about its creation, meaning, and the album it's from.",
+        "I'd be happy to share details about any RHCP song. Which one interests you?"
+      ]
+    },
+    {
+      "intent": "band.awards",
+      "utterances": [
+        "what awards have they won",
+        "have they won any grammys",
+        "what recognition have they received",
+        "what are their achievements",
+        "what honors have they received",
+        "what are their major awards"
+      ],
+      "answers": [
+        "Red Hot Chili Peppers have won multiple Grammy Awards, including Best Rock Album for 'Stadium Arcadium' and Best Rock Performance by a Duo or Group for 'Dani California'. They've also been inducted into the Rock and Roll Hall of Fame in 2012.",
+        "They've received numerous awards, including multiple Grammys. They were inducted into the Rock and Roll Hall of Fame in 2012, recognizing their significant contribution to music.",
+        "RHCP has won several Grammy Awards and was inducted into the Rock and Roll Hall of Fame in 2012. They've also received numerous other awards and recognition throughout their career."
+      ]
+    },
+    {
+      "intent": "band.tours",
+      "utterances": [
+        "are they touring",
+        "when is their next tour",
+        "where are they playing",
+        "what are their tour dates",
+        "are they coming to [location]",
+        "when did they last tour",
+        "what was their last tour"
+      ],
+      "answers": [
+        "I can help you find information about their current and upcoming tours. They regularly tour worldwide, and their latest tour is in support of their album 'Unlimited Love'.",
+        "RHCP tours frequently, with their most recent tour supporting 'Unlimited Love'. They play shows all around the world.",
+        "The band is known for their energetic live performances and extensive touring schedule. Their latest tour is promoting 'Unlimited Love'."
+      ]
+    },
+    {
+      "intent": "band.influence",
+      "utterances": [
+        "who influenced them",
+        "what bands influenced RHCP",
+        "who are their musical influences",
+        "what inspired their music",
+        "who did they look up to",
+        "what bands inspired them"
+      ],
+      "answers": [
+        "Red Hot Chili Peppers have been influenced by a wide range of artists including Parliament-Funkadelic, Jimi Hendrix, The Beatles, and punk bands like The Ramones. They've also cited jazz and hip-hop as major influences.",
+        "Their music shows influences from funk (Parliament-Funkadelic), rock (Jimi Hendrix), punk (The Ramones), and hip-hop. They've created their unique sound by blending these diverse influences.",
+        "RHCP's sound is a fusion of many influences, including funk, punk, rock, and hip-hop. They've been particularly inspired by artists like Parliament-Funkadelic and Jimi Hendrix."
+      ]
+    },
+    {
+      "intent": "band.collaborations",
+      "utterances": [
+        "who have they worked with",
+        "what collaborations have they done",
+        "who have they performed with",
+        "what artists have they collaborated with",
+        "who have they recorded with",
+        "what famous collaborations do they have"
+      ],
+      "answers": [
+        "Red Hot Chili Peppers have collaborated with many artists including George Clinton, Dave Navarro, and Josh Klinghoffer. They've also worked with producers like Rick Rubin and worked with various artists on their albums.",
+        "They've had notable collaborations with artists like George Clinton and worked with different producers throughout their career, including Rick Rubin who produced many of their albums.",
+        "RHCP has worked with various artists and producers over the years, including George Clinton, Dave Navarro, and long-time producer Rick Rubin."
+      ]
+    }
+  ]
+} 

@@ -7,9 +7,9 @@ const namespace = cls.createNamespace('logbook-db');
 const models = require('./models/index');
 
 Sequelize.useCLS(namespace);
-const dbConfig = config.local;
+const dbConfig = config.development;
 
-const sequelize = new Sequelize(dbConfig.database, dbConfig.user, dbConfig.password, {
+const sequelize = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.password, {
   dialect: 'postgres',  
   host: dbConfig.host,
   port: dbConfig.port,
