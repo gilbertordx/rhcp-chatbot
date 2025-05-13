@@ -7,11 +7,6 @@ yarn-error.log*
 # Environment variables
 .env
 .env.local
-.env.*.local
-
-# Build output
-dist/
-build/
 
 # IDE and editor files
 .idea/
@@ -21,15 +16,10 @@ build/
 .DS_Store
 
 # Logs
-logs/
 *.log
 
 # Testing
 coverage/
-
-# Database
-*.sqlite
-*.sqlite3
 
 # Temporary files
 tmp/

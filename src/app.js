@@ -2,67 +2,83 @@
  * Main Application File
  * 
  * This is the entry point of the RHCP Chatbot application.
- * It sets up the Express server, middleware, routes, and error handling.
+ * It initializes the chatbot with training data and provides
+ * the core message handling functionality.
  */
 
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const helmet = require('helmet');
-const morgan = require('morgan');
-const { sequelize } = require('./models');
+const fs = require('fs').promises;
+const path = require('path');
 
-// Import routes
-const chatRoutes = require('./http/routes/chat.routes');
-const knowledgeRoutes = require('./http/routes/knowledge.routes');
-const userRoutes = require('./http/routes/user.routes');
+class RHCPChatbot {
+    constructor() {
+        this.trainingData = null;
+        this.staticData = null;
+    }
 
-// Create Express app
-const app = express();
+    async initialize() {
+        try {
+            // Load training data
+            const baseCorpus = JSON.parse(
+                await fs.readFile(path.join(__dirname, 'data/training/base-corpus.json'), 'utf8')
+            );
+            const rhcpCorpus = JSON.parse(
+                await fs.readFile(path.join(__dirname, 'data/training/rhcp-corpus.json'), 'utf8')
+            );
 
-// Middleware
-app.use(helmet()); // Security headers
-app.use(cors()); // Enable CORS
-app.use(morgan('dev')); // Request logging
-app.use(express.json()); // Parse JSON bodies
-app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
+            // Load static data
+            const bandInfo = JSON.parse(
+                await fs.readFile(path.join(__dirname, 'data/static/band-info.json'), 'utf8')
+            );
+            const discography = JSON.parse(
+                await fs.readFile(path.join(__dirname, 'data/static/discography.json'), 'utf8')
+            );
 
-// Routes
-app.use('/api/chat', chatRoutes);
-app.use('/api/knowledge', knowledgeRoutes);
-app.use('/api/users', userRoutes);
+            this.trainingData = {
+                base: baseCorpus,
+                rhcp: rhcpCorpus
+            };
 
-// Health check endpoint
-app.get('/health', (req, res) => {
-    res.json({ status: 'ok' });
-});
+            this.staticData = {
+                bandInfo,
+                discography
+            };
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json({
-        error: 'Internal Server Error',
-        message: process.env.NODE_ENV === 'development' ? err.message : undefined
-    });
-});
+            console.log('Chatbot initialized successfully');
+        } catch (error) {
+            console.error('Error initializing chatbot:', error);
+            throw error;
+        }
+    }
 
-// Start server
-const PORT = process.env.PORT || 3000;
+    async processMessage(message) {
+        // TODO: Implement message processing logic
+        // This will include:
+        // - Intent recognition
+        // - Entity extraction
+        // - Response generation
+        return {
+            message: "I'm still learning how to respond. Stay tuned!",
+            intent: null,
+            entities: []
+        };
+    }
+}
 
-async function startServer() {
+// Create and initialize chatbot
+const chatbot = new RHCPChatbot();
+
+// Start the chatbot
+async function start() {
     try {
-        // Test database connection
-        await sequelize.authenticate();
-        console.log('Database connection established successfully.');
-
-        // Start server
-        app.listen(PORT, () => {
-            console.log(`Server is running on port ${PORT}`);
-        });
+        await chatbot.initialize();
+        console.log('RHCP Chatbot is ready to chat!');
     } catch (error) {
-        console.error('Unable to start server:', error);
+        console.error('Failed to start chatbot:', error);
         process.exit(1);
     }
 }
 
-startServer();
+start();
+
+// Export for testing and external use
+module.exports = chatbot;
