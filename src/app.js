@@ -12,6 +12,9 @@ const natural = require('natural');
 const express = require('express');
 const bodyParser = require('body-parser');
 const ChatbotProcessor = require('./chatbotProcessor');
+const { initializeChatbot } = require('./initializer');
+const createChatRouter = require('./http/routes/chatRoutes');
+const { processChatMessage } = require('./http/controllers/chatController');
 
 class RHCPChatbot {
     constructor() {
@@ -74,8 +77,8 @@ class RHCPChatbot {
     }
 }
 
-// Create and initialize chatbot
-const chatbot = new RHCPChatbot();
+// Create and initialize chatbot (Initialization moved to startServer)
+// const chatbot = new RHCPChatbot(); // Removed
 
 // Initialize Express app
 const app = express();
@@ -84,34 +87,21 @@ const app = express();
 app.use(bodyParser.json());
 // Add other middleware like CORS, Helmet, Morgan later if needed as per README
 
-// Chatbot API Endpoint
-app.post('/api/chat', async (req, res) => {
-    const userMessage = req.body.message;
-
-    if (!userMessage) {
-        return res.status(400).json({ error: 'Message is required in the request body.' });
-    }
-
-    try {
-        // Use the chatbotProcessor instance to process the message
-        // Ensure chatbot and chatbot.chatbotProcessor are initialized before use
-        if (!chatbot.chatbotProcessor) {
-             return res.status(503).json({ error: 'Chatbot is not initialized yet.' });
-        }
-        const chatbotResponse = await chatbot.chatbotProcessor.processMessage(userMessage);
-        res.json(chatbotResponse);
-    } catch (error) {
-        console.error('Error processing message:', error);
-        res.status(500).json({ error: 'An error occurred while processing your message.' });
-    }
-});
+// Mount chat routes
+// const chatbotProcessor = await initializeChatbot(); // Initialize in startServer
+// app.post('/api/chat', async (req, res) => { ... }); // Removed
 
 // Start the server and initialize the chatbot
 const PORT = process.env.PORT || 3000;
 
 async function startServer() {
     try {
-        await chatbot.initialize();
+        // Initialize the chatbot components
+        const chatbotProcessor = await initializeChatbot();
+        
+        // Mount the chat router, passing the initialized processor and controller
+        app.use('/api/chat', createChatRouter(chatbotProcessor, processChatMessage));
+
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`);
             console.log('RHCP Chatbot is ready to chat!');

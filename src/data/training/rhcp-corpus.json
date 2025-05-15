@@ -10,7 +10,12 @@
         "who are the current members",
         "who plays in RHCP",
         "who are the Red Hot Chili Peppers",
-        "who is in the Red Hot Chili Peppers"
+        "who is in the Red Hot Chili Peppers",
+        "list the band members",
+        "tell me who is in RHCP",
+        "current lineup",
+        "band members list",
+        "who makes up the band"
       ],
       "answers": [
         "The current members of Red Hot Chili Peppers are Anthony Kiedis (vocals), Flea (bass), John Frusciante (guitar), and Chad Smith (drums).",
@@ -118,20 +123,22 @@
     {
       "intent": "member.biography",
       "utterances": [
-        "tell me about [member]",
-        "who is [member]",
+        "[member]'s biography",
+        "background of [member]",
         "what's [member]'s background",
         "what does [member] do in the band",
         "what instruments does [member] play",
         "what's [member]'s story",
         "how did [member] join the band",
-        "tell me about Flea",
-        "who is Anthony Kiedis",
-        "what about Chad Smith",
-        "John Frusciante's story",
-        "tell me about Hillel Slovak",
-        "who was Jack Irons",
-        "what can you tell me about Josh Klinghoffer"
+        "biography of Flea",
+        "Anthony Kiedis background",
+        "Chad Smith's role",
+        "John Frusciante biography",
+        "Hillel Slovak story",
+        "Jack Irons background",
+        "Josh Klinghoffer info",
+        "[member] biography",
+        "info on [member]"
       ],
       "answers": [
         "I can tell you all about that band member! Just let me know which one you're interested in, and I'll share their background, role in the band, and interesting facts.",
