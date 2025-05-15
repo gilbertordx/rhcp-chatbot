@@ -8,11 +8,17 @@
 
 const fs = require('fs').promises;
 const path = require('path');
+const natural = require('natural');
+const express = require('express');
+const bodyParser = require('body-parser');
+const ChatbotProcessor = require('./chatbotProcessor');
 
 class RHCPChatbot {
     constructor() {
         this.trainingData = null;
         this.staticData = null;
+        this.classifier = new natural.BayesClassifier();
+        this.chatbotProcessor = null;
     }
 
     async initialize() {
@@ -43,42 +49,80 @@ class RHCPChatbot {
                 discography
             };
 
+            // Train the classifier
+            console.log('Training NLU classifier...');
+            for (const corpus of [baseCorpus, rhcpCorpus]) {
+                for (const item of corpus.data) {
+                    if (item.intent !== 'None') { // Exclude the 'None' intent for training
+                        for (const utterance of item.utterances) {
+                            this.classifier.addDocument(utterance, item.intent);
+                        }
+                    }
+                }
+            }
+            await this.classifier.train();
+            console.log('NLU classifier trained.');
+
+            // Initialize ChatbotProcessor after data is loaded and classifier is trained
+            this.chatbotProcessor = new ChatbotProcessor(this.classifier, this.trainingData, this.staticData);
+
             console.log('Chatbot initialized successfully');
         } catch (error) {
             console.error('Error initializing chatbot:', error);
             throw error;
         }
     }
-
-    async processMessage(message) {
-        // TODO: Implement message processing logic
-        // This will include:
-        // - Intent recognition
-        // - Entity extraction
-        // - Response generation
-        return {
-            message: "I'm still learning how to respond. Stay tuned!",
-            intent: null,
-            entities: []
-        };
-    }
 }
 
 // Create and initialize chatbot
 const chatbot = new RHCPChatbot();
 
-// Start the chatbot
-async function start() {
+// Initialize Express app
+const app = express();
+
+// Middleware
+app.use(bodyParser.json());
+// Add other middleware like CORS, Helmet, Morgan later if needed as per README
+
+// Chatbot API Endpoint
+app.post('/api/chat', async (req, res) => {
+    const userMessage = req.body.message;
+
+    if (!userMessage) {
+        return res.status(400).json({ error: 'Message is required in the request body.' });
+    }
+
+    try {
+        // Use the chatbotProcessor instance to process the message
+        // Ensure chatbot and chatbot.chatbotProcessor are initialized before use
+        if (!chatbot.chatbotProcessor) {
+             return res.status(503).json({ error: 'Chatbot is not initialized yet.' });
+        }
+        const chatbotResponse = await chatbot.chatbotProcessor.processMessage(userMessage);
+        res.json(chatbotResponse);
+    } catch (error) {
+        console.error('Error processing message:', error);
+        res.status(500).json({ error: 'An error occurred while processing your message.' });
+    }
+});
+
+// Start the server and initialize the chatbot
+const PORT = process.env.PORT || 3000;
+
+async function startServer() {
     try {
         await chatbot.initialize();
-        console.log('RHCP Chatbot is ready to chat!');
+        app.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`);
+            console.log('RHCP Chatbot is ready to chat!');
+        });
     } catch (error) {
-        console.error('Failed to start chatbot:', error);
+        console.error('Failed to start server or initialize chatbot:', error);
         process.exit(1);
     }
 }
 
-start();
+startServer();
 
-// Export for testing and external use
-module.exports = chatbot;
+// Export the app for testing purposes (optional)
+module.exports = app;
