@@ -2,7 +2,24 @@
 
 ## Natural Language Understanding
 
-The chatbot uses a corpus-based approach to understand user intents and provide relevant responses. The system is trained on various RHCP-related topics including:
+The chatbot currently uses a corpus-based approach with a simple classifier (Logistic Regression) to understand user intents and perform basic entity recognition. The system is trained on various RHCP-related topics including:
+
+- Band Information
+- Music Catalog
+- Interactive Features
+
+**Current Capabilities:**
+
+- Intent classification based on trained utterances.
+- Basic entity extraction via dictionary lookup for known members, albums, and songs.
+- Simple response generation using corpus answers and basic static data retrieval.
+- Confidence thresholding to handle low-confidence classifications.
+
+**Planned Enhancements:**
+
+- Refined entity extraction using more advanced techniques.
+- More dynamic and context-aware response generation.
+- Potential exploration of different NLU models or libraries for improved accuracy and out-of-scope handling.
 
 ### Band Information
 - Current band members
@@ -73,14 +90,14 @@ Tracks all conversations:
    - Entity recognition is performed
 
 2. **Intent Matching**
-   - System matches against known intents
-   - Confidence score is calculated
-   - Context is considered
+   - System matches against known intents using a classifier.
+   - Confidence score is calculated and checked against a threshold.
+   - Context is considered (Planned for future phases).
 
 3. **Response Generation**
-   - Appropriate response is selected
-   - Dynamic content is inserted
-   - Response is formatted
+   - Appropriate response is selected based on confident intent and extracted entities.
+   - Dynamic content is inserted from static data or corpus answers.
+   - Response is formatted.
 
 4. **Context Management**
    - Conversation state is updated

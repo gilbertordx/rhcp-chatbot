@@ -20,10 +20,9 @@ module.exports = (chatbotProcessor, chatController) => {
             // Temporarily add classifications for debugging
             if (chatbotProcessor && chatbotProcessor.classifier) {
                  const classifications = chatbotProcessor.classifier.getClassifications(userMessage.toLowerCase());
-                 res.json({...chatbotResponse, classifications: classifications});
-            } else {
-                res.json(chatbotResponse);
+                 return res.json({...chatbotResponse, classifications: classifications});
             }
+            return res.json(chatbotResponse);
             
         } catch (error) {
             console.error('Error processing message in chat route:', error);

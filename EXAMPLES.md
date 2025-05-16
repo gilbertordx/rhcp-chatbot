@@ -1,48 +1,60 @@
 # RHCP Chatbot Examples
 
+This document provides examples of how to interact with the RHCP Chatbot.
+
 ## Basic Usage
 
 ### Starting a Conversation
 ```bash
-# Using curl
-curl -X POST http://localhost:8080/api/chat \
+# Using curl (assuming the server is running on port 3000)
+curl -X POST http://localhost:3000/api/chat \
   -H "Content-Type: application/json" \
   -d '{"message": "Hello, tell me about RHCP"}'
 
-# Expected Response
+# Expected Response (structure may vary slightly based on implementation details)
 {
-  "response": "Hello! I'm your RHCP expert. I can tell you about the band members, their music, albums, and more. What would you like to know?",
-  "intent": "greeting"
+  "message": "Hey there!",
+  "intent": "greetings.hello",
+  "entities": [],
+  "confidence": 0.9 // Example confidence score
 }
 ```
 
 ### Asking About Band Members
 ```bash
-curl -X POST http://localhost:8080/api/chat \
+# Using curl (assuming the server is running on port 3000)
+curl -X POST http://localhost:3000/api/chat \
   -H "Content-Type: application/json" \
   -d '{"message": "Who are the current members of RHCP?"}'
 
-# Expected Response
+# Expected Response (based on current implementation using static data for this intent)
 {
-  "response": "The current members of Red Hot Chili Peppers are Anthony Kiedis (vocals), Flea (bass), John Frusciante (guitar), and Chad Smith (drums).",
-  "intent": "band.members"
+  "message": "Current members: Anthony Kiedis, Flea, John Frusciante, and Chad Smith. Former notable members: Hillel Slovak, Jack Irons, Dave Navarro, Josh Klinghoffer.",
+  "intent": "band.members",
+  "entities": [],
+  "confidence": 0.75 // Example confidence score
 }
 ```
 
 ### Asking About Albums
 ```bash
-curl -X POST http://localhost:8080/api/chat \
+# Using curl (assuming the server is running on port 3000)
+curl -X POST http://localhost:3000/api/chat \
   -H "Content-Type: application/json" \
   -d '{"message": "What albums do they have?"}'
 
-# Expected Response
+# Expected Response (based on current implementation using corpus data)
 {
-  "response": "Some of their most famous albums include 'Blood Sugar Sex Magik' (1991), 'Californication' (1999), 'By the Way' (2002), 'Stadium Arcadium' (2006), and 'Unlimited Love' (2022).",
-  "intent": "album.info"
+  "message": "Some of their most famous albums include 'Blood Sugar Sex Magik' (1991), 'Californication' (1999), 'By the Way' (2002), 'Stadium Arcadium' (2006), and 'Unlimited Love' (2022).",
+  "intent": "album.info",
+  "entities": [],
+  "confidence": 0.85 // Example confidence score
 }
 ```
 
-## Multi-turn Conversations
+## Multi-turn Conversations (Planned for future phases)
+
+These examples illustrate the desired flow for multi-turn interactions, which will be implemented in later development phases.
 
 ### Example 1: Album Details
 ```
@@ -74,11 +86,13 @@ User: What happened after that?
 Bot: After Hillel's death, the band went through a difficult period. They initially disbanded but later reformed with John Frusciante as their new guitarist. This led to their breakthrough album 'Blood Sugar Sex Magik' in 1991.
 ```
 
-## Using the API
+## Using the API (Planned for future phases beyond basic chat)
+
+These endpoints are planned for implementation in later development phases to support features like chat history and knowledge base management.
 
 ### Getting Chat History
 ```bash
-curl -X GET http://localhost:8080/api/chat/history \
+curl -X GET http://localhost:3000/api/chat/history \
   -H "Content-Type: application/json"
 
 # Expected Response
@@ -96,13 +110,13 @@ curl -X GET http://localhost:8080/api/chat/history \
 
 ### Searching Knowledge Base
 ```bash
-curl -X GET "http://localhost:8080/api/knowledge?query=californication" \
+curl -X GET "http://localhost:3000/api/knowledge?query=californication" \
   -H "Content-Type: application/json"
 
 # Expected Response
 {
   "results": [
-    {
+    { Hartley:
       "type": "album",
       "title": "Californication",
       "content": {
@@ -115,11 +129,13 @@ curl -X GET "http://localhost:8080/api/knowledge?query=californication" \
 }
 ```
 
-## Error Handling Examples
+## Error Handling Examples (Planned for future phases)
+
+These examples illustrate planned error handling responses.
 
 ### Invalid Input
 ```bash
-curl -X POST http://localhost:8080/api/chat \
+curl -X POST http://localhost:3000/api/chat \
   -H "Content-Type: application/json" \
   -d '{"message": ""}'
 
