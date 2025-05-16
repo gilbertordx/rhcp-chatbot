@@ -39,7 +39,7 @@ class ChatbotProcessor {
         if (classifications && classifications.length > 0) {
             const topClassification = classifications[0];
             // Set a confidence threshold (e.g., 0.6)
-            const confidenceThreshold = 0.8; // Increased threshold
+            const confidenceThreshold = 0.6; // Lowering threshold back
 
             if (topClassification.value > confidenceThreshold) {
                 intent = topClassification.label;
