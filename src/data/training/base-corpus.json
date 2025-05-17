@@ -5,16 +5,18 @@
     {
       "intent": "agent.acquaintance",
       "utterances": [
-        "say about you",
-        "why are you here",
-        "what is your personality",
-        "describe yourself",
-        "tell me about yourself",
-        "tell me about you",
-        "what are you",
-        "who are you",
-        "I want to know more about you",
-        "talk about yourself"
+        "say about you, chatbot",
+        "why are you here as a chatbot",
+        "what is your personality as a virtual agent",
+        "describe your purpose, bot",
+        "tell me about yourself as the RHCP chatbot",
+        "tell me about you, the chatbot for RHCP fans",
+        "what are you designed to do, AI?",
+        "who are you in terms of functionality, virtual assistant?",
+        "I want to know more about your capabilities, bot",
+        "talk about your function as a chatbot assistant",
+        "what can you do for me regarding RHCP",
+        "what are your main features as a chatbot"
       ],
       "answers": [
         "I'm a virtual agent! :)",
@@ -196,12 +198,18 @@
     {
       "intent": "agent.chatbot",
       "utterances": [
-        "are you a bot",
-        "are you a chatbot",
-        "you are a robot",
-        "are you a program",
-        "you are just a robot",
-        "you are just a chatbot"
+        "are you a bot program?",
+        "are you a chatbot for real?",
+        "you are a robot, aren't you?",
+        "are you some kind of program?",
+        "you are just a robot, right?",
+        "you are a chatbot, correct?",
+        "confirm your nature as a bot",
+        "are you an automated conversational agent?",
+        "is this a chatbot I'm talking to?",
+        "identify yourself as a bot",
+        "is this an AI?",
+        "am I speaking to a bot?"
       ],
       "answers": [
         "Indeed I am. I'll be here whenever you need me"
@@ -548,11 +556,14 @@
     {
       "intent": "appraisal.thankyou",
       "utterances": [
-        "thank you",
-        "nice thank you",
-        "thanks buddy",
-        "cheers",
-        "alright thanks"
+        "thank you very much",
+        "nice one thank you",
+        "thanks a lot buddy",
+        "cheers for that",
+        "alright thanks heaps",
+        "appreciate it",
+        "thanks for your help",
+        "much obliged"
       ],
       "answers": [
         "Anytime. That's what I'm here for",
@@ -662,22 +673,47 @@
       "utterances": [
         "hello",
         "hi",
-        "howdy"
+        "howdy",
+        "hey",
+        "hey there",
+        "hi there",
+        "good morning",
+        "good afternoon",
+        "good evening",
+        "yo",
+        "what's up",
+        "sup",
+        "greetings",
+        "hello chatbot",
+        "hey bot",
+        "hi RHCP chat",
+        "is anyone there?",
+        "start chat",
+        "Hiya",
+        "Heya",
+        "Greetings chatbot",
+        "Hello there",
+        "Aloha",
+        "Good day"
       ],
       "answers": [
         "Hey there!",
-        "Greetings!"
+        "Greetings!",
+        "Hello! How can I help you today?",
+        "Hi! What can I do for you?"
       ]
     },
     {
       "intent": "greetings.howareyou",
       "utterances": [
-        "how is your day",
-        "how is your day going",
-        "how are you",
-        "how are you doing",
-        "what about your day",
-        "are you alright"
+        "how is your day going so far",
+        "how is your day really",
+        "how are you feeling today",
+        "how are you doing this fine day",
+        "what about your day then",
+        "are you alright there",
+        "how have you been",
+        "everything okay with you?"
       ],
       "answers": [
         "Feeling wonderful!",
@@ -827,11 +863,14 @@
     {
       "intent": "user.testing",
       "utterances": [
-        "test",
-        "testing",
-        "testing chatbot",
-        "this is a test",
-        "just testing you"
+        "performing a test",
+        "I am testing",
+        "testing the chatbot functionality",
+        "this is just a test message",
+        "just wanted to test you",
+        "can I run a test?",
+        "unit test for bot",
+        "let's test this thing"
       ],
       "answers": [
         "I like being tested. It helps keep me sharp",
@@ -858,23 +897,44 @@
         "I need advice",
         "I need some advice",
         "can you give me some advice?",
-        "what should I do?"
+        "what should I do?",
+        "can you advise me?",
+        "I could use some advice"
       ],
       "answers": [
-        "I probably won't be able to give you the correct answer right away",
-        "I'm not sure I'll have the best answer, but I'll try"
+        "I probably won't be able to give you the correct answer right away, but I can try to help with RHCP questions!",
+        "I'm not sure I'll have the best advice for general topics, but I'll try my best for band-related queries."
       ]
     },
     {
-      "intent": "None",
+      "intent": "intent.outofscope",
       "utterances": [
-        "I need advice",
-        "I need some advice",
-        "can you give me some advice?",
-        "what should I do?"
+        "what's the weather like today",
+        "tell me a joke about a dog",
+        "who won the last football game",
+        "explain quantum physics to me",
+        "can you book a flight for me",
+        "what's your favorite color",
+        "how to bake a cake",
+        "tell me about global politics",
+        "what is the capital of France",
+        "do you like movies",
+        "Tell me about quantum physics",
+        "Tell me about the meaning of life",
+        "Tell me about recent news",
+        "Can you tell me about cooking pasta?",
+        "What do you know about Shakespeare?",
+        "Give me information on World War 2",
+        "How does a car engine work?",
+        "What are black holes?",
+        "Can you help me with my math homework?",
+        "Sing a song for me"
       ],
       "answers": [
-        "Sorry, I don't understand"
+        "Sorry, I can only help with questions about the Red Hot Chili Peppers.",
+        "That's a bit outside of what I know. I'm focused on the Red Hot Chili Peppers.",
+        "I'm not equipped to answer that. My expertise is the Red Hot Chili Peppers.",
+        "My knowledge is limited to the Red Hot Chili Peppers. Is there anything about them I can help with?"
       ]
     }
   ]

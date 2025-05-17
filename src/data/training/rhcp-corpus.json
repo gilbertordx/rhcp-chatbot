@@ -15,7 +15,15 @@
         "tell me who is in RHCP",
         "current lineup",
         "band members list",
-        "who makes up the band"
+        "who makes up the band",
+        "can you tell me all the RHCP members?",
+        "name everyone in Red Hot Chili Peppers",
+        "who all is part of RHCP?",
+        "list of current RHCP band members",
+        "what's the current band roster",
+        "tell me the names of the RHCP musicians",
+        "who constitutes the band Red Hot Chili Peppers",
+        "give me the list of Red Hot Chili Peppers members"
       ],
       "answers": [
         "The current members of Red Hot Chili Peppers are Anthony Kiedis (vocals), Flea (bass), John Frusciante (guitar), and Chad Smith (drums).",
@@ -29,9 +37,14 @@
         "when was RHCP formed",
         "how did the band start",
         "what's the history of RHCP",
-        "when did they start",
-        "how long has the band been around",
-        "when did RHCP begin"
+        "when did they start making music",
+        "how long has the band been around for",
+        "when did RHCP officially begin",
+        "tell me about the band's origins and formation",
+        "RHCP origin story details",
+        "how was Red Hot Chili Peppers formed and when?",
+        "the beginning of RHCP",
+        "early days of the band"
       ],
       "answers": [
         "Red Hot Chili Peppers was formed in 1983 in Los Angeles, California. The original members were Anthony Kiedis, Flea, Hillel Slovak, and Jack Irons.",
@@ -42,12 +55,17 @@
     {
       "intent": "album.info",
       "utterances": [
-        "what albums do they have",
-        "list their albums",
-        "what are their albums",
-        "tell me about their albums",
-        "what records have they made",
-        "what are their records"
+        "what albums do they have in their discography",
+        "list their studio albums",
+        "what are their main albums",
+        "tell me about their album releases",
+        "what records have they made over the years",
+        "what are their notable records",
+        "can you list some RHCP official albums?",
+        "name RHCP full discography",
+        "Red Hot Chili Peppers studio albums list",
+        "which albums has RHCP released",
+        "give me a rundown of their albums"
       ],
       "answers": [
         "Some of their most famous albums include 'Blood Sugar Sex Magik' (1991), 'Californication' (1999), 'By the Way' (2002), 'Stadium Arcadium' (2006), and 'Unlimited Love' (2022).",
@@ -58,12 +76,17 @@
     {
       "intent": "song.info",
       "utterances": [
-        "what are their most popular songs",
-        "what are their hits",
-        "name some of their songs",
-        "what songs should I listen to",
-        "what are their best songs",
-        "recommend some songs"
+        "what are their most popular songs ever",
+        "what are their greatest hits",
+        "name some of their well-known songs",
+        "what songs should I listen to by RHCP",
+        "what are considered their best songs by fans",
+        "recommend some iconic songs by RHCP",
+        "suggest some RHCP essential tracks",
+        "popular Red Hot Chili Peppers song titles",
+        "RHCP hit singles list",
+        "any famous songs by them?",
+        "top tracks from Red Hot Chili Peppers"
       ],
       "answers": [
         "Some of their biggest hits include 'Under the Bridge', 'Californication', 'Scar Tissue', 'Otherside', 'By the Way', 'Dani California', and 'Snow (Hey Oh)'.",
@@ -95,7 +118,10 @@
         "what genre are they",
         "what type of music is RHCP",
         "how would you describe their sound",
-        "what's their musical style"
+        "what's their musical style",
+        "describe RHCP music genre",
+        "what is the sound of Red Hot Chili Peppers?",
+        "their genre of music"
       ],
       "answers": [
         "Red Hot Chili Peppers are known for their unique blend of funk, rock, and punk. They've also incorporated elements of psychedelic rock, rap, and alternative rock throughout their career.",
@@ -123,22 +149,36 @@
     {
       "intent": "member.biography",
       "utterances": [
-        "[member]'s biography",
-        "background of [member]",
-        "what's [member]'s background",
-        "what does [member] do in the band",
-        "what instruments does [member] play",
-        "what's [member]'s story",
-        "how did [member] join the band",
-        "biography of Flea",
-        "Anthony Kiedis background",
-        "Chad Smith's role",
-        "John Frusciante biography",
-        "Hillel Slovak story",
-        "Jack Irons background",
-        "Josh Klinghoffer info",
-        "[member] biography",
-        "info on [member]"
+        "tell me about [member]'s biography",
+        "what is the background of [member]",
+        "what's [member]'s personal history",
+        "what instruments is [member] known for playing",
+        "can you share [member]'s story",
+        "biography details for Flea",
+        "Anthony Kiedis's background story",
+        "What is Chad Smith's role in RHCP?",
+        "Tell me about John Frusciante's biography",
+        "Hillel Slovak's history with the band",
+        "Jack Irons' background information",
+        "Details on Josh Klinghoffer's involvement",
+        "biography for [member]",
+        "info on [member]'s life",
+        "tell me about Flea as a musician",
+        "what can you share about Anthony Kiedis as a person?",
+        "describe Chad Smith's contribution to RHCP",
+        "details about John Frusciante's musical career",
+        "information regarding Hillel Slovak",
+        "tell me about Josh Klinghoffer's period with RHCP",
+        "Give me some information about [member]",
+        "Learn about [member] from RHCP",
+        "Tell me about Flea",
+        "What's Anthony Kiedis's story?",
+        "Details about Chad Smith",
+        "John Frusciante's musical journey",
+        "Tell me about Hillel Slovak",
+        "Who is Josh Klinghoffer",
+        "What can you tell me about Dave Navarro's time with RHCP?",
+        "Tell me about Jack Irons and RHCP"
       ],
       "answers": [
         "I can tell you all about that band member! Just let me know which one you're interested in, and I'll share their background, role in the band, and interesting facts.",
@@ -171,7 +211,10 @@
         "what recognition have they received",
         "what are their achievements",
         "what honors have they received",
-        "what are their major awards"
+        "what are their major awards",
+        "RHCP awards and accolades",
+        "list of Red Hot Chili Peppers awards",
+        "any notable awards for RHCP?"
       ],
       "answers": [
         "Red Hot Chili Peppers have won multiple Grammy Awards, including Best Rock Album for 'Stadium Arcadium' and Best Rock Performance by a Duo or Group for 'Dani California'. They've also been inducted into the Rock and Roll Hall of Fame in 2012.",
@@ -188,7 +231,10 @@
         "what are their tour dates",
         "are they coming to [location]",
         "when did they last tour",
-        "what was their last tour"
+        "what was their last tour",
+        "RHCP tour schedule",
+        "Red Hot Chili Peppers concert dates",
+        "current RHCP tour information"
       ],
       "answers": [
         "I can help you find information about their current and upcoming tours. They regularly tour worldwide, and their latest tour is in support of their album 'Unlimited Love'.",
@@ -204,7 +250,10 @@
         "who are their musical influences",
         "what inspired their music",
         "who did they look up to",
-        "what bands inspired them"
+        "what bands inspired them",
+        "RHCP musical inspirations",
+        "artists that influenced Red Hot Chili Peppers",
+        "their main influences in music"
       ],
       "answers": [
         "Red Hot Chili Peppers have been influenced by a wide range of artists including Parliament-Funkadelic, Jimi Hendrix, The Beatles, and punk bands like The Ramones. They've also cited jazz and hip-hop as major influences.",
@@ -220,7 +269,10 @@
         "who have they performed with",
         "what artists have they collaborated with",
         "who have they recorded with",
-        "what famous collaborations do they have"
+        "what famous collaborations do they have",
+        "RHCP collaborations with other artists",
+        "any guest artists on RHCP albums?",
+        "Red Hot Chili Peppers joint projects"
       ],
       "answers": [
         "Red Hot Chili Peppers have collaborated with many artists including George Clinton, Dave Navarro, and Josh Klinghoffer. They've also worked with producers like Rick Rubin and worked with various artists on their albums.",
