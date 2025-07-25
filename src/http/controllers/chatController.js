@@ -1,8 +1,4 @@
 /**
- * Controller for handling chat message processing.
- */
-
-/**
  * Processes a user chat message using the provided ChatbotProcessor.
  * @param {object} chatbotProcessor - The initialized ChatbotProcessor instance.
  * @param {string} userMessage - The message from the user.

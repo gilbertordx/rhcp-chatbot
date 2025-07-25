@@ -9,15 +9,12 @@ const express = require('express');
 module.exports = (chatbotProcessor, chatController) => {
     const router = express.Router();
 
-    // Chatbot API Endpoint
     router.post('/', async (req, res) => {
         const userMessage = req.body.message;
 
         try {
-            // Use the controller to process the message
             const chatbotResponse = await chatController(chatbotProcessor, userMessage);
             
-            // Temporarily add classifications for debugging
             if (chatbotProcessor && chatbotProcessor.classifier) {
                  const classifications = chatbotProcessor.classifier.getClassifications(userMessage.toLowerCase());
                  return res.json({...chatbotResponse, classifications: classifications});
@@ -26,7 +23,6 @@ module.exports = (chatbotProcessor, chatController) => {
             
         } catch (error) {
             console.error('Error processing message in chat route:', error);
-            // More specific error handling can be added here based on error types
             if (error.message === 'User message is required.') {
                  return res.status(400).json({ error: error.message });
             }

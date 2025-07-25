@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+nltk
+scikit-learn
+SQLAlchemy
+psycopg2-binary
+bcrypt
+PyJWT
+python-dotenv
+pytest
+requests 

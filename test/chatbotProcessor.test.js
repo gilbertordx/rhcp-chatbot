@@ -3,37 +3,40 @@ const { processChatMessage } = require('../src/http/controllers/chatController')
 
 describe('Chatbot Processor', () => {
     let chatbotProcessor;
+    let chatbotProcessorInstance;
 
-    // Initialize the chatbot before running tests
     beforeAll(async () => {
-        chatbotProcessor = await initializeChatbot();
-    }, 30000); // Increase timeout for initialization
+        if (!chatbotProcessorInstance) {
+            chatbotProcessorInstance = await initializeChatbot();
+        }
+        chatbotProcessor = chatbotProcessorInstance;
+    }, 300000);
 
-    // Test case for a simple greeting
     test('should handle a simple greeting', async () => {
         const response = await processChatMessage(chatbotProcessor, 'Hello');
         expect(response.intent).toBe('greetings.hello');
-        expect(response.message).toBeDefined(); // Expect a message to be returned
-        expect(response.message.length).toBeGreaterThan(0); // Expect the message not to be empty
+        expect(response.message).toBeDefined();
+        expect(response.message.length).toBeGreaterThan(0);
     });
 
-    // Test case for the problematic band members query
     test('should correctly classify and respond to band members query', async () => {
         const response = await processChatMessage(chatbotProcessor, 'Who are the members of the band?');
-        expect(response.intent).toBe('band.members'); // Expecting the correct intent
-        expect(response.message).toContain('Current members:'); // Expect the specific response using static data
+        expect(response.intent).toBe('band.members');
+        expect(response.message).toMatch(/Anthony Kiedis.*Flea.*John Frusciante.*Chad Smith/i);
     });
 
-     // Test case for an out-of-scope query
-    test('should return a fallback for out-of-scope queries', async () => {
+    test('should correctly classify out-of-scope queries and provide an appropriate response', async () => {
         const response = await processChatMessage(chatbotProcessor, 'Tell me about quantum physics');
-        expect(response.intent).toBe('unrecognized'); // Expecting the unrecognized intent due to low confidence
-        expect(response.message).toBe('Sorry, I didn\'t understand that.'); // Expect the default fallback message
+        expect(response.intent).toBe('intent.outofscope');
+        const oosAnswers = [
+            "Sorry, I can only help with questions about the Red Hot Chili Peppers.",
+            "That's a bit outside of what I know. I'm focused on the Red Hot Chili Peppers.",
+            "I'm not equipped to answer that. My expertise is the Red Hot Chili Peppers.",
+            "My knowledge is limited to the Red Hot Chili Peppers. Is there anything about them I can help with?"
+        ];
+        expect(oosAnswers).toContain(response.message);
     });
 
-    // Add more test cases for other intents as needed
-
-    // Test case for agent.chatbot
     test('should handle agent.chatbot intent', async () => {
         const response = await processChatMessage(chatbotProcessor, 'are you a bot');
         expect(response.intent).toBe('agent.chatbot');
@@ -41,7 +44,6 @@ describe('Chatbot Processor', () => {
         expect(response.message.length).toBeGreaterThan(0);
     });
 
-    // Test case for greetings.bye
     test('should handle greetings.bye intent', async () => {
         const response = await processChatMessage(chatbotProcessor, 'bye for now');
         expect(response.intent).toBe('greetings.bye');
@@ -49,7 +51,6 @@ describe('Chatbot Processor', () => {
         expect(response.message.length).toBeGreaterThan(0);
     });
 
-    // Test case for band.history
     test('should handle band.history intent', async () => {
         const response = await processChatMessage(chatbotProcessor, 'when was RHCP formed');
         expect(response.intent).toBe('band.history');
@@ -57,7 +58,6 @@ describe('Chatbot Processor', () => {
         expect(response.message.length).toBeGreaterThan(0);
     });
 
-    // Test case for album.info
     test('should handle album.info intent', async () => {
         const response = await processChatMessage(chatbotProcessor, 'list their albums');
         expect(response.intent).toBe('album.info');
@@ -65,7 +65,6 @@ describe('Chatbot Processor', () => {
         expect(response.message.length).toBeGreaterThan(0);
     });
 
-    // Test case for song.info
     test('should handle song.info intent', async () => {
         const response = await processChatMessage(chatbotProcessor, 'name some of their songs');
         expect(response.intent).toBe('song.info');

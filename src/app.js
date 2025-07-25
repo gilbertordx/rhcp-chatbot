@@ -1,11 +1,3 @@
-/**
- * Main Application File
- * 
- * This is the entry point of the RHCP Chatbot application.
- * It initializes the chatbot with training data and provides
- * the core message handling functionality.
- */
-
 const fs = require('fs').promises;
 const path = require('path');
 const natural = require('natural');
@@ -26,7 +18,6 @@ class RHCPChatbot {
 
     async initialize() {
         try {
-            // Load training data
             const baseCorpus = JSON.parse(
                 await fs.readFile(path.join(__dirname, 'data/training/base-corpus.json'), 'utf8')
             );
@@ -34,7 +25,6 @@ class RHCPChatbot {
                 await fs.readFile(path.join(__dirname, 'data/training/rhcp-corpus.json'), 'utf8')
             );
 
-            // Load static data
             const bandInfo = JSON.parse(
                 await fs.readFile(path.join(__dirname, 'data/static/band-info.json'), 'utf8')
             );
@@ -52,11 +42,10 @@ class RHCPChatbot {
                 discography
             };
 
-            // Train the classifier
             console.log('Training NLU classifier...');
             for (const corpus of [baseCorpus, rhcpCorpus]) {
                 for (const item of corpus.data) {
-                    if (item.intent !== 'None') { // Exclude the 'None' intent for training
+                    if (item.intent !== 'None') {
                         for (const utterance of item.utterances) {
                             this.classifier.addDocument(utterance, item.intent);
                         }
@@ -66,7 +55,6 @@ class RHCPChatbot {
             await this.classifier.train();
             console.log('NLU classifier trained.');
 
-            // Initialize ChatbotProcessor after data is loaded and classifier is trained
             this.chatbotProcessor = new ChatbotProcessor(this.classifier, this.trainingData, this.staticData);
 
             console.log('Chatbot initialized successfully');
@@ -77,29 +65,17 @@ class RHCPChatbot {
     }
 }
 
-// Create and initialize chatbot (Initialization moved to startServer)
-// const chatbot = new RHCPChatbot(); // Removed
-
-// Initialize Express app
 const app = express();
 
-// Middleware
 app.use(bodyParser.json());
-// Add other middleware like CORS, Helmet, Morgan later if needed as per README
 
-// Mount chat routes
-// const chatbotProcessor = await initializeChatbot(); // Initialize in startServer
-// app.post('/api/chat', async (req, res) => { ... }); // Removed
 
-// Start the server and initialize the chatbot
 const PORT = process.env.PORT || 3000;
 
 async function startServer() {
     try {
-        // Initialize the chatbot components
         const chatbotProcessor = await initializeChatbot();
         
-        // Mount the chat router, passing the initialized processor and controller
         app.use('/api/chat', createChatRouter(chatbotProcessor, processChatMessage));
 
         app.listen(PORT, () => {
@@ -114,5 +90,4 @@ async function startServer() {
 
 startServer();
 
-// Export the app for testing purposes (optional)
 module.exports = app;

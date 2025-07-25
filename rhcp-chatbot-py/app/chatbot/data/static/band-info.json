@@ -1,0 +1,90 @@
+{
+  "name": "Red Hot Chili Peppers",
+  "formed": 1983,
+  "location": "Los Angeles, California",
+  "currentMembers": [
+    {
+      "name": "Anthony Kiedis",
+      "role": "Lead Vocals",
+      "memberSince": 1983,
+      "birthDate": "1962-11-01",
+      "biography": "Anthony Kiedis is the lead vocalist and primary lyricist of RHCP. He has been with the band since its inception in 1983."
+    },
+    {
+      "name": "Michael 'Flea' Balzary",
+      "role": "Bass Guitar",
+      "memberSince": 1983,
+      "birthDate": "1962-10-16",
+      "biography": "Flea is the bassist and co-founding member of RHCP, known for his energetic performances and distinctive playing style."
+    },
+    {
+      "name": "John Frusciante",
+      "role": "Guitar",
+      "memberSince": 1988,
+      "periods": ["1988-1992", "1998-2009", "2019-present"],
+      "birthDate": "1970-03-05",
+      "biography": "John Frusciante is known for his unique guitar style and has had multiple stints with the band."
+    },
+    {
+      "name": "Chad Smith",
+      "role": "Drums",
+      "memberSince": 1988,
+      "birthDate": "1961-10-25",
+      "biography": "Chad Smith joined RHCP in 1988 and is known for his powerful drumming style and technical proficiency."
+    }
+  ],
+  "formerMembers": [
+    {
+      "name": "Hillel Slovak",
+      "role": "Guitar",
+      "periods": ["1983", "1985-1988"],
+      "birthDate": "1962-04-13",
+      "deathDate": "1988-06-25",
+      "biography": "Original guitarist who tragically passed away in 1988."
+    },
+    {
+      "name": "Jack Irons",
+      "role": "Drums",
+      "periods": ["1983", "1986-1988"],
+      "birthDate": "1962-07-18",
+      "biography": "Original drummer who left the band after Slovak's death."
+    },
+    {
+      "name": "Josh Klinghoffer",
+      "role": "Guitar",
+      "periods": ["2009-2019"],
+      "birthDate": "1979-10-03",
+      "biography": "Replaced John Frusciante in 2009 and played with the band until Frusciante's return in 2019."
+    }
+  ],
+  "genres": [
+    "Funk Rock",
+    "Alternative Rock",
+    "Funk Metal",
+    "Rap Rock",
+    "Punk Rock"
+  ],
+  "labels": [
+    "EMI",
+    "Warner Records"
+  ],
+  "awards": [
+    {
+      "name": "Grammy Award",
+      "category": "Best Rock Album",
+      "work": "Stadium Arcadium",
+      "year": 2007
+    },
+    {
+      "name": "Grammy Award",
+      "category": "Best Rock Performance by a Duo or Group with Vocal",
+      "work": "Dani California",
+      "year": 2007
+    },
+    {
+      "name": "Rock and Roll Hall of Fame",
+      "category": "Inductee",
+      "year": 2012
+    }
+  ]
+} 
