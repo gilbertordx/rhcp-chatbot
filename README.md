@@ -115,32 +115,62 @@ npm run format
 
 ```
 rhcp-chatbot/
-├── src/
+├── src/                           # Node.js implementation
 │   ├── http/
 │   │   ├── controllers/
-│   │   ├── middleware/
 │   │   └── routes/
-│   ├── models/ (Phase 3)
-│   ├── scripts/ (Phase 3)
 │   ├── data/ 
-│   │   ├── static/
-│   │   └── training/
+│   │   ├── static/               # Band info, discography
+│   │   └── training/             # Training corpus
 │   ├── initializer.js
 │   ├── chatbotProcessor.js
 │   └── app.js
+├── rhcp-chatbot-py/              # Python implementation
+│   ├── app/
+│   │   ├── api/
+│   │   ├── chatbot/
+│   │   └── core/
+│   └── requirements.txt
+├── docs/                         # Comprehensive documentation
+│   ├── README.md                 # Documentation index
+│   ├── API_DOCUMENTATION.md      # API reference
+│   ├── COMPONENT_DOCUMENTATION.md # Component reference
+│   ├── USAGE_GUIDE.md           # User guide
+│   └── DEVELOPMENT_GUIDE.md     # Developer guide
+├── test/                         # Test files
 ├── .env
 ├── .gitignore
 ├── package.json
 └── README.md
 ```
 
+## Documentation
+
+📚 **Comprehensive documentation is available in the [`docs/`](./docs/) directory:**
+
+- **[Documentation Index](./docs/README.md)** - Start here for an overview of all documentation
+- **[API Documentation](./docs/API_DOCUMENTATION.md)** - Complete API reference with examples
+- **[Component Documentation](./docs/COMPONENT_DOCUMENTATION.md)** - Detailed component and function reference
+- **[Usage Guide](./docs/USAGE_GUIDE.md)** - Installation, configuration, and usage examples
+- **[Development Guide](./docs/DEVELOPMENT_GUIDE.md)** - Architecture, development setup, and contribution guidelines
+
 ## Contributing
 
+We welcome contributions! Please see our [Development Guide](./docs/DEVELOPMENT_GUIDE.md) for detailed information on:
+
+- Development setup and workflow
+- Coding standards and best practices
+- Testing procedures
+- Pull request guidelines
+
+Quick start for contributors:
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/your-feature-name`)
-3. Commit your changes (`git commit -m 'feat: Add some feature'`)
-4. Push to the branch (`git push origin feature/your-feature-name`)
-5. Open a Pull Request
+3. Follow the coding standards in the development guide
+4. Add tests for new functionality
+5. Commit your changes (`git commit -m 'feat: Add some feature'`)
+6. Push to the branch (`git push origin feature/your-feature-name`)
+7. Open a Pull Request
 
 ## License
 
