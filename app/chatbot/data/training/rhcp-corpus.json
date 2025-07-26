@@ -3,30 +3,6 @@
   "locale": "en-US",
   "data": [
     {
-      "intent": "greetings.hello",
-      "utterances": [
-        "Hello",
-        "Hi",
-        "Hey",
-        "Greetings",
-        "Good day",
-        "Howdy",
-        "Hi there",
-        "Hey there",
-        "What's up",
-        "How are you",
-        "Good morning",
-        "Good afternoon",
-        "Good evening"
-      ],
-      "answers": [
-        "Hello! How can I help you today?",
-        "Hi there! What can I do for you?",
-        "Hey! Ask me anything about the Red Hot Chili Peppers.",
-        "Greetings! Ready to talk RHCP?"
-      ]
-    },
-    {
       "intent": "band.members",
       "utterances": [
         "Give me the names of all current RHCP members.",
@@ -339,4 +315,4 @@
       ]
     }
   ]
-} 
+}

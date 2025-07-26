@@ -1,147 +1,149 @@
 # RHCP Chatbot
 
-A specialized chatbot for Red Hot Chili Peppers fans, providing information about the band's history, music, and members.
+A Python-based conversational AI chatbot that provides information about the Red Hot Chili Peppers band, including details about members, albums, songs, and band history.
 
 ## Features
 
-- Chat interface for interacting with the RHCP knowledge base
-- User authentication and authorization
-- Admin panel for managing knowledge base content
-- RESTful API for integration with other applications
-- PostgreSQL database for data persistence
+- **Intent Classification**: Uses machine learning (Logistic Regression) to understand user queries
+- **Entity Recognition**: Extracts band members, albums, and songs from user messages
+- **Dynamic Responses**: Generates contextual responses based on classified intents
+- **REST API**: FastAPI-based API for easy integration
+- **Pre-trained Model**: Includes a trained model ready for immediate use
 
-## Prerequisites
+## Quick Start
 
-- Node.js >= 14.0.0
-- PostgreSQL >= 12.0
-- npm or yarn package manager
+### Prerequisites
 
-## Installation
+- Python 3.8+
+- pip
 
-1. Clone the repository:
+### Installation
+
+1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/rhcp-chatbot.git
+   git clone <repository-url>
    cd rhcp-chatbot
    ```
 
-2. Install dependencies:
+2. **Create virtual environment (recommended):**
    ```bash
-   npm install
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
-3. Create a `.env` file in the root directory with the following variables:
-   ```
-   NODE_ENV=development
-   PORT=3000
-   DB_HOST=localhost
-   DB_PORT=5432
-   DB_NAME=rhcp_chatbot
-   DB_USER=your_username
-   DB_PASSWORD=your_password
-   JWT_SECRET=your_jwt_secret
-   ```
-
-4. Create the database:
+3. **Install dependencies:**
    ```bash
-   createdb rhcp_chatbot
+   pip install -r requirements.txt
    ```
 
-5. Run database migrations:
+4. **Setup NLTK data:**
    ```bash
-   npx sequelize-cli db:migrate
+   python app/scripts/setup_nltk.py
    ```
 
-6. Seed the database with initial data:
+5. **Run the application:**
    ```bash
-   npm run seed
+   uvicorn app.main:app --reload
    ```
 
-## Development
+The server will start at `http://127.0.0.1:8000`
 
-Start the development server with hot reloading:
-```bash
-npm run dev
+## API Usage
+
+### Chat Endpoint
+
+**POST** `/api/chat`
+
+**Request:**
+```json
+{
+    "message": "tell me about john frusciante"
+}
 ```
 
-## Production
-
-Start the production server:
-```bash
-npm start
+**Response:**
+```json
+{
+    "message": "John Frusciante is the guitarist of the Red Hot Chili Peppers...",
+    "intent": "member.biography",
+    "confidence": 0.85,
+    "entities": ["john frusciante"]
+}
 ```
 
-## API Endpoints
+### Example with curl
 
-### Authentication
-- `POST /api/users/register` - Register a new user
-- `POST /api/users/login` - Login user
-
-### User Management
-- `GET /api/users/profile` - Get user profile
-- `PUT /api/users/profile` - Update user profile
-- `PUT /api/users/password` - Update user password
-
-### Chat
-- `POST /api/chat` - Send a message to the chatbot
-- `GET /api/chat/history` - Get chat history
-
-### Knowledge Base
-- `GET /api/knowledge` - Search knowledge base
-- `GET /api/knowledge/:id` - Get knowledge entry by ID
-- `POST /api/knowledge` - Create knowledge entry (admin only)
-- `PUT /api/knowledge/:id` - Update knowledge entry (admin only)
-- `DELETE /api/knowledge/:id` - Delete knowledge entry (admin only)
-
-## Testing
-
-Run the test suite:
 ```bash
-npm test
-```
-
-## Linting and Formatting
-
-Run ESLint:
-```bash
-npm run lint
-```
-
-Format code with Prettier:
-```bash
-npm run format
+curl -X POST "http://127.0.0.1:8000/api/chat" \
+     -H "Content-Type: application/json" \
+     -d '{"message": "when was RHCP formed"}'
 ```
 
 ## Project Structure
 
 ```
 rhcp-chatbot/
-├── src/
-│   ├── http/
-│   │   ├── controllers/
-│   │   ├── middleware/
+├── app/
+│   ├── main.py                 # FastAPI application
+│   ├── chatbot/
+│   │   ├── initializer.py      # Model initialization
+│   │   ├── processor.py        # Core chatbot logic
+│   │   └── data/               # Training and static data
+│   ├── api/
 │   │   └── routes/
-│   ├── models/ (Phase 3)
-│   ├── scripts/ (Phase 3)
-│   ├── data/ 
-│   │   ├── static/
-│   │   └── training/
-│   ├── initializer.js
-│   ├── chatbotProcessor.js
-│   └── app.js
-├── .env
-├── .gitignore
-├── package.json
-└── README.md
+│   │       └── chat.py         # Chat API endpoint
+│   ├── core/
+│   │   └── config.py           # Configuration
+│   ├── models/                 # Trained ML models
+│   ├── scripts/
+│   │   └── setup_nltk.py       # NLTK setup
+│   └── services/               # Business logic
+├── tests/                      # Test files
+├── notebooks/                  # Development notebooks
+├── debug_model.py              # Model debugging utility
+├── model_training.ipynb        # Model training notebook
+├── requirements.txt            # Dependencies
+├── Dockerfile                  # Container config
+└── docs/                       # Documentation
 ```
 
-## Contributing
+## Development
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/your-feature-name`)
-3. Commit your changes (`git commit -m 'feat: Add some feature'`)
-4. Push to the branch (`git push origin feature/your-feature-name`)
-5. Open a Pull Request
+### Running Tests
+
+```bash
+pytest
+```
+
+### Model Training
+
+To retrain the model with updated data:
+
+1. Update training data in `app/chatbot/data/training/`
+2. Run the training notebook: `model_training.ipynb`
+3. The model will be saved to `app/models/`
+
+### Debugging
+
+Use the debug utility to test model performance:
+
+```bash
+python debug_model.py
+```
+
+## Docker
+
+### Build and Run
+
+```bash
+docker build -t rhcp-chatbot .
+docker run -p 8000:80 rhcp-chatbot
+```
+
+## Documentation
+
+For detailed documentation, see [docs/README.md](docs/README.md)
 
 ## License
 
-This project is licensed under the ISC License.
+This project is licensed under the MIT License. 

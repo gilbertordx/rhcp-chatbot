@@ -1,6 +1,6 @@
 import random
 
-CONFIDENCE_THRESHOLD = 0.5  # Adjusted for scikit-learn's probabilities
+CONFIDENCE_THRESHOLD = 0.05  # Further lowered threshold for scikit-learn's probabilities
 
 class ChatbotProcessor:
     def __init__(self, classifier, training_data, static_data):
