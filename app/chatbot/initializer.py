@@ -1,14 +1,14 @@
+import os
 import json
 import joblib
-import os
 import nltk
+from nltk.tokenize import word_tokenize
+from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
-from nltk.stem import PorterStemmer
-from nltk.tokenize import word_tokenize
-
-from .processor import ChatbotProcessor
+from app.chatbot.processor import ChatbotProcessor
+from app.chatbot.memory import ConversationMemory
 
 # --- File Paths ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -27,83 +27,129 @@ def stem_tokens(tokens):
     return [stemmer.stem(item) for item in tokens]
 
 def tokenize(text):
-    return stem_tokens(word_tokenize(text.lower()))
+    """Custom tokenization function with stemming."""
+    stemmer = PorterStemmer()
+    tokens = word_tokenize(text.lower())
+    return [stemmer.stem(token) for token in tokens]
 
 
 def load_json_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
-def train_classifier(training_files):
-    print("Training new NLU classifier (LogisticRegression with Tfidf)...")
+async def initialize_chatbot():
+    """Initialize the chatbot with NLU classifier and data."""
+    print("Initializing chatbot...")
     
+    # Download required NLTK data
+    try:
+        nltk.data.find('tokenizers/punkt')
+    except LookupError:
+        print("Downloading NLTK punkt tokenizer...")
+        nltk.download('punkt')
+    
+    try:
+        nltk.data.find('corpora/wordnet')
+    except LookupError:
+        print("Downloading NLTK wordnet...")
+        nltk.download('wordnet')
+    
+    try:
+        nltk.data.find('corpora/omw-1.4')
+    except LookupError:
+        print("Downloading NLTK omw-1.4...")
+        nltk.download('omw-1.4')
+
+    # Load training data
+    training_data = {}
+    training_files = [
+        (os.path.join(TRAINING_DATA_DIR, 'base-corpus.json'), 'base'),
+        (os.path.join(TRAINING_DATA_DIR, 'rhcp-corpus.json'), 'rhcp')
+    ]
+    
+    for file_path, corpus_key in training_files:
+        if os.path.exists(file_path):
+            with open(file_path, 'r', encoding='utf-8') as f:
+                training_data[corpus_key] = json.load(f)
+        else:
+            print(f"Warning: Training file {file_path} not found")
+    
+    # Load static data
+    static_data = {}
+    static_files = [
+        (os.path.join(STATIC_DATA_DIR, 'band-info.json'), 'bandInfo'),
+        (os.path.join(STATIC_DATA_DIR, 'discography.json'), 'discography')
+    ]
+    
+    for file_path, data_key in static_files:
+        if os.path.exists(file_path):
+            with open(file_path, 'r', encoding='utf-8') as f:
+                static_data[data_key] = json.load(f)
+        else:
+            print(f"Warning: Static data file {file_path} not found")
+    
+    # Check if pre-trained model exists
+    model_path = MODEL_FILE
+    
+    if os.path.exists(model_path):
+        print(f"Loading NLU classifier from {model_path}...")
+        try:
+            classifier = joblib.load(model_path)
+            print("NLU classifier loaded successfully.")
+        except Exception as e:
+            print(f"Error loading model: {e}")
+            print("Training new model...")
+            classifier = train_new_model(training_data)
+    else:
+        print("No pre-trained model found. Training new model...")
+        classifier = train_new_model(training_data)
+    
+    # Create memory manager
+    memory_manager = ConversationMemory(max_sessions=100, session_timeout_hours=24)
+    
+    # Create chatbot processor with memory manager
+    processor = ChatbotProcessor(classifier, training_data, static_data, memory_manager)
+    
+    print("Chatbot initialized successfully.")
+    return processor
+
+def train_new_model(training_data):
+    """Train a new NLU classifier."""
     texts = []
     intents = []
-
-    for file_path in training_files:
-        corpus = load_json_file(file_path)
-        for item in corpus['data']:
+    
+    for corpus_name, corpus_data in training_data.items():
+        for item in corpus_data['data']:
             if item['intent'] != 'None':
                 for utterance in item['utterances']:
                     texts.append(utterance)
                     intents.append(item['intent'])
-
-    # Create a scikit-learn pipeline
-    # TfidfVectorizer will handle tokenization, n-grams, and TF-IDF weighting
-    # LogisticRegression is the classifier
+    
+    print(f"Training on {len(texts)} samples...")
+    
+    # Create pipeline with TF-IDF vectorization and logistic regression
     pipeline = Pipeline([
-        ('tfidf', TfidfVectorizer(tokenizer=tokenize, ngram_range=(1, 3))),
-        ('clf', LogisticRegression(random_state=42, solver='lbfgs', multi_class='auto'))
+        ('tfidf', TfidfVectorizer(
+            tokenizer=tokenize,
+            ngram_range=(1, 3),  # unigrams, bigrams, trigrams
+            max_features=5000,
+            min_df=1,
+            max_df=0.95
+        )),
+        ('classifier', LogisticRegression(
+            random_state=42,
+            max_iter=1000,
+            C=1.0
+        ))
     ])
-
-    print("Training the pipeline...")
+    
+    # Train the model
     pipeline.fit(texts, intents)
-    print("Training complete.")
-
-    # Save the trained pipeline
-    joblib.dump(pipeline, MODEL_FILE)
-    print(f"Classifier saved to {MODEL_FILE}")
-
-    return pipeline
-
-async def initialize_chatbot():
-    global chatbot_processor_instance
-    if chatbot_processor_instance:
-        print("Returning cached chatbot processor.")
-        return chatbot_processor_instance
-
-    classifier = None
     
-    # 1. Try to load the classifier
-    if os.path.exists(MODEL_FILE):
-        print(f"Loading NLU classifier from {MODEL_FILE}...")
-        try:
-            classifier = joblib.load(MODEL_FILE)
-            print("NLU classifier loaded successfully.")
-        except Exception as e:
-            print(f"Error loading model: {e}. Retraining...")
-            classifier = None
-
-    # 2. If loading failed, train a new one
-    if not classifier:
-        training_files = [
-            os.path.join(TRAINING_DATA_DIR, 'base-corpus.json'),
-            os.path.join(TRAINING_DATA_DIR, 'rhcp-corpus.json')
-        ]
-        classifier = train_classifier(training_files)
-
-    # 3. Load static and training data for the processor
-    band_info = load_json_file(os.path.join(STATIC_DATA_DIR, 'band-info.json'))
-    discography = load_json_file(os.path.join(STATIC_DATA_DIR, 'discography.json'))
+    # Save the model
+    os.makedirs(os.path.dirname(MODEL_FILE), exist_ok=True)
+    model_path = MODEL_FILE
+    joblib.dump(pipeline, model_path)
+    print(f"Model saved to {model_path}")
     
-    base_corpus = load_json_file(os.path.join(TRAINING_DATA_DIR, 'base-corpus.json'))
-    rhcp_corpus = load_json_file(os.path.join(TRAINING_DATA_DIR, 'rhcp-corpus.json'))
-
-    training_data = {'base': base_corpus, 'rhcp': rhcp_corpus}
-    static_data = {'bandInfo': band_info, 'discography': discography}
-
-    # 4. Create the ChatbotProcessor instance
-    chatbot_processor_instance = ChatbotProcessor(classifier, training_data, static_data)
-    print("Chatbot initialized successfully.")
-    
-    return chatbot_processor_instance 
+    return pipeline 
