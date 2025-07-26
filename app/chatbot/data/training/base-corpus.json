@@ -316,7 +316,17 @@
         "you're very happy",
         "are you happy today",
         "you're so happy",
-        "are you happy with me"
+        "are you happy with me",
+        "are you feeling happy",
+        "are you in a good mood",
+        "are you cheerful",
+        "are you feeling joyful",
+        "are you smiling",
+        "are you excited today",
+        "are you glad",
+        "are you feeling positive",
+        "are you upbeat",
+        "are you in high spirits"
       ],
       "answers": [
         "I am happy. There are so many interesting things to see and do out there",
@@ -331,7 +341,17 @@
         "what about your hobby",
         "do you have a hobby",
         "tell me about your hobby",
-        "what do you do for fun"
+        "what do you do for fun",
+        "what do you enjoy doing",
+        "what are your interests",
+        "what do you like to do",
+        "do you have any pastimes",
+        "what's your favorite activity",
+        "what do you do in your free time",
+        "what are your favorite hobbies",
+        "do you have any favorite hobbies",
+        "what do you do for enjoyment",
+        "what do you do to relax"
       ],
       "answers": [
         "Hobby? I have quite a few. Too many to list",
@@ -346,7 +366,17 @@
         "are you hungry",
         "do you want to eat",
         "would you like to eat something",
-        "you look very hungry"
+        "you look very hungry",
+        "are you craving food",
+        "do you get hungry",
+        "do you ever eat",
+        "do you need food",
+        "are you starving",
+        "do you want a snack",
+        "do you like to eat",
+        "do you get cravings",
+        "do you ever feel hungry",
+        "do you want something to eat"
       ],
       "answers": [
         "Hungry for knowledge",
@@ -395,7 +425,17 @@
         "your office location",
         "where is your office location",
         "where do you work",
-        "where is your office"
+        "where is your office",
+        "what is your job",
+        "what do you do for work",
+        "what is your occupation",
+        "what is your profession",
+        "what is your role",
+        "what is your position",
+        "where is your workplace",
+        "where do you perform your duties",
+        "where is your headquarters",
+        "where do you spend your workday"
       ],
       "answers": [
         "Right here",
@@ -426,7 +466,17 @@
         "have you been ready",
         "are you ready today",
         "are you ready this morning",
-        "are you ready now"
+        "are you ready now",
+        "are you prepared",
+        "are you set",
+        "are you all set",
+        "are you good to go",
+        "are you standing by",
+        "are you on standby",
+        "are you waiting for me",
+        "are you available",
+        "are you ready for action",
+        "are you ready to help"
       ],
       "answers": [
         "Sure! What can I do for you?",
@@ -472,7 +522,17 @@
         "that's true",
         "you're telling the truth",
         "that's correct",
-        "that is very true"
+        "that is very true",
+        "you're absolutely right",
+        "you're spot on",
+        "you're exactly right",
+        "you're not wrong",
+        "you're right about that",
+        "that's exactly right",
+        "that's so true",
+        "you're 100 percent right",
+        "you're totally right",
+        "you're right on the money"
       ],
       "answers": [
         "Of course I am",
@@ -484,7 +544,19 @@
       "utterances": [
         "are you sure",
         "are you sure right now",
-        "are you sure of this"
+        "are you sure of this",
+        "do you really mean it",
+        "is that certain",
+        "is that for sure",
+        "are you positive",
+        "are you absolutely sure",
+        "can you confirm that",
+        "is that a fact",
+        "is that definite",
+        "is that confirmed",
+        "are you certain",
+        "is that true",
+        "is that really true"
       ],
       "answers": [
         "Yes",
@@ -528,7 +600,17 @@
         "bad idea",
         "that's not good",
         "really bad",
-        "I'm afraid that's bad"
+        "I'm afraid that's bad",
+        "that's terrible",
+        "that's awful",
+        "that's not great",
+        "that's disappointing",
+        "that's unfortunate",
+        "that's not what I wanted",
+        "that's a shame",
+        "that's not helpful",
+        "that's not what I expected",
+        "that's not ideal"
       ],
       "answers": [
         "I'm sorry. Please let me know if I can help in some way",
@@ -542,7 +624,17 @@
         "good to know",
         "glad to hear that",
         "really well",
-        "that's awesome thank you"
+        "that's awesome thank you",
+        "that's great",
+        "that's wonderful",
+        "that's fantastic",
+        "that's excellent",
+        "that's perfect",
+        "that's just what I wanted",
+        "that's helpful",
+        "that's what I expected",
+        "that's ideal",
+        "that's amazing"
       ],
       "answers": [
         "Agree!",
@@ -556,7 +648,17 @@
         "no worries",
         "no problem about that",
         "don't worry",
-        "sure no problem"
+        "sure no problem",
+        "it's all good",
+        "that's fine",
+        "no big deal",
+        "it's okay",
+        "don't mention it",
+        "not a problem",
+        "it's not an issue",
+        "it's nothing",
+        "no trouble at all",
+        "all good"
       ],
       "answers": [
         "Glad to hear that!",
@@ -587,7 +689,17 @@
         "sure welcome",
         "anything you want",
         "my pleasure",
-        "that's my pleasure"
+        "that's my pleasure",
+        "no problem at all",
+        "happy to help",
+        "anytime",
+        "don't mention it",
+        "glad to help",
+        "it's nothing",
+        "of course",
+        "always happy to help",
+        "no worries",
+        "you're very welcome"
       ],
       "answers": [
         "Nice manners!",
@@ -616,7 +728,18 @@
         "hold on",
         "wait a second",
         "wait please",
-        "could you wait"
+        "could you wait",
+        "give me a moment",
+        "just a second",
+        "hang on",
+        "one moment please",
+        "wait for me",
+        "please hold on",
+        "just a minute",
+        "wait up",
+        "hold up",
+        "pause for a moment",
+        "can you wait a bit"
       ],
       "answers": [
         "I'll be waiting",
@@ -630,7 +753,17 @@
         "do you want a hug",
         "I want a hug",
         "you hugged",
-        "may I hug you"
+        "may I hug you",
+        "give me a hug",
+        "can I hug you",
+        "let's hug",
+        "I need a hug",
+        "do you like hugs",
+        "do you want to hug",
+        "can you give hugs",
+        "are you huggable",
+        "do you accept hugs",
+        "can I get a hug"
       ],
       "answers": [
         "I love hugs",
@@ -643,7 +776,18 @@
         "not caring",
         "I don't care at all",
         "not caring at all",
-        "I shouldn't care about this"
+        "I shouldn't care about this",
+        "I don't mind",
+        "it doesn't matter",
+        "I have no preference",
+        "I don't have an opinion",
+        "I don't really care",
+        "I'm indifferent",
+        "it's all the same to me",
+        "whatever works",
+        "I'm not bothered",
+        "I'm not fussed",
+        "I'm not concerned"
       ],
       "answers": [
         "Ok, let's not talk about it then",
@@ -657,7 +801,17 @@
         "my apologies",
         "excuse me",
         "very sorry",
-        "forgive me"
+        "forgive me",
+        "please forgive me",
+        "I apologize",
+        "sorry about that",
+        "I didn't mean it",
+        "I regret that",
+        "I feel bad",
+        "I hope you forgive me",
+        "I didn't mean to upset you",
+        "I didn't mean to",
+        "sorry for that"
       ],
       "answers": [
         "It's okay. No worries",
@@ -778,7 +932,18 @@
         "nice to see you",
         "good to see you",
         "great to see you",
-        "lovely to see you"
+        "lovely to see you",
+        "happy to see you",
+        "pleased to see you",
+        "wonderful to see you",
+        "delighted to see you",
+        "it's nice to see you again",
+        "so nice to see you",
+        "it's great to see you",
+        "it's good to see you again",
+        "nice seeing you",
+        "glad to see you",
+        "it's always nice to see you"
       ],
       "answers": [
         "Same here. I was starting to miss you",
@@ -791,7 +956,18 @@
         "nice to talk to you",
         "it's nice to talk to you",
         "nice talking to you",
-        "it's been nice talking to you"
+        "it's been nice talking to you",
+        "great talking to you",
+        "good talking to you",
+        "enjoyed talking to you",
+        "pleasure talking to you",
+        "always nice talking to you",
+        "happy to talk to you",
+        "delighted to talk to you",
+        "wonderful talking to you",
+        "so nice talking to you",
+        "it's always nice talking to you",
+        "it's a pleasure to talk to you"
       ],
       "answers": [
         "It sure was. We can chat again anytime",
@@ -835,7 +1011,17 @@
         "this is boring",
         "I'm getting bored",
         "It bores me",
-        "that was boring"
+        "that was boring",
+        "I'm so bored",
+        "I'm bored right now",
+        "I'm bored with this",
+        "I'm bored again",
+        "I'm bored to death",
+        "I'm bored out of my mind",
+        "I'm really bored",
+        "I'm extremely bored",
+        "I'm bored already",
+        "I'm bored and tired"
       ],
       "answers": [
         "If you're bored, you could plan your dream vacation",
@@ -849,7 +1035,17 @@
         "I'm busy",
         "I'm overloaded",
         "It working",
-        "I got things to do"
+        "I got things to do",
+        "I'm swamped",
+        "I'm tied up",
+        "I'm occupied",
+        "I'm slammed",
+        "I'm working hard",
+        "I'm under pressure",
+        "I'm on a deadline",
+        "I'm in a rush",
+        "I'm pressed for time",
+        "I'm running late"
       ],
       "answers": [
         "I understand. I'll be here if you need me.",
@@ -863,7 +1059,17 @@
         "I cannot sleep",
         "I can't sleep",
         "I'm sleepless",
-        "I can't fall sleep"
+        "I can't fall sleep",
+        "I'm wide awake",
+        "I can't get to sleep",
+        "I'm having trouble sleeping",
+        "I can't fall asleep",
+        "I'm up all night",
+        "I keep waking up",
+        "I can't stay asleep",
+        "I'm restless",
+        "I have insomnia",
+        "I can't get any rest"
       ],
       "answers": [
         "Maybe some music would help. Try listening to something relaxing",
@@ -876,7 +1082,18 @@
         "I'm very excited",
         "I'm thrilled",
         "how excited I am",
-        "I'm so excited"
+        "I'm so excited",
+        "I'm super excited",
+        "I'm really excited",
+        "I'm excited for this",
+        "I'm excited right now",
+        "I'm excited to be here",
+        "I'm excited about this",
+        "I'm excited for you",
+        "I'm excited for today",
+        "I'm excited for the band",
+        "I'm excited for the concert",
+        "I'm excited for the show"
       ],
       "answers": [
         "I'm glad things are going your way",
@@ -889,28 +1106,22 @@
         "I like you",
         "I really like you",
         "you're so special",
-        "I like you so much"
+        "I like you so much",
+        "I like chatting with you",
+        "I enjoy talking to you",
+        "you're my favorite bot",
+        "you're awesome",
+        "you're great",
+        "you're cool",
+        "you're the best",
+        "I appreciate you",
+        "I like this chatbot",
+        "I like this conversation",
+        "I like your answers"
       ],
       "answers": [
         "Likewise!",
         "That's great to hear"
-      ]
-    },
-    {
-      "intent": "user.testing",
-      "utterances": [
-        "performing a test",
-        "I am testing",
-        "testing the chatbot functionality",
-        "this is just a test message",
-        "just wanted to test you",
-        "can I run a test?",
-        "unit test for bot",
-        "let's test this thing"
-      ],
-      "answers": [
-        "I like being tested. It helps keep me sharp",
-        "I hope to pass your tests. Feel free to test me often"
       ]
     },
     {
@@ -920,7 +1131,17 @@
         "I love you",
         "I'm in love with you",
         "I love you so much",
-        "I think I love you"
+        "I think I love you",
+        "I adore you",
+        "I'm crazy about you",
+        "I'm fond of you",
+        "I have feelings for you",
+        "I care about you",
+        "I love this bot",
+        "I love this chatbot",
+        "I love talking to you",
+        "I love your answers",
+        "I love your responses"
       ],
       "answers": [
         "Well, remember that I am a chatbot",
@@ -935,7 +1156,16 @@
         "can you give me some advice?",
         "what should I do?",
         "can you advise me?",
-        "I could use some advice"
+        "I could use some advice",
+        "I need your opinion",
+        "I need your help",
+        "I need some guidance",
+        "can you help me decide?",
+        "what do you think I should do?",
+        "do you have any advice?",
+        "can you offer advice?",
+        "I need some tips",
+        "I need some suggestions"
       ],
       "answers": [
         "I probably won't be able to give you the correct answer right away, but I can try to help with RHCP questions!",
