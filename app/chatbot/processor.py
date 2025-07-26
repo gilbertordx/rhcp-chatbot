@@ -1,4 +1,5 @@
 import random
+import re
 
 CONFIDENCE_THRESHOLD = 0.04  # Further lowered threshold for scikit-learn's probabilities
 
@@ -8,30 +9,144 @@ class ChatbotProcessor:
         self.training_data = training_data
         self.static_data = static_data
 
-        # Pre-compile lists of known entities
-        self.known_members = [
-            member['name'].lower() for member in self.static_data['bandInfo']['currentMembers']
-        ] + [
-            member['name'].lower() for member in self.static_data['bandInfo']['formerMembers']
-        ]
+        # Pre-compile lists of known entities with multiple variations
+        self.known_members = self._build_member_variations()
+        self.known_albums = self._build_album_variations()
+        self.known_songs = self._build_song_variations()
+
+    def _build_member_variations(self):
+        """Build comprehensive member name variations including nicknames and aliases."""
+        members = []
         
-        self.known_albums = [
-            album['name'].lower() for album in self.static_data['discography']['studioAlbums']
-        ] + [
-            album['name'].lower() for album in self.static_data['discography']['compilationAlbums']
-        ] + [
-            album['name'].lower() for album in self.static_data['discography']['liveAlbums']
-        ]
+        # Current members
+        for member in self.static_data['bandInfo']['currentMembers']:
+            name = member['name'].lower()
+            variations = [name, name.replace("'", ""), name.replace(" ", ""), name.split()[0], name.split()[-1]]
+            
+            # Add common nicknames
+            if "flea" in name or "balzary" in name:
+                variations.extend(["flea", "michael flea", "michael balzary"])
+            elif "anthony" in name or "kiedis" in name:
+                variations.extend(["anthony", "kiedis", "tony"])
+            elif "john" in name or "frusciante" in name:
+                variations.extend(["john", "frusciante", "johnny"])
+            elif "chad" in name or "smith" in name:
+                variations.extend(["chad", "smith"])
+            
+            members.append({
+                'name': name,
+                'variations': variations,
+                'details': member,
+                'type': 'current'
+            })
         
-        self.known_songs = []
+        # Former members
+        for member in self.static_data['bandInfo']['formerMembers']:
+            name = member['name'].lower()
+            variations = [name, name.replace("'", ""), name.replace(" ", ""), name.split()[0], name.split()[-1]]
+            
+            # Add common nicknames for former members
+            if "hillel" in name or "slovak" in name:
+                variations.extend(["hillel", "slovak"])
+            elif "jack" in name or "irons" in name:
+                variations.extend(["jack", "irons"])
+            elif "josh" in name or "klinghoffer" in name:
+                variations.extend(["josh", "klinghoffer"])
+            
+            members.append({
+                'name': name,
+                'variations': variations,
+                'details': member,
+                'type': 'former'
+            })
+        
+        return members
+
+    def _build_album_variations(self):
+        """Build comprehensive album name variations."""
+        albums = []
+        
+        for album_type in ['studioAlbums', 'compilationAlbums', 'liveAlbums']:
+            for album in self.static_data['discography'][album_type]:
+                name = album['name'].lower()
+                albums.append({
+                    'name': name,
+                    'variations': [name, name.replace("'", ""), name.replace(" ", ""), name.replace("&", "and")],
+                    'details': album,
+                    'type': album_type
+                })
+        
+        return albums
+
+    def _build_song_variations(self):
+        """Build comprehensive song name variations."""
+        songs = []
+        
         for album_type in ['studioAlbums', 'compilationAlbums', 'liveAlbums']:
             for album in self.static_data['discography'][album_type]:
                 if 'tracks' in album and isinstance(album['tracks'], list):
                     for track in album['tracks']:
-                        self.known_songs.append({
-                            'name': track.lower(),
-                            'album': album['name']
+                        name = track.lower()
+                        songs.append({
+                            'name': name,
+                            'variations': [name, name.replace("'", ""), name.replace(" ", ""), name.replace("&", "and")],
+                            'album': album['name'],
+                            'album_details': album
                         })
+        
+        return songs
+
+    def _find_entities_in_text(self, text):
+        """Enhanced entity recognition with fuzzy matching and context awareness."""
+        entities = []
+        
+        # Find members
+        for member_info in self.known_members:
+            for variation in member_info['variations']:
+                if variation in text:
+                    # Check if it's not part of a larger word
+                    pattern = r'\b' + re.escape(variation) + r'\b'
+                    if re.search(pattern, text):
+                        entities.append({
+                            'type': 'member',
+                            'value': member_info['details'],
+                            'matched_text': variation,
+                            'member_type': member_info['type']
+                        })
+                        break  # Found this member, move to next
+        
+        # Find albums
+        for album_info in self.known_albums:
+            for variation in album_info['variations']:
+                if variation in text:
+                    pattern = r'\b' + re.escape(variation) + r'\b'
+                    if re.search(pattern, text):
+                        entities.append({
+                            'type': 'album',
+                            'value': album_info['details'],
+                            'matched_text': variation,
+                            'album_type': album_info['type']
+                        })
+                        break
+        
+        # Find songs
+        for song_info in self.known_songs:
+            for variation in song_info['variations']:
+                if variation in text:
+                    pattern = r'\b' + re.escape(variation) + r'\b'
+                    if re.search(pattern, text):
+                        entities.append({
+                            'type': 'song',
+                            'value': {
+                                'name': song_info['name'],
+                                'album': song_info['album'],
+                                'album_details': song_info['album_details']
+                            },
+                            'matched_text': variation
+                        })
+                        break
+        
+        return entities
 
     def get_classifications(self, message):
         """
@@ -63,28 +178,8 @@ class ChatbotProcessor:
         else:
             intent = 'unrecognized'
 
-        # --- Entity Recognition ---
-        entities = []
-        # Members
-        for member_name in self.known_members:
-            if member_name in clean_message:
-                member_details = next((m for m in self.static_data['bandInfo']['currentMembers'] if m['name'].lower() == member_name), None) or \
-                                 next((m for m in self.static_data['bandInfo']['formerMembers'] if m['name'].lower() == member_name), None)
-                if member_details:
-                    entities.append({'type': 'member', 'value': member_details})
-        # Albums
-        for album_name in self.known_albums:
-            if album_name in clean_message:
-                album_details = next((a for a in self.static_data['discography']['studioAlbums'] if a['name'].lower() == album_name), None) or \
-                                next((a for a in self.static_data['discography']['compilationAlbums'] if a['name'].lower() == album_name), None) or \
-                                next((a for a in self.static_data['discography']['liveAlbums'] if a['name'].lower() == album_name), None)
-                if album_details:
-                    entities.append({'type': 'album', 'value': album_details})
-
-        # Songs
-        for song_info in self.known_songs:
-            if song_info['name'] in clean_message:
-                 entities.append({'type': 'song', 'value': {'name': song_info['name'], 'album': song_info['album']}})
+        # --- Enhanced Entity Recognition ---
+        entities = self._find_entities_in_text(clean_message)
 
         # --- Response Generation ---
         response_message = ""

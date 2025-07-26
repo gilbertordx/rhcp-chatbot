@@ -5,7 +5,7 @@ A Python-based conversational AI chatbot that provides information about the Red
 ## Features
 
 - **Intent Classification**: Uses machine learning (Logistic Regression) to understand user queries
-- **Entity Recognition**: Extracts band members, albums, and songs from user messages
+- **Enhanced Entity Recognition**: Extracts band members, albums, and songs with fuzzy matching
 - **Dynamic Responses**: Generates contextual responses based on classified intents
 - **REST API**: FastAPI-based API for easy integration
 - **Pre-trained Model**: Includes a trained model ready for immediate use
@@ -25,7 +25,7 @@ A Python-based conversational AI chatbot that provides information about the Red
    cd rhcp-chatbot
    ```
 
-2. **Create virtual environment (recommended):**
+2. **Create virtual environment:**
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
@@ -67,7 +67,16 @@ The server will start at `http://127.0.0.1:8000`
     "message": "John Frusciante is the guitarist of the Red Hot Chili Peppers...",
     "intent": "member.biography",
     "confidence": 0.85,
-    "entities": ["john frusciante"]
+    "entities": [
+        {
+            "type": "member",
+            "value": {
+                "name": "John Frusciante",
+                "role": "Guitar",
+                "biography": "..."
+            }
+        }
+    ]
 }
 ```
 
@@ -77,34 +86,6 @@ The server will start at `http://127.0.0.1:8000`
 curl -X POST "http://127.0.0.1:8000/api/chat" \
      -H "Content-Type: application/json" \
      -d '{"message": "when was RHCP formed"}'
-```
-
-## Project Structure
-
-```
-rhcp-chatbot/
-├── app/
-│   ├── main.py                 # FastAPI application
-│   ├── chatbot/
-│   │   ├── initializer.py      # Model initialization
-│   │   ├── processor.py        # Core chatbot logic
-│   │   └── data/               # Training and static data
-│   ├── api/
-│   │   └── routes/
-│   │       └── chat.py         # Chat API endpoint
-│   ├── core/
-│   │   └── config.py           # Configuration
-│   ├── models/                 # Trained ML models
-│   ├── scripts/
-│   │   └── setup_nltk.py       # NLTK setup
-│   └── services/               # Business logic
-├── tests/                      # Test files
-├── notebooks/                  # Development notebooks
-├── debug_model.py              # Model debugging utility
-├── model_training.ipynb        # Model training notebook
-├── requirements.txt            # Dependencies
-├── Dockerfile                  # Container config
-└── docs/                       # Documentation
 ```
 
 ## Development
@@ -142,7 +123,7 @@ docker run -p 8000:80 rhcp-chatbot
 
 ## Documentation
 
-For detailed documentation, see [docs/README.md](docs/README.md)
+For detailed technical documentation, see [docs/README.md](docs/README.md)
 
 ## License
 
