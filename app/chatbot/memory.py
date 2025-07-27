@@ -92,28 +92,93 @@ class ConversationMemory:
         entities = message_entry.get('entities', [])
         for entity in entities:
             if entity['type'] == 'member':
-                context['mentioned_members'].add(entity['value']['name'])
+                member_name = entity['value']['name']
+                context['mentioned_members'].add(member_name)
+                # Track member type (current/former)
+                if entity.get('member_type'):
+                    if 'member_types' not in context:
+                        context['member_types'] = {}
+                    context['member_types'][member_name] = entity['member_type']
             elif entity['type'] == 'album':
-                context['mentioned_albums'].add(entity['value']['name'])
+                album_name = entity['value']['name']
+                context['mentioned_albums'].add(album_name)
+                # Track album type
+                if entity.get('album_type'):
+                    if 'album_types' not in context:
+                        context['album_types'] = {}
+                    context['album_types'][album_name] = entity['album_type']
             elif entity['type'] == 'song':
-                context['mentioned_songs'].add(entity['value']['name'])
+                song_name = entity['value']['name']
+                context['mentioned_songs'].add(song_name)
+                # Track song album
+                if 'song_albums' not in context:
+                    context['song_albums'] = {}
+                context['song_albums'][song_name] = entity['value']['album']
         
-        # Update conversation flow
+        # Update conversation flow with more detailed tracking
         intent = message_entry.get('intent')
         if intent and intent not in ['unrecognized', 'None']:
-            context['conversation_flow'].append(intent)
-            if len(context['conversation_flow']) > 5:
-                context['conversation_flow'] = context['conversation_flow'][-5:]
+            # Add intent with timestamp for better flow analysis
+            flow_entry = {
+                'intent': intent,
+                'timestamp': message_entry['timestamp'],
+                'confidence': message_entry.get('confidence', 0.0),
+                'entities_count': len(entities)
+            }
+            context['conversation_flow'].append(flow_entry)
+            
+            # Keep only last 10 flow entries
+            if len(context['conversation_flow']) > 10:
+                context['conversation_flow'] = context['conversation_flow'][-10:]
         
-        # Update current topic based on intent
-        if intent in ['member.biography', 'band.members']:
+        # Update current topic based on intent and entities
+        if intent in ['member.biography', 'band.members'] or any(e['type'] == 'member' for e in entities):
             context['current_topic'] = 'band_members'
-        elif intent in ['album.specific', 'album.info']:
+            context['topic_confidence'] = 0.9
+        elif intent in ['album.specific', 'album.info'] or any(e['type'] == 'album' for e in entities):
             context['current_topic'] = 'albums'
-        elif intent in ['song.specific', 'song.info']:
+            context['topic_confidence'] = 0.9
+        elif intent in ['song.specific', 'song.info', 'song.lyrics'] or any(e['type'] == 'song' for e in entities):
             context['current_topic'] = 'songs'
+            context['topic_confidence'] = 0.9
         elif intent in ['band.history', 'band.tours']:
             context['current_topic'] = 'band_history'
+            context['topic_confidence'] = 0.8
+        elif intent in ['band.style', 'band.influence']:
+            context['current_topic'] = 'band_style'
+            context['topic_confidence'] = 0.8
+        elif intent in ['band.awards', 'band.collaborations']:
+            context['current_topic'] = 'band_achievements'
+            context['topic_confidence'] = 0.8
+        else:
+            # Lower confidence for general topics
+            context['topic_confidence'] = context.get('topic_confidence', 0.0) * 0.8
+        
+        # Track conversation patterns
+        if 'patterns' not in context:
+            context['patterns'] = {
+                'member_questions': 0,
+                'album_questions': 0,
+                'song_questions': 0,
+                'follow_up_questions': 0,
+                'general_questions': 0
+            }
+        
+        # Update pattern counts
+        if intent in ['member.biography', 'band.members']:
+            context['patterns']['member_questions'] += 1
+        elif intent in ['album.specific', 'album.info']:
+            context['patterns']['album_questions'] += 1
+        elif intent in ['song.specific', 'song.info', 'song.lyrics']:
+            context['patterns']['song_questions'] += 1
+        elif intent in ['band.history', 'band.tours', 'band.style', 'band.influence', 'band.awards', 'band.collaborations']:
+            context['patterns']['general_questions'] += 1
+        
+        # Detect follow-up questions
+        user_message = message_entry.get('user_message', '').lower()
+        follow_up_indicators = ['what about', 'how about', 'tell me more', 'and', 'also', 'too', 'what else', 'anything else', 'more', 'other', 'different']
+        if any(indicator in user_message for indicator in follow_up_indicators):
+            context['patterns']['follow_up_questions'] += 1
     
     def _cleanup_old_sessions(self) -> None:
         """Remove old sessions to prevent memory bloat."""

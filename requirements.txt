@@ -8,4 +8,8 @@ bcrypt
 PyJWT
 python-dotenv
 pytest
-requests 
+requests
+pytest-asyncio
+httpx
+email-validator
+types-requests 

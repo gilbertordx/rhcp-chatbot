@@ -1,130 +1,435 @@
-# RHCP Chatbot Documentation
+# RHCP Chatbot API Documentation
 
 ## Overview
 
-The RHCP Chatbot is a Python-based conversational AI designed to provide information about the Red Hot Chili Peppers band, including details about members, albums, songs, and band history.
+The RHCP Chatbot API provides a comprehensive interface for interacting with a Red Hot Chili Peppers knowledge base. The API supports user authentication, conversation memory, and intelligent responses about band members, albums, songs, and band history.
 
-## System Architecture
-
-### Core Components
-
-1. **Natural Language Understanding (NLU)**
-   - Uses scikit-learn's LogisticRegression for intent classification
-   - Trained on custom corpus data (base-corpus.json and rhcp-corpus.json)
-   - Confidence threshold of 0.6 for intent recognition
-   - Basic entity extraction for members, albums, and songs
-
-2. **Response Generation**
-   - Dynamic responses based on classified intents
-   - Fallback to predefined answers from training corpus
-   - Integration with static data for specific queries
-
-3. **API Layer**
-   - FastAPI-based REST API
-   - Single `/api/chat` endpoint for message processing
-   - JSON request/response format
-
-4. **Data Sources**
-   - Training data: `app/chatbot/data/training/`
-   - Static data: `app/chatbot/data/static/`
-   - Pre-trained model: `app/models/logistic_regression_classifier.joblib`
-
-## Project Structure
+## Base URL
 
 ```
-rhcp-chatbot/
-├── app/
-│   ├── main.py                 # FastAPI application entry point
-│   ├── chatbot/
-│   │   ├── initializer.py      # Model initialization and training
-│   │   ├── processor.py        # Core chatbot logic
-│   │   └── data/               # Training and static data
-│   ├── api/
-│   │   └── routes/
-│   │       └── chat.py         # Chat API endpoint
-│   ├── core/
-│   │   └── config.py           # Configuration settings
-│   ├── models/                 # Trained ML models
-│   ├── scripts/
-│   │   └── setup_nltk.py       # NLTK data setup
-│   └── services/               # Business logic services
-├── tests/                      # Test files
-├── notebooks/                  # Jupyter notebooks for development
-├── debug_model.py              # Model debugging utility
-├── model_training.ipynb        # Model training notebook
-├── requirements.txt            # Python dependencies
-├── Dockerfile                  # Container configuration
-└── README.md                   # Main project documentation
+http://localhost:8000
 ```
 
-## Development Guidelines
+## Authentication
 
-### Code Standards
-- Follow PEP 8 Python style guidelines
-- Use type hints where appropriate
-- Write docstrings for functions and classes
-- Maintain consistent naming conventions
+The API uses JWT (JSON Web Tokens) for authentication. Most endpoints require authentication except for registration and login.
 
-### Testing
-- Write unit tests for core functionality
-- Use pytest for testing framework
-- Aim for good test coverage
+### Authentication Flow
 
-### Documentation
-- Keep documentation concise and up-to-date
-- Document API endpoints with examples
-- Maintain clear README files
+1. **Register** a new user account
+2. **Login** to receive an access token
+3. **Use the token** in the `Authorization` header for subsequent requests
 
-## API Usage
+### Headers
 
-### Endpoint: `/api/chat`
+For authenticated requests, include:
+```
+Authorization: Bearer <your_access_token>
+```
 
-**Request:**
+## Endpoints
+
+### Authentication Endpoints
+
+#### Register User
+
+**POST** `/api/auth/register`
+
+Create a new user account.
+
+**Request Body:**
 ```json
 {
-    "message": "tell me about john frusciante"
+    "username": "string",
+    "email": "string",
+    "password": "string",
+    "first_name": "string (optional)",
+    "last_name": "string (optional)"
 }
 ```
 
 **Response:**
 ```json
 {
-    "message": "John Frusciante is the guitarist...",
-    "intent": "member.biography",
-    "confidence": 0.85,
-    "entities": ["john frusciante"]
+    "success": true,
+    "user": {
+        "id": 1,
+        "username": "john_doe",
+        "email": "john@example.com",
+        "first_name": "John",
+        "last_name": "Doe",
+        "is_active": true,
+        "is_admin": false,
+        "created_at": "2024-01-01T00:00:00",
+        "last_login": null
+    }
 }
 ```
 
-## Setup and Installation
+**Validation Rules:**
+- Username: 3-20 characters, alphanumeric + underscore only
+- Email: Valid email format
+- Password: Minimum 8 characters
 
-1. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+#### Login User
 
-2. **Setup NLTK data:**
-   ```bash
-   python app/scripts/setup_nltk.py
-   ```
+**POST** `/api/auth/login`
 
-3. **Run the application:**
-   ```bash
-   uvicorn app.main:app --reload
-   ```
+Authenticate user and receive access token.
 
-## Model Training
+**Request Body:**
+```json
+{
+    "username": "string",
+    "password": "string"
+}
+```
 
-The chatbot uses a Logistic Regression classifier trained on custom corpus data. To retrain the model:
+**Response:**
+```json
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...",
+    "token_type": "bearer",
+    "session_id": "uuid-string",
+    "user": {
+        "id": 1,
+        "username": "john_doe",
+        "email": "john@example.com",
+        "first_name": "John",
+        "last_name": "Doe"
+    }
+}
+```
 
-1. Update training data in `app/chatbot/data/training/`
-2. Run the training notebook: `model_training.ipynb`
-3. The trained model is automatically saved to `app/models/`
+#### Get Current User
 
-## Future Enhancements
+**GET** `/api/auth/me`
 
-- Enhanced entity recognition
-- Multi-turn conversation support
-- Database integration for larger datasets
-- Improved response generation
-- Better error handling and logging 
+Get current user information.
+
+**Headers:** `Authorization: Bearer <token>`
+
+**Response:**
+```json
+{
+    "id": 1,
+    "username": "john_doe",
+    "email": "john@example.com",
+    "first_name": "John",
+    "last_name": "Doe",
+    "is_active": true,
+    "is_admin": false,
+    "created_at": "2024-01-01T00:00:00",
+    "last_login": "2024-01-01T12:00:00"
+}
+```
+
+#### Update User Profile
+
+**PUT** `/api/auth/profile`
+
+Update user profile information.
+
+**Headers:** `Authorization: Bearer <token>`
+
+**Request Body:**
+```json
+{
+    "first_name": "string (optional)",
+    "last_name": "string (optional)",
+    "email": "string (optional)"
+}
+```
+
+**Response:**
+```json
+{
+    "success": true,
+    "user": {
+        "id": 1,
+        "username": "john_doe",
+        "email": "newemail@example.com",
+        "first_name": "John",
+        "last_name": "Smith"
+    }
+}
+```
+
+#### Logout User
+
+**POST** `/api/auth/logout`
+
+Logout user and invalidate session.
+
+**Headers:** `Authorization: Bearer <token>`
+
+**Response:**
+```json
+{
+    "success": true,
+    "message": "Successfully logged out"
+}
+```
+
+### Chat Endpoints
+
+#### Send Message
+
+**POST** `/api/chat`
+
+Send a message to the chatbot and receive a response.
+
+**Headers:** `Authorization: Bearer <token>` (optional)
+
+**Request Body:**
+```json
+{
+    "message": "string",
+    "session_id": "string (optional)"
+}
+```
+
+**Response:**
+```json
+{
+    "message": "Anthony Kiedis is the lead vocalist and primary lyricist of RHCP...",
+    "intent": "member.biography",
+    "confidence": 0.85,
+    "entities": [
+        {
+            "type": "member",
+            "value": {
+                "name": "Anthony Kiedis",
+                "role": "Vocals",
+                "memberSince": "1983",
+                "biography": "..."
+            }
+        }
+    ],
+    "session_id": "uuid-string"
+}
+```
+
+**Response Fields:**
+- `message`: The chatbot's response text
+- `intent`: The classified intent of the user's message
+- `confidence`: Confidence score (0-1) for the intent classification
+- `entities`: Extracted entities (members, albums, songs)
+- `session_id`: Session ID for conversation memory
+
+#### Get Conversation History
+
+**GET** `/api/chat/history/{session_id}`
+
+Get conversation history for a specific session.
+
+**Headers:** `Authorization: Bearer <token>`
+
+**Response:**
+```json
+{
+    "session_id": "uuid-string",
+    "history": [
+        {
+            "timestamp": "2024-01-01T12:00:00",
+            "user_message": "Tell me about Anthony Kiedis",
+            "bot_response": {
+                "message": "Anthony Kiedis is the lead vocalist...",
+                "intent": "member.biography",
+                "confidence": 0.85,
+                "entities": [...]
+            }
+        }
+    ]
+}
+```
+
+## Intent Classification
+
+The chatbot recognizes the following intents:
+
+### Band Information
+- `band.members` - Information about current band members
+- `band.history` - Band formation and history
+- `band.style` - Musical style and genre
+- `band.awards` - Awards and recognition
+- `band.tours` - Tour information
+- `band.influence` - Band's influence on music
+- `band.collaborations` - Collaborations with other artists
+
+### Member Information
+- `member.biography` - Individual member biographies
+- `member.role` - Member roles and instruments
+
+### Album Information
+- `album.info` - General album information
+- `album.specific` - Specific album details
+
+### Song Information
+- `song.info` - General song information
+- `song.specific` - Specific song details
+- `song.lyrics` - Song lyrics
+
+### General Conversation
+- `greetings.hello` - Greeting messages
+- `greetings.bye` - Farewell messages
+- `greetings.howareyou` - How are you questions
+- `agent.chatbot` - Questions about the chatbot itself
+- `intent.outofscope` - Out of scope queries
+
+## Entity Recognition
+
+The chatbot can extract the following entity types:
+
+### Members
+- Current members: Anthony Kiedis, Flea, John Frusciante, Chad Smith
+- Former members: Hillel Slovak, Jack Irons, Josh Klinghoffer, Dave Navarro
+
+### Albums
+- Studio albums: Blood Sugar Sex Magik, Californication, By the Way, Stadium Arcadium, etc.
+- Compilation albums
+- Live albums
+
+### Songs
+- Popular songs: Under the Bridge, Californication, Scar Tissue, Otherside, etc.
+
+## Error Responses
+
+### Validation Errors
+
+**Status:** 422 Unprocessable Entity
+
+```json
+{
+    "detail": [
+        {
+            "loc": ["body", "username"],
+            "msg": "Username must be 3-20 characters",
+            "type": "value_error"
+        }
+    ]
+}
+```
+
+### Authentication Errors
+
+**Status:** 401 Unauthorized
+
+```json
+{
+    "detail": "Not authenticated"
+}
+```
+
+### Not Found Errors
+
+**Status:** 404 Not Found
+
+```json
+{
+    "detail": "User not found"
+}
+```
+
+### Server Errors
+
+**Status:** 500 Internal Server Error
+
+```json
+{
+    "detail": "Internal server error"
+}
+```
+
+## Rate Limiting
+
+Currently, no rate limiting is implemented. Consider implementing rate limiting for production use.
+
+## Session Management
+
+- Sessions are automatically created when a user sends their first message
+- Sessions expire after 24 hours of inactivity
+- Users can have multiple concurrent sessions
+- Session data includes conversation history and context
+
+## Examples
+
+### Complete Conversation Flow
+
+1. **Register a user:**
+```bash
+curl -X POST "http://localhost:8000/api/auth/register" \
+     -H "Content-Type: application/json" \
+     -d '{
+         "username": "rhcp_fan",
+         "email": "fan@example.com",
+         "password": "securepassword123",
+         "first_name": "John",
+         "last_name": "Fan"
+     }'
+```
+
+2. **Login:**
+```bash
+curl -X POST "http://localhost:8000/api/auth/login" \
+     -H "Content-Type: application/json" \
+     -d '{
+         "username": "rhcp_fan",
+         "password": "securepassword123"
+     }'
+```
+
+3. **Send a message:**
+```bash
+curl -X POST "http://localhost:8000/api/chat" \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer <your_token>" \
+     -d '{
+         "message": "Tell me about Anthony Kiedis"
+     }'
+```
+
+4. **Get conversation history:**
+```bash
+curl -X GET "http://localhost:8000/api/chat/history/<session_id>" \
+     -H "Authorization: Bearer <your_token>"
+```
+
+## Development
+
+### Running the API
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the server
+uvicorn app.main:app --reload
+```
+
+### Testing
+
+```bash
+# Run all tests
+pytest
+
+# Run with coverage
+pytest --cov=app
+
+# Run specific test file
+pytest tests/test_auth.py
+```
+
+### Environment Variables
+
+Create a `.env` file with:
+
+```env
+SECRET_KEY=your-secret-key-here
+DATABASE_URL=sqlite:///./rhcp_chatbot.db
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+```
+
+## Support
+
+For issues and questions, please refer to the main README.md file or create an issue in the repository. 
