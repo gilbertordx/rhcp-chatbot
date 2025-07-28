@@ -43,21 +43,58 @@ logger = SimpleLogger()
 # Load training data
 logger.info("Loading training data...")
 
-def load_json_file(file_path):
-    """Load JSON file safely."""
-    try:
-        with open(file_path, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except FileNotFoundError:
-        logger.error(f"File not found: {file_path}")
-        return None
+def find_project_root():
+    """Find the project root directory by looking for key files."""
+    current = Path.cwd()
+    
+    # Look for project root by checking for key files/directories
+    for path in [current, current.parent, current.parent.parent]:
+        if (path / 'app' / 'chatbot' / 'data' / 'training' / 'base-corpus.json').exists():
+            return path
+    
+    # If not found, try common locations
+    common_paths = [
+        Path('/home/gilberto/Documents/rhcp-chatbot'),
+        Path.cwd() / 'rhcp-chatbot',
+        Path.cwd().parent / 'rhcp-chatbot'
+    ]
+    
+    for path in common_paths:
+        if (path / 'app' / 'chatbot' / 'data' / 'training' / 'base-corpus.json').exists():
+            return path
+    
+    return current
 
-# Load corpora
+def load_json_file(file_path):
+    """Load JSON file safely with multiple path attempts."""
+    # Try multiple possible paths
+    possible_paths = [
+        file_path,
+        Path.cwd() / file_path,
+        find_project_root() / file_path
+    ]
+    
+    for path in possible_paths:
+        try:
+            with open(path, 'r', encoding='utf-8') as f:
+                logger.info(f"Successfully loaded: {path}")
+                return json.load(f)
+        except FileNotFoundError:
+            continue
+    
+    logger.error(f"File not found in any of these locations: {possible_paths}")
+    return None
+
+# Find project root and update paths
+project_root = find_project_root()
+logger.info(f"Project root found: {project_root}")
+
+# Load corpora with robust path resolution
 base_corpus = load_json_file('app/chatbot/data/training/base-corpus.json')
 rhcp_corpus = load_json_file('app/chatbot/data/training/rhcp-corpus.json')
 
 if not base_corpus or not rhcp_corpus:
-    raise FileNotFoundError("Training data files not found")
+    raise FileNotFoundError("Training data files not found. Please ensure you're running from the project root directory.")
 
 # Extract texts and intents
 texts = []
