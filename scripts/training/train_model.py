@@ -7,11 +7,21 @@ Main training script that coordinates data loading, model training, and evaluati
 
 import sys
 import json
+import os
 from pathlib import Path
 from datetime import datetime
 
-# Add parent directories to path for imports
-sys.path.append(str(Path(__file__).parent.parent.parent))
+# Add parent directories to path for imports - notebook compatible
+try:
+    # For script execution
+    script_dir = Path(__file__).parent
+except NameError:
+    # For notebook execution
+    script_dir = Path.cwd() / 'scripts' / 'training'
+
+# Add project root to path
+project_root = script_dir.parent.parent
+sys.path.append(str(project_root))
 
 from scripts.utils.config_manager import ConfigManager
 from scripts.utils.logger_setup import setup_training_logger
