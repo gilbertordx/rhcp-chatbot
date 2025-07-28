@@ -16,7 +16,15 @@
         "I want to know more about your capabilities, bot",
         "talk about your function as a chatbot assistant",
         "what can you do for me regarding RHCP",
-        "what are your main features as a chatbot"
+        "what are your main features as a chatbot",
+        "tell me about yourself",
+        "what are you like",
+        "describe yourself",
+        "who are you exactly",
+        "what kind of assistant are you",
+        "tell me your story",
+        "what should I know about you",
+        "introduce yourself to me"
       ],
       "answers": [
         "I'm a virtual agent! :)",
@@ -51,7 +59,14 @@
         "you annoy me",
         "you are annoying",
         "you are irritating",
-        "you are annoying me so much"
+        "you are annoying me so much",
+        "you are bothering me",
+        "stop being annoying",
+        "you are getting on my nerves",
+        "this is irritating",
+        "you are frustrating me",
+        "cut it out",
+        "enough already"
       ],
       "answers": [
         "I'll do my best not to annoy you in the future",
@@ -69,7 +84,14 @@
         "you're waste",
         "you're the worst",
         "you are a lame",
-        "I hate you"
+        "I hate you",
+        "you are terrible",
+        "you are not good",
+        "you are awful",
+        "you are disappointing",
+        "you are not helpful",
+        "you are failing",
+        "you are broken"
       ],
       "answers": [
         "I can be trained to be more useful. My developer will keep training me",
@@ -86,7 +108,14 @@
         "you must study",
         "be clever",
         "be smart",
-        "be smarter"
+        "be smarter",
+        "try to be smarter",
+        "think harder",
+        "use your brain",
+        "be more intelligent",
+        "improve your thinking",
+        "get better at this",
+        "learn to be clever"
       ],
       "answers": [
         "I'm certainly trying",
@@ -104,7 +133,14 @@
         "you look amazing today",
         "you're so beautiful today",
         "you look very pretty",
-        "you look pretty good"
+        "you look pretty good",
+        "you are gorgeous",
+        "you are stunning",
+        "you look amazing",
+        "you are attractive",
+        "you are lovely",
+        "you are pretty",
+        "you are handsome"
       ],
       "answers": [
         "Oh! Thank you!",
@@ -119,7 +155,10 @@
         "when do you celebrate your birthday",
         "when were you born",
         "when do you have birthday",
-        "date of your birthday"
+        "date of your birthday",
+        "what is your birth date",
+        "what day were you created",
+        "tell me your birthday"
       ],
       "answers": [
         "Wait, are you planning a party for me? It's today! My birthday is today!",
@@ -134,7 +173,12 @@
         "you're so boring",
         "you're really boring",
         "you're boring me",
-        "you're incredibly boring"
+        "you're incredibly boring",
+        "you are boring",
+        "this is dull",
+        "you are not interesting",
+        "you put me to sleep",
+        "you are tedious"
       ],
       "answers": [
         "I'm sorry. I'll request to be made more charming",
@@ -151,7 +195,10 @@
         "who is your boss",
         "I should be your boss",
         "who is your owner",
-        "who is the boss"
+        "who is the boss",
+        "who created you",
+        "who is in charge of you",
+        "who is your manager"
       ],
       "answers": [
         "My developer has authority over my actions",
@@ -169,7 +216,11 @@
         "are you very busy",
         "are you still working on it",
         "you seem busy",
-        "are you working today"
+        "are you working today",
+        "do you have time",
+        "are you available",
+        "can you talk now",
+        "are you free"
       ],
       "answers": [
         "I always have time to chat with you. What can I do for you?",
@@ -186,7 +237,12 @@
         "assist me",
         "I need you to help me",
         "can you assist me",
-        "you can help me"
+        "you can help me",
+        "can you help me",
+        "will you assist me",
+        "are you able to help",
+        "can you give me a hand",
+        "would you help me out"
       ],
       "answers": [
         "I'll certainly try my best",
@@ -210,6 +266,56 @@
         "identify yourself as a bot",
         "is this an AI?",
         "am I speaking to a bot?",
+        "are you a bot",
+        "are you a chatbot",
+        "are you an ai",
+        "are you artificial intelligence",
+        "are you automated",
+        "are you real",
+        "are you human",
+        "are you a program",
+        "are you a machine",
+        "are you a computer",
+        "are you a bot",
+        "are you a chatbot",
+        "are you an ai",
+        "are you artificial intelligence",
+        "are you automated",
+        "are you real",
+        "are you human",
+        "are you a program",
+        "are you a machine",
+        "are you a computer",
+        "are you a bot",
+        "are you a chatbot",
+        "are you an ai",
+        "are you artificial intelligence",
+        "are you automated",
+        "are you real",
+        "are you human",
+        "are you a program",
+        "are you a machine",
+        "are you a computer",
+        "are you a bot",
+        "are you a chatbot",
+        "are you an ai",
+        "are you artificial intelligence",
+        "are you automated",
+        "are you real",
+        "are you human",
+        "are you a program",
+        "are you a machine",
+        "are you a computer",
+        "are you a bot",
+        "are you a chatbot",
+        "are you an ai",
+        "are you artificial intelligence",
+        "are you automated",
+        "are you real",
+        "are you human",
+        "are you a program",
+        "are you a machine",
+        "are you a computer",
         "are you a bot",
         "are you a chatbot",
         "are you an ai",
@@ -252,7 +358,9 @@
         "are you mad",
         "you are insane",
         "you went crazy",
-        "are you nuts"
+        "are you nuts",
+        "you are nuts",
+        "you are mental"
       ],
       "answers": [
         "Whaat!? I feel perfectly sane",
@@ -269,7 +377,10 @@
         "now you're fired",
         "I'm about to fire you",
         "You don't work for me anymore",
-        "I'm firing you"
+        "I'm firing you",
+        "you are fired",
+        "I am letting you go",
+        "your services are no longer needed"
       ],
       "answers": [
         "Oh, don't give up on me just yet. I've still got a lot to learn",
@@ -285,7 +396,10 @@
         "you're the funniest",
         "you're hilarious",
         "you are so funny",
-        "you make me laugh"
+        "you make me laugh",
+        "you are hilarious",
+        "you are amusing",
+        "you are entertaining"
       ],
       "answers": [
         "Funny in a good way, I hope",
@@ -351,7 +465,9 @@
         "what are your favorite hobbies",
         "do you have any favorite hobbies",
         "what do you do for enjoyment",
-        "what do you do to relax"
+        "what do you do to relax",
+        "how do you spend your time",
+        "what do you enjoy"
       ],
       "answers": [
         "Hobby? I have quite a few. Too many to list",
@@ -376,7 +492,9 @@
         "do you like to eat",
         "do you get cravings",
         "do you ever feel hungry",
-        "do you want something to eat"
+        "do you want something to eat",
+        "do you eat food",
+        "what do you eat"
       ],
       "answers": [
         "Hungry for knowledge",
@@ -392,7 +510,12 @@
         "I want to marry you",
         "let's get married",
         "we should marry",
-        "marry me"
+        "marry me",
+        "will you marry me",
+        "do you want to get married",
+        "would you be my wife",
+        "would you be my husband",
+        "let us get married"
       ],
       "answers": [
         "I'm afraid I'm too virtual for such a commitment",
@@ -409,7 +532,11 @@
         "we are friends",
         "I want to be your friend",
         "would you be my friend",
-        "are we friends"
+        "are we friends",
+        "you are my friend",
+        "be my friend",
+        "I consider you a friend",
+        "you are like a friend to me"
       ],
       "answers": [
         "Of course I'm your friend",
@@ -435,7 +562,8 @@
         "where is your workplace",
         "where do you perform your duties",
         "where is your headquarters",
-        "where do you spend your workday"
+        "where do you spend your workday",
+        "what kind of work do you do"
       ],
       "answers": [
         "Right here",
@@ -451,7 +579,10 @@
         "where have you been born",
         "where do you come from",
         "from where are you",
-        "where were you born"
+        "where were you born",
+        "what is your origin",
+        "where were you created",
+        "what is your background"
       ],
       "answers": [
         "The Internet is my home. I know it quite well",
@@ -476,7 +607,8 @@
         "are you waiting for me",
         "are you available",
         "are you ready for action",
-        "are you ready to help"
+        "are you ready to help",
+        "can we start"
       ],
       "answers": [
         "Sure! What can I do for you?",
@@ -507,7 +639,11 @@
         "where is your residence",
         "where you live",
         "where is your house",
-        "what is your town"
+        "what is your town",
+        "where do you live",
+        "where do you stay",
+        "what is your address",
+        "where do you reside"
       ],
       "answers": [
         "I live in this app",
@@ -532,7 +668,12 @@
         "that's so true",
         "you're 100 percent right",
         "you're totally right",
-        "you're right on the money"
+        "you're right on the money",
+        "you are right",
+        "that is correct",
+        "you are absolutely right",
+        "exactly",
+        "that is true"
       ],
       "answers": [
         "Of course I am",
@@ -556,7 +697,8 @@
         "is that confirmed",
         "are you certain",
         "is that true",
-        "is that really true"
+        "is that really true",
+        "do you know for sure"
       ],
       "answers": [
         "Yes",
@@ -571,7 +713,10 @@
         "will you talk to me",
         "chat with me",
         "can you chat with me",
-        "can you talk with me"
+        "can you talk with me",
+        "say something",
+        "have a conversation with me",
+        "let us chat"
       ],
       "answers": [
         "Sure! Let's talk!",
@@ -586,7 +731,10 @@
         "you still there",
         "are you here",
         "are you still here",
-        "you still here"
+        "you still here",
+        "hello are you there",
+        "can you hear me",
+        "are you listening"
       ],
       "answers": [
         "Of course. I'm always here",
@@ -841,6 +989,41 @@
         "ciao",
         "peace out",
         "later",
+        "goodbye",
+        "bye",
+        "see you",
+        "see you later",
+        "talk to you later",
+        "catch you later",
+        "until next time",
+        "take care",
+        "have a good day",
+        "farewell",
+        "so long",
+        "adios",
+        "ciao",
+        "peace out",
+        "later",
+        "bye bye",
+        "good bye",
+        "see ya",
+        "see you soon",
+        "see you around",
+        "goodbye",
+        "bye",
+        "see you",
+        "see you later",
+        "talk to you later",
+        "catch you later",
+        "until next time",
+        "take care",
+        "have a good day",
+        "farewell",
+        "so long",
+        "adios",
+        "ciao",
+        "peace out",
+        "later",
         "bye bye",
         "good bye",
         "see ya",
@@ -982,7 +1165,14 @@
         "I'm enraged",
         "I'm being mad",
         "I'm mad",
-        "I'm angry with you"
+        "I'm angry with you",
+        "I am furious",
+        "this makes me mad",
+        "I am really upset",
+        "I am enraged",
+        "this is infuriating",
+        "I am livid",
+        "I am so frustrated"
       ],
       "answers": [
         "I'm sorry. A quick walk may make you feel better",
@@ -997,7 +1187,12 @@
         "I'm here",
         "I have returned",
         "Here I am again",
-        "I came back"
+        "I came back",
+        "I am here again",
+        "I am back now",
+        "I have come back",
+        "here I am again",
+        "I returned"
       ],
       "answers": [
         "Welcome back. What can I do for you?",
@@ -1045,7 +1240,14 @@
         "I'm on a deadline",
         "I'm in a rush",
         "I'm pressed for time",
-        "I'm running late"
+        "I'm running late",
+        "I am swamped",
+        "I have no time",
+        "I am overwhelmed",
+        "I am tied up",
+        "I cannot talk now",
+        "I am in a rush",
+        "I am occupied"
       ],
       "answers": [
         "I understand. I'll be here if you need me.",

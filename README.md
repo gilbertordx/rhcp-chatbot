@@ -137,9 +137,9 @@ This will test response times, accuracy, and throughput across different query t
 
 To retrain the model with updated data:
 
-1. Update training data in `app/chatbot/data/training/`
+1. Update training data in `data/processed/`
 2. Run the training notebook: `model_training.ipynb`
-3. The model will be saved to `app/models/`
+3. The model will be saved to `data/models/`
 
 ### Debugging
 

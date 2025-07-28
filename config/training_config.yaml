@@ -1,0 +1,102 @@
+# RHCP Chatbot Training Configuration
+# ==================================
+
+# Data Configuration
+data:
+  raw_path: "data/raw"
+  processed_path: "data/processed" 
+  models_path: "data/models"
+  results_path: "data/results"
+  backups_path: "data/backups"
+  
+  # Training data files
+  training_files:
+    - "data/processed/base-corpus.json"
+    - "data/processed/rhcp-corpus.json"
+  
+  # Data validation
+  min_samples_per_intent: 5
+  max_class_imbalance_ratio: 15.0
+
+# Model Configuration
+model:
+  type: "LogisticRegression"
+  
+  # Vectorizer settings
+  vectorizer:
+    type: "TfidfVectorizer"
+    ngram_range: [1, 3]
+    stop_words: "english"
+    max_features: null
+    min_df: 1
+    max_df: 0.95
+  
+  # Classifier settings
+  classifier:
+    random_state: 42
+    solver: "lbfgs" 
+    multi_class: "multinomial"
+    class_weight: "balanced"
+    max_iter: 1000
+    C: 1.0
+
+# Training Configuration
+training:
+  test_size: 0.2
+  random_state: 42
+  stratify: true
+  
+  # Cross-validation
+  cv_folds: 5
+  cv_scoring:
+    - "accuracy"
+  
+  # Text preprocessing
+  preprocessing:
+    use_stemming: true
+    lowercase: true
+    remove_punctuation: false
+
+# Evaluation Configuration
+evaluation:
+  generate_confusion_matrix: true
+  generate_classification_report: true
+  save_predictions: true
+  confidence_threshold: 0.5
+  
+  # Test cases for validation
+  test_cases:
+    - "are you a bot"
+    - "bye for now"
+    - "Hello"
+    - "Who are the members of the band?"
+    - "Tell me about quantum physics"
+    - "when was RHCP formed"
+    - "list their albums"
+    - "name some of their songs"
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/training.log"
+  console: true
+
+# Output Configuration
+output:
+  model_filename: "logistic_regression_classifier.joblib"
+  metadata_filename: "model_metadata.json"
+  results_filename: "training_results.json"
+  create_backup: true
+  versioning: true
+
+# Enhancement Configuration
+enhancement:
+  enable_minority_class_enhancement: true
+  minority_threshold_percentage: 2.0
+  minority_threshold_absolute: 10
+  
+# Reproducibility
+reproducibility:
+  seed: 42
+  set_global_seed: true 

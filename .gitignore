@@ -109,5 +109,29 @@ dmypy.json
 .pyre/
 
 # Models
-app/models/*.joblib
-!app/models/logistic_regression_classifier.joblib 
+data/models/*.joblib
+!data/models/logistic_regression_classifier.joblib
+
+# Data files
+*.db
+test.db
+rhcp_chatbot.db
+
+# Logs
+logs/*.log
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db 

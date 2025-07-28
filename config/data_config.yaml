@@ -1,0 +1,91 @@
+# RHCP Chatbot Data Configuration
+# ===============================
+
+# Data Paths
+paths:
+  raw: "data/raw"
+  processed: "data/processed"
+  models: "data/models"
+  results: "data/results"
+  backups: "data/backups"
+  logs: "logs"
+
+# Raw Data Files
+raw_data:
+  band_info: "data/raw/band-info.json"
+  discography: "data/raw/discography.json"
+
+# Processed Data Files  
+processed_data:
+  base_corpus: "data/processed/base-corpus.json"
+  rhcp_corpus: "data/processed/rhcp-corpus.json"
+
+# Data Validation Rules
+validation:
+  required_fields:
+    - "intent"
+    - "utterances"
+  
+  intent_naming:
+    pattern: "^[a-z]+\\.[a-z]+$"
+    examples:
+      - "greetings.hello"
+      - "band.members"
+      - "agent.chatbot"
+  
+  utterance_rules:
+    min_length: 3
+    max_length: 200
+    min_per_intent: 5
+    max_per_intent: 1000
+  
+  quality_checks:
+    check_duplicates: true
+    check_empty_utterances: true
+    check_malformed_intents: true
+    check_class_balance: true
+
+# Data Processing Settings
+processing:
+  encoding: "utf-8"
+  
+  # Text normalization
+  normalization:
+    lowercase: true
+    strip_whitespace: true
+    remove_extra_spaces: true
+    handle_contractions: false
+  
+  # Data augmentation
+  augmentation:
+    enable: false
+    techniques:
+      - "synonym_replacement"
+      - "random_insertion"
+      - "random_swap"
+    augmentation_factor: 0.1
+
+# Backup Settings
+backup:
+  enable: true
+  max_backups: 10
+  timestamp_format: "%Y%m%d_%H%M%S"
+  compress: false
+
+# Data Versioning
+versioning:
+  enable: true
+  track_changes: true
+  generate_checksums: true
+  hash_algorithm: "md5"
+
+# Class Balance Management
+class_balance:
+  target_samples_per_class: 50
+  max_imbalance_ratio: 10.0
+  enhancement_strategy: "template_based"
+  
+  # Minority class enhancement templates
+  enhancement_templates:
+    min_samples_threshold: 10
+    max_new_samples: 20 
