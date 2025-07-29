@@ -15,12 +15,27 @@ from datetime import datetime
 try:
     # For script execution
     script_dir = Path(__file__).parent
+    project_root = script_dir.parent.parent
 except NameError:
-    # For notebook execution
-    script_dir = Path.cwd() / 'scripts' / 'training'
+    # For notebook execution - assume we're in notebooks/ directory or project root
+    current_dir = Path.cwd()
+    if current_dir.name == 'notebooks':
+        # Running from notebooks directory
+        project_root = current_dir.parent
+    elif (current_dir / 'scripts').exists():
+        # Running from project root
+        project_root = current_dir
+    else:
+        # Try to find project root by looking for scripts directory
+        project_root = current_dir
+        while project_root != project_root.parent:
+            if (project_root / 'scripts').exists():
+                break
+            project_root = project_root.parent
+        else:
+            raise ValueError("Could not find project root with 'scripts' directory")
 
 # Add project root to path
-project_root = script_dir.parent.parent
 sys.path.append(str(project_root))
 
 from scripts.utils.config_manager import ConfigManager
@@ -33,6 +48,24 @@ from scripts.evaluation.evaluate_model import ModelEvaluator
 from sklearn.model_selection import train_test_split
 import pandas as pd
 import numpy as np
+
+
+def convert_numpy_types(obj):
+    """Convert numpy types to Python native types for JSON serialization."""
+    if isinstance(obj, np.integer):
+        return int(obj)
+    elif isinstance(obj, np.floating):
+        return float(obj)
+    elif isinstance(obj, np.ndarray):
+        return obj.tolist()
+    elif isinstance(obj, dict):
+        return {key: convert_numpy_types(value) for key, value in obj.items()}
+    elif isinstance(obj, list):
+        return [convert_numpy_types(item) for item in obj]
+    elif isinstance(obj, tuple):
+        return tuple(convert_numpy_types(item) for item in obj)
+    else:
+        return obj
 
 
 class ModelTrainer:
@@ -208,6 +241,9 @@ class ModelTrainer:
             'configuration': self.training_config
         }
         
+        # Convert numpy types to Python native types for JSON serialization
+        results_data = convert_numpy_types(results_data)
+        
         results_file = Path(results_path) / output_config['results_filename']
         with open(results_file, 'w', encoding='utf-8') as f:
             json.dump(results_data, f, indent=2, ensure_ascii=False)
@@ -225,7 +261,7 @@ class ModelTrainer:
 
 def main():
     """Main function for standalone execution."""
-    print("🚀 RHCP Chatbot Model Training Pipeline")
+    print("RHCP Chatbot Model Training Pipeline")
     print("=" * 50)
     
     try:
@@ -234,17 +270,20 @@ def main():
         pipeline, test_results, cv_results = trainer.run_training_pipeline()
         
         # Print summary
-        print(f"\n✅ TRAINING COMPLETED SUCCESSFULLY!")
-        print(f"\n📊 PERFORMANCE SUMMARY:")
+        print(f"\nTRAINING COMPLETED SUCCESSFULLY!")
+        print(f"\nPERFORMANCE SUMMARY:")
         print(f"  Test Accuracy: {test_results['accuracy']:.4f}")
         print(f"  Test Macro F1: {test_results['macro_f1']:.4f}")
         print(f"  CV Accuracy: {cv_results['accuracy']['mean']:.4f} ± {cv_results['accuracy']['std']:.4f}")
-        print(f"  CV Macro F1: {cv_results['macro_f1']['mean']:.4f} ± {cv_results['macro_f1']['std']:.4f}")
+        if 'macro_f1' in cv_results:
+            print(f"  CV Macro F1: {cv_results['macro_f1']['mean']:.4f} ± {cv_results['macro_f1']['std']:.4f}")
+        else:
+            print(f"  CV Macro F1: Not computed (add 'macro_f1' to cv_scoring in config)")
         
-        print(f"\n🎯 Model is ready for deployment!")
+        print(f"\nModel is ready for deployment!")
         
     except Exception as e:
-        print(f"\n❌ TRAINING FAILED: {e}")
+        print(f"\nTRAINING FAILED: {e}")
         sys.exit(1)
 
 

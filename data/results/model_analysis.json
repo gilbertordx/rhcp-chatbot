@@ -1,0 +1,6310 @@
+{
+  "timestamp": "2025-07-28T21:35:22.066519",
+  "model_type": "LogisticRegression",
+  "feature_analysis": {
+    "total_features": 1455,
+    "top_features_per_class": {
+      "agent.acquaintance": {
+        "top_positive": [
+          {
+            "feature": "describ",
+            "coefficient": 1.2950655886495512
+          },
+          {
+            "feature": "tell",
+            "coefficient": 1.2552909102708243
+          },
+          {
+            "feature": "know",
+            "coefficient": 1.2242373747417377
+          },
+          {
+            "feature": "exactli",
+            "coefficient": 1.1030888729589339
+          },
+          {
+            "feature": "tell stori",
+            "coefficient": 0.7825676704686845
+          },
+          {
+            "feature": ",",
+            "coefficient": 0.7726600722420018
+          },
+          {
+            "feature": "chatbot",
+            "coefficient": 0.737547174409674
+          },
+          {
+            "feature": "stori",
+            "coefficient": 0.6546013292449774
+          },
+          {
+            "feature": "introduc",
+            "coefficient": 0.5976189022287962
+          },
+          {
+            "feature": "assist",
+            "coefficient": 0.5256323724841474
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.26638298737495575
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.21760231231114713
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.2098647528153879
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.19664124974238859
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.18398644947254814
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.13970344528672796
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.13717388046725978
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.11444542799020116
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.11377004178476825
+          },
+          {
+            "feature": "]",
+            "coefficient": -0.10886691074897047
+          }
+        ]
+      },
+      "agent.age": {
+        "top_positive": [
+          {
+            "feature": "age",
+            "coefficient": 4.262292288435172
+          },
+          {
+            "feature": "old",
+            "coefficient": 2.3952683973585214
+          },
+          {
+            "feature": "'s age",
+            "coefficient": 1.2829951876053578
+          },
+          {
+            "feature": "tell age",
+            "coefficient": 1.236412543176361
+          },
+          {
+            "feature": "know age",
+            "coefficient": 0.7469357797839873
+          },
+          {
+            "feature": "'d",
+            "coefficient": 0.7469357797839873
+          },
+          {
+            "feature": "'d like know",
+            "coefficient": 0.7469357797839873
+          },
+          {
+            "feature": "like know",
+            "coefficient": 0.7469357797839873
+          },
+          {
+            "feature": "like know age",
+            "coefficient": 0.7469357797839873
+          },
+          {
+            "feature": "'d like",
+            "coefficient": 0.7469357797839873
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'m",
+            "coefficient": -0.16461013457067877
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.15892241837406446
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.15341571792127856
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.13674985531344916
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.10597913329280317
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.10429360854032743
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.10428541104482493
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.0956374899446149
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.08709411724658582
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.08693200889829909
+          }
+        ]
+      },
+      "agent.annoying": {
+        "top_positive": [
+          {
+            "feature": "annoy",
+            "coefficient": 3.21714331611551
+          },
+          {
+            "feature": "irrit",
+            "coefficient": 1.7180808278534225
+          },
+          {
+            "feature": "nerv",
+            "coefficient": 1.5770808648731818
+          },
+          {
+            "feature": "frustrat",
+            "coefficient": 1.4851881695680604
+          },
+          {
+            "feature": "thi irrit",
+            "coefficient": 0.979528871880625
+          },
+          {
+            "feature": "cut",
+            "coefficient": 0.8179351700663587
+          },
+          {
+            "feature": "alreadi",
+            "coefficient": 0.8100274023164021
+          },
+          {
+            "feature": "bother",
+            "coefficient": 0.8025779005649548
+          },
+          {
+            "feature": "thi",
+            "coefficient": 0.6052567995008921
+          },
+          {
+            "feature": "'re annoy",
+            "coefficient": 0.5165154986182082
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.24397636194245262
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.21119348338933205
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.19666476066086802
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.18036101000262972
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.13209107999145925
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.12807802352539005
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.12698861098308573
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.11786523876638255
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.1151178155927485
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.10709790821902751
+          }
+        ]
+      },
+      "agent.bad": {
+        "top_positive": [
+          {
+            "feature": "fail",
+            "coefficient": 1.4878172338539701
+          },
+          {
+            "feature": "broken",
+            "coefficient": 1.4878172338539701
+          },
+          {
+            "feature": "terribl",
+            "coefficient": 1.4667090128824303
+          },
+          {
+            "feature": "good",
+            "coefficient": 1.090631230017344
+          },
+          {
+            "feature": "'re",
+            "coefficient": 0.9304616119543646
+          },
+          {
+            "feature": "hate",
+            "coefficient": 0.7696744133940858
+          },
+          {
+            "feature": "lame",
+            "coefficient": 0.7696744133940858
+          },
+          {
+            "feature": "aw",
+            "coefficient": 0.7542780585593063
+          },
+          {
+            "feature": "disappoint",
+            "coefficient": 0.7542780585593063
+          },
+          {
+            "feature": "help",
+            "coefficient": 0.5993680053127155
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.2934096826734236
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.21517919928590873
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.21414346392448785
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.1361233134352081
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.133982272712468
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.1332475628740633
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.12338301149300687
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.12337340116130553
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.11000173720573099
+          },
+          {
+            "feature": "tell",
+            "coefficient": -0.10676114881927692
+          }
+        ]
+      },
+      "agent.beautiful": {
+        "top_positive": [
+          {
+            "feature": "look",
+            "coefficient": 1.8658834590311204
+          },
+          {
+            "feature": "gorgeou",
+            "coefficient": 1.4124990099078438
+          },
+          {
+            "feature": "stun",
+            "coefficient": 1.4124990099078438
+          },
+          {
+            "feature": "love",
+            "coefficient": 1.1330124366643968
+          },
+          {
+            "feature": "amaz",
+            "coefficient": 1.0629233439070886
+          },
+          {
+            "feature": "look amaz",
+            "coefficient": 1.0629233439070886
+          },
+          {
+            "feature": "pretti",
+            "coefficient": 1.0178131956644934
+          },
+          {
+            "feature": "attract",
+            "coefficient": 0.7280463157474861
+          },
+          {
+            "feature": "handsom",
+            "coefficient": 0.7280463157474861
+          },
+          {
+            "feature": "today",
+            "coefficient": 0.7053873290617728
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.2574961969423539
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.219386353195557
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.20818113346153413
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.13379946387440309
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.13247064735030176
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.12271057025329582
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.11857677844629276
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.11143078499279906
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.10932655273740662
+          },
+          {
+            "feature": "tell",
+            "coefficient": -0.10579766814856828
+          }
+        ]
+      },
+      "agent.beclever": {
+        "top_positive": [
+          {
+            "feature": "clever",
+            "coefficient": 1.8434637057817063
+          },
+          {
+            "feature": "smarter",
+            "coefficient": 1.548865266302813
+          },
+          {
+            "feature": "intellig",
+            "coefficient": 1.3465063839981994
+          },
+          {
+            "feature": "learn",
+            "coefficient": 1.14346420559154
+          },
+          {
+            "feature": "think",
+            "coefficient": 1.054149390837633
+          },
+          {
+            "feature": "improv think",
+            "coefficient": 0.8954951878948755
+          },
+          {
+            "feature": "improv",
+            "coefficient": 0.8954951878948755
+          },
+          {
+            "feature": "brain",
+            "coefficient": 0.870886669823713
+          },
+          {
+            "feature": "use brain",
+            "coefficient": 0.870886669823713
+          },
+          {
+            "feature": "tri smarter",
+            "coefficient": 0.844939534696409
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.25869281257886045
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.21814937466886022
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.20814970311319383
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.1906671804480562
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.18574744045351146
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.14402490258665737
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.1356923830488856
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.13497079374939477
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.12499521582087242
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.11595804379709489
+          }
+        ]
+      },
+      "agent.birthday": {
+        "top_positive": [
+          {
+            "feature": "birthday",
+            "coefficient": 3.5388676789305094
+          },
+          {
+            "feature": "day creat",
+            "coefficient": 1.521593217656446
+          },
+          {
+            "feature": "birth date",
+            "coefficient": 1.3833528366653474
+          },
+          {
+            "feature": "birth",
+            "coefficient": 1.3833528366653474
+          },
+          {
+            "feature": "date",
+            "coefficient": 1.3164658775086995
+          },
+          {
+            "feature": "tell birthday",
+            "coefficient": 1.2943652523745828
+          },
+          {
+            "feature": "born",
+            "coefficient": 1.2389495993988797
+          },
+          {
+            "feature": "creat",
+            "coefficient": 1.217672278036208
+          },
+          {
+            "feature": "day",
+            "coefficient": 1.157320002204614
+          },
+          {
+            "feature": "tell",
+            "coefficient": 0.7349502967174032
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.22436826003440433
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.18738300058822796
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.18038581441578055
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.17161825926324434
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.15622673448221455
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.1188063629144597
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.11808647130809449
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.11735010447864153
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.10767375590941246
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.09885734797839929
+          }
+        ]
+      },
+      "agent.boring": {
+        "top_positive": [
+          {
+            "feature": "bore",
+            "coefficient": 3.404965892148954
+          },
+          {
+            "feature": "sleep",
+            "coefficient": 1.9488827600097363
+          },
+          {
+            "feature": "'re bore",
+            "coefficient": 1.2363116681479427
+          },
+          {
+            "feature": "'re",
+            "coefficient": 1.0859475006155441
+          },
+          {
+            "feature": "tediou",
+            "coefficient": 1.085102378576995
+          },
+          {
+            "feature": "dull",
+            "coefficient": 0.6931365890601368
+          },
+          {
+            "feature": "thi dull",
+            "coefficient": 0.6931365890601368
+          },
+          {
+            "feature": "'re realli bore",
+            "coefficient": 0.48492886139376745
+          },
+          {
+            "feature": "'re realli",
+            "coefficient": 0.48492886139376745
+          },
+          {
+            "feature": "'re incred",
+            "coefficient": 0.4587968592193543
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'m",
+            "coefficient": -0.2738674697075698
+          },
+          {
+            "feature": "'s",
+            "coefficient": -0.2197968194816743
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.17774966016631746
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.16382238771185312
+          },
+          {
+            "feature": "'m bore",
+            "coefficient": -0.13767603192629052
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.11801556241493531
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.11572265778301107
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.11397242558455402
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.10612257497521192
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.09668703430641246
+          }
+        ]
+      },
+      "agent.boss": {
+        "top_positive": [
+          {
+            "feature": "boss",
+            "coefficient": 3.080966429294244
+          },
+          {
+            "feature": "creat",
+            "coefficient": 1.8970789234353895
+          },
+          {
+            "feature": "work",
+            "coefficient": 1.5011299018934212
+          },
+          {
+            "feature": "manag",
+            "coefficient": 1.081518264944107
+          },
+          {
+            "feature": "charg",
+            "coefficient": 1.081518264944107
+          },
+          {
+            "feature": "owner",
+            "coefficient": 1.081518264944107
+          },
+          {
+            "feature": "master",
+            "coefficient": 1.081518264944107
+          },
+          {
+            "feature": "think boss",
+            "coefficient": 0.6286592804892436
+          },
+          {
+            "feature": "think",
+            "coefficient": 0.4393368613253588
+          },
+          {
+            "feature": "talk ?",
+            "coefficient": -0.0010151653657870959
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.23663835057300223
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.20050110290456927
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.1868105061323467
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.16723312734119647
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.13821863962188521
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.1279920728363374
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.12318799449976732
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.11420951187481708
+          },
+          {
+            "feature": "day",
+            "coefficient": -0.10625415056034171
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.10491253230105553
+          }
+        ]
+      },
+      "agent.busy": {
+        "top_positive": [
+          {
+            "feature": "busi",
+            "coefficient": 3.4002532498980282
+          },
+          {
+            "feature": "avail",
+            "coefficient": 1.7320273761223681
+          },
+          {
+            "feature": "time",
+            "coefficient": 1.6733763961431565
+          },
+          {
+            "feature": "work",
+            "coefficient": 0.9455968653180368
+          },
+          {
+            "feature": "free",
+            "coefficient": 0.9110620523347063
+          },
+          {
+            "feature": "talk",
+            "coefficient": 0.7704719612975662
+          },
+          {
+            "feature": "work today",
+            "coefficient": 0.6421939864273605
+          },
+          {
+            "feature": "veri busi",
+            "coefficient": 0.559965944927959
+          },
+          {
+            "feature": "today",
+            "coefficient": 0.47312335100343955
+          },
+          {
+            "feature": "'re busi person",
+            "coefficient": 0.4039341393752238
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.2327955558588969
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.21743302199089762
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.17732099174371238
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.13984689497901467
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.12575014800991358
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.1201365590808189
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.10352233551911488
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.10106469463720108
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.09896558487880043
+          },
+          {
+            "feature": "tell",
+            "coefficient": -0.09576144824345414
+          }
+        ]
+      },
+      "agent.canyouhelp": {
+        "top_positive": [
+          {
+            "feature": "help",
+            "coefficient": 3.681619895414882
+          },
+          {
+            "feature": "assist",
+            "coefficient": 3.1609466689617682
+          },
+          {
+            "feature": "hand",
+            "coefficient": 1.9226223318721753
+          },
+          {
+            "feature": "need someth",
+            "coefficient": 0.6716146607195262
+          },
+          {
+            "feature": "someth",
+            "coefficient": 0.5410806317377633
+          },
+          {
+            "feature": "need",
+            "coefficient": 0.38931896877143035
+          },
+          {
+            "feature": "thi chatbot 'm",
+            "coefficient": -0.000863937882175847
+          },
+          {
+            "feature": "'m talk",
+            "coefficient": -0.000863937882175847
+          },
+          {
+            "feature": "talk ?",
+            "coefficient": -0.000863937882175847
+          },
+          {
+            "feature": "chatbot 'm talk",
+            "coefficient": -0.000863937882175847
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.22749376748884645
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.1699766406618423
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.16419875152508157
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.1501621988682374
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.14077893091584603
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.10784870544391847
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.10659507034596216
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.10457062889550495
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.10003574926093083
+          },
+          {
+            "feature": "happi",
+            "coefficient": -0.09477742537936108
+          }
+        ]
+      },
+      "agent.chatbot": {
+        "top_positive": [
+          {
+            "feature": "bot",
+            "coefficient": 1.5282200414710245
+          },
+          {
+            "feature": "program",
+            "coefficient": 1.472118497338351
+          },
+          {
+            "feature": "ai",
+            "coefficient": 1.3939429380212949
+          },
+          {
+            "feature": "machin",
+            "coefficient": 1.319060914936785
+          },
+          {
+            "feature": "autom",
+            "coefficient": 1.1752281496744292
+          },
+          {
+            "feature": "chatbot",
+            "coefficient": 0.9771890201839675
+          },
+          {
+            "feature": "real",
+            "coefficient": 0.7871698021581
+          },
+          {
+            "feature": "artifici intellig",
+            "coefficient": 0.7719718472959322
+          },
+          {
+            "feature": "artifici",
+            "coefficient": 0.7719718472959322
+          },
+          {
+            "feature": "comput",
+            "coefficient": 0.6779977701935391
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.26375330185266865
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.2122585693353815
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.19601990815159856
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.19399281262719228
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.1827116706315154
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.14647906877622907
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.1411993435810207
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.1386266279469107
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.1174104199976069
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.11637827001985175
+          }
+        ]
+      },
+      "agent.clever": {
+        "top_positive": [
+          {
+            "feature": "smart",
+            "coefficient": 3.6467001705365285
+          },
+          {
+            "feature": "lot",
+            "coefficient": 2.1021362722104553
+          },
+          {
+            "feature": "intellig",
+            "coefficient": 1.9197182296287607
+          },
+          {
+            "feature": "know lot",
+            "coefficient": 1.2763056765573029
+          },
+          {
+            "feature": "lot knowledg",
+            "coefficient": 1.1693087198462162
+          },
+          {
+            "feature": "knowledg",
+            "coefficient": 1.1693087198462162
+          },
+          {
+            "feature": "veri smart",
+            "coefficient": 1.1144828477424016
+          },
+          {
+            "feature": "know",
+            "coefficient": 0.8937634821475725
+          },
+          {
+            "feature": "veri",
+            "coefficient": 0.746224258366004
+          },
+          {
+            "feature": "'m talk",
+            "coefficient": -0.0009075433652967738
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.21204780803105397
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.17895483207068935
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.17168486752156384
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.16068786824033524
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.14991463652843834
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.11918398553746258
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.11318759250247122
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.10976953065153505
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.10226520208263083
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.09398914317403202
+          }
+        ]
+      },
+      "agent.crazy": {
+        "top_positive": [
+          {
+            "feature": "crazi",
+            "coefficient": 3.0244478832364234
+          },
+          {
+            "feature": "mad",
+            "coefficient": 2.7125819200773176
+          },
+          {
+            "feature": "nut",
+            "coefficient": 2.0289676087503774
+          },
+          {
+            "feature": "mental",
+            "coefficient": 2.0289676087503774
+          },
+          {
+            "feature": "insan",
+            "coefficient": 1.0812713241832517
+          },
+          {
+            "feature": "went",
+            "coefficient": 0.596192105408189
+          },
+          {
+            "feature": "went crazi",
+            "coefficient": 0.596192105408189
+          },
+          {
+            "feature": "thi chatbot 'm",
+            "coefficient": -0.0010122395534212804
+          },
+          {
+            "feature": "talk ?",
+            "coefficient": -0.0010122395534212804
+          },
+          {
+            "feature": "'m talk ?",
+            "coefficient": -0.0010122395534212804
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'m",
+            "coefficient": -0.23991788810540876
+          },
+          {
+            "feature": "'s",
+            "coefficient": -0.23791620031591193
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.19189195924689587
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.17579223731600704
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.166087108583305
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.1265405754770023
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.12492095653731215
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.12371699584137623
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.11480103822506368
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.1048922595573246
+          }
+        ]
+      },
+      "agent.fire": {
+        "top_positive": [
+          {
+            "feature": "dismiss",
+            "coefficient": 2.0171842364272
+          },
+          {
+            "feature": "let",
+            "coefficient": 1.9524603437418069
+          },
+          {
+            "feature": "'re",
+            "coefficient": 0.8591911025956323
+          },
+          {
+            "feature": "longer",
+            "coefficient": 0.8540394977106295
+          },
+          {
+            "feature": "longer need",
+            "coefficient": 0.8540394977106295
+          },
+          {
+            "feature": "servic longer need",
+            "coefficient": 0.8540394977106295
+          },
+          {
+            "feature": "servic",
+            "coefficient": 0.8540394977106295
+          },
+          {
+            "feature": "servic longer",
+            "coefficient": 0.8540394977106295
+          },
+          {
+            "feature": "'m",
+            "coefficient": 0.8045314792011006
+          },
+          {
+            "feature": "need",
+            "coefficient": 0.5782286616600788
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.25902505801587217
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.18815967462357183
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.13723536698240804
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.13409183399275404
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.1339540739300709
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.13135218487590758
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.12180962588510684
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.11313732415474292
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.1083357067597008
+          },
+          {
+            "feature": "tell",
+            "coefficient": -0.10517204104035154
+          }
+        ]
+      },
+      "agent.funny": {
+        "top_positive": [
+          {
+            "feature": "hilari",
+            "coefficient": 2.6746134207433796
+          },
+          {
+            "feature": "funni",
+            "coefficient": 2.1730338093174093
+          },
+          {
+            "feature": "amus",
+            "coefficient": 2.1730338093174093
+          },
+          {
+            "feature": "laugh",
+            "coefficient": 1.6155639495074499
+          },
+          {
+            "feature": "make laugh",
+            "coefficient": 1.6155639495074499
+          },
+          {
+            "feature": "make",
+            "coefficient": 1.421902040906822
+          },
+          {
+            "feature": "entertain",
+            "coefficient": 1.173817845324629
+          },
+          {
+            "feature": "'re hilari",
+            "coefficient": 0.7338458174786638
+          },
+          {
+            "feature": "make laugh lot",
+            "coefficient": 0.4694219693574392
+          },
+          {
+            "feature": "laugh lot",
+            "coefficient": 0.4694219693574392
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.2421418089660493
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.20336723452852407
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.19521999960669345
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.17904896907588558
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.128891340082404
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.12711824090760496
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.12601960855810276
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.11686939001393935
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.1103043035507848
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.10603520067488961
+          }
+        ]
+      },
+      "agent.good": {
+        "top_positive": [
+          {
+            "feature": "love",
+            "coefficient": 2.681982830245647
+          },
+          {
+            "feature": "good",
+            "coefficient": 1.885140786794984
+          },
+          {
+            "feature": "work",
+            "coefficient": 1.8166386135628025
+          },
+          {
+            "feature": "make day",
+            "coefficient": 1.5926024221327992
+          },
+          {
+            "feature": "veri love",
+            "coefficient": 1.518203422317499
+          },
+          {
+            "feature": "make",
+            "coefficient": 1.269146409014291
+          },
+          {
+            "feature": "day",
+            "coefficient": 1.1261221383020408
+          },
+          {
+            "feature": "veri",
+            "coefficient": 1.0459259664107001
+          },
+          {
+            "feature": "'m talk ?",
+            "coefficient": -0.0008673838314254331
+          },
+          {
+            "feature": "'m talk",
+            "coefficient": -0.0008673838314254331
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.239658151109144
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.18858212187076492
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.14765584172074522
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.12543565192969477
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.10587658344834507
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.09861076906287311
+          },
+          {
+            "feature": "'s good",
+            "coefficient": -0.09655425847024822
+          },
+          {
+            "feature": "good work",
+            "coefficient": -0.09400183417127976
+          },
+          {
+            "feature": "thi",
+            "coefficient": -0.09086974228303434
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.09071060356124319
+          }
+        ]
+      },
+      "agent.happy": {
+        "top_positive": [
+          {
+            "feature": "happi",
+            "coefficient": 2.7398166298183004
+          },
+          {
+            "feature": "feel",
+            "coefficient": 1.4410981126919407
+          },
+          {
+            "feature": "'re happi",
+            "coefficient": 1.2467243415615825
+          },
+          {
+            "feature": "smile",
+            "coefficient": 1.0802469933978072
+          },
+          {
+            "feature": "upbeat",
+            "coefficient": 1.0802469933978072
+          },
+          {
+            "feature": "cheer",
+            "coefficient": 1.0009170866004493
+          },
+          {
+            "feature": "'re",
+            "coefficient": 0.8178532472047269
+          },
+          {
+            "feature": "mood",
+            "coefficient": 0.6975996381255979
+          },
+          {
+            "feature": "good mood",
+            "coefficient": 0.6975996381255979
+          },
+          {
+            "feature": "feel posit",
+            "coefficient": 0.6813939412752226
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.24774283565369326
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.2044590320606771
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.19787085671814783
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.13856248086531184
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.13712087536609663
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.13204139156554368
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.12813405258147553
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.12646619883567975
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.11628875980456185
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.10443273302112684
+          }
+        ]
+      },
+      "agent.hobby": {
+        "top_positive": [
+          {
+            "feature": "hobbi",
+            "coefficient": 2.7773346945899178
+          },
+          {
+            "feature": "enjoy",
+            "coefficient": 1.9754639979389026
+          },
+          {
+            "feature": "like",
+            "coefficient": 1.240647036111165
+          },
+          {
+            "feature": "time",
+            "coefficient": 0.9139866279334574
+          },
+          {
+            "feature": "spend time",
+            "coefficient": 0.8843117579213355
+          },
+          {
+            "feature": "favorit",
+            "coefficient": 0.8676545343483296
+          },
+          {
+            "feature": "spend",
+            "coefficient": 0.8365093483331771
+          },
+          {
+            "feature": "favorit hobbi",
+            "coefficient": 0.6809527209687865
+          },
+          {
+            "feature": "ani",
+            "coefficient": 0.5475443796945351
+          },
+          {
+            "feature": "tell hobbi",
+            "coefficient": 0.4689981169301646
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'m",
+            "coefficient": -0.2102937013068988
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.20065204009375212
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.18545251863126727
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.17592823341624417
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.14764940496979967
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.13260465531558036
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.13244235055695522
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.1312660008154566
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.11019119794528955
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.10955768029087129
+          }
+        ]
+      },
+      "agent.hungry": {
+        "top_positive": [
+          {
+            "feature": "eat",
+            "coefficient": 2.716338046488865
+          },
+          {
+            "feature": "hungri",
+            "coefficient": 2.536982070504666
+          },
+          {
+            "feature": "food",
+            "coefficient": 1.801669042649723
+          },
+          {
+            "feature": "crave",
+            "coefficient": 1.1185506820396436
+          },
+          {
+            "feature": "need food",
+            "coefficient": 0.8778079951684791
+          },
+          {
+            "feature": "like eat",
+            "coefficient": 0.730776998570331
+          },
+          {
+            "feature": "eat food",
+            "coefficient": 0.7296202420056475
+          },
+          {
+            "feature": "starv",
+            "coefficient": 0.7289273740422337
+          },
+          {
+            "feature": "need",
+            "coefficient": 0.5970180149663604
+          },
+          {
+            "feature": "someth",
+            "coefficient": 0.49035820615316567
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.24802387769053189
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.20646751886089856
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.19778207744819876
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.18139638256337082
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.17255267792427678
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.13239000191160888
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.12930687844271443
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.12778321208497936
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.11846765053756501
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.11011577952056603
+          }
+        ]
+      },
+      "agent.marryuser": {
+        "top_positive": [
+          {
+            "feature": "marri",
+            "coefficient": 4.1576036062313655
+          },
+          {
+            "feature": "husband",
+            "coefficient": 1.7937766679531497
+          },
+          {
+            "feature": "wife",
+            "coefficient": 1.7937766679531497
+          },
+          {
+            "feature": "let",
+            "coefficient": 1.0016324613485927
+          },
+          {
+            "feature": "want marri",
+            "coefficient": 0.9590809628883774
+          },
+          {
+            "feature": "let marri",
+            "coefficient": 0.9066536595923238
+          },
+          {
+            "feature": "want",
+            "coefficient": 0.6489598649654361
+          },
+          {
+            "feature": "love marri",
+            "coefficient": 0.5575882092009764
+          },
+          {
+            "feature": "marri pleas",
+            "coefficient": 0.5274324553333215
+          },
+          {
+            "feature": "pleas",
+            "coefficient": 0.43192993961596443
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'m",
+            "coefficient": -0.18110869570840973
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.17367314102973694
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.16087386948489638
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.14952490172006197
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.11373122689599725
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.1115368394949766
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.10386528540005738
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.09510002632564443
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.0943291662188885
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.09290383300896242
+          }
+        ]
+      },
+      "agent.myfriend": {
+        "top_positive": [
+          {
+            "feature": "friend",
+            "coefficient": 5.057363339712506
+          },
+          {
+            "feature": "consid friend",
+            "coefficient": 0.9569857255700516
+          },
+          {
+            "feature": "want friend",
+            "coefficient": 0.9105537984799912
+          },
+          {
+            "feature": "consid",
+            "coefficient": 0.9105461560597047
+          },
+          {
+            "feature": "want",
+            "coefficient": 0.631731880331857
+          },
+          {
+            "feature": "like",
+            "coefficient": 0.60134264409339
+          },
+          {
+            "feature": "like friend",
+            "coefficient": 0.578177032042278
+          },
+          {
+            "feature": "onli friend",
+            "coefficient": 0.5447705059642124
+          },
+          {
+            "feature": "onli",
+            "coefficient": 0.5447705059642124
+          },
+          {
+            "feature": "want friend like",
+            "coefficient": 0.41638320059543393
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.16291690556411087
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.13454179117604115
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.1310114613952384
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.11984678365551356
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.11131092573086306
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.08548493427443755
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.08498117874647589
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.08221885498869833
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.07734071057534463
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.07147829700492485
+          }
+        ]
+      },
+      "agent.occupation": {
+        "top_positive": [
+          {
+            "feature": "work",
+            "coefficient": 2.296720857643746
+          },
+          {
+            "feature": "offic",
+            "coefficient": 1.5712387091073383
+          },
+          {
+            "feature": "occup",
+            "coefficient": 1.4953375859045137
+          },
+          {
+            "feature": "kind work",
+            "coefficient": 0.9333711450667791
+          },
+          {
+            "feature": "offic locat",
+            "coefficient": 0.86410973682981
+          },
+          {
+            "feature": "locat",
+            "coefficient": 0.8174745568626051
+          },
+          {
+            "feature": "kind",
+            "coefficient": 0.8159933910974494
+          },
+          {
+            "feature": "workplac",
+            "coefficient": 0.7717449960496799
+          },
+          {
+            "feature": "headquart",
+            "coefficient": 0.7717449960496799
+          },
+          {
+            "feature": "profess",
+            "coefficient": 0.7717449960496799
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.23687590030245084
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.20198514120888553
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.19723590381559736
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.16581017996931288
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.14991395190376353
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.12644670686780723
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.12344174768857176
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.11433179645290703
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.10518163288356185
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.10419067753429814
+          }
+        ]
+      },
+      "agent.origin": {
+        "top_positive": [
+          {
+            "feature": "background",
+            "coefficient": 2.1424404734724893
+          },
+          {
+            "feature": "come",
+            "coefficient": 1.990638188100728
+          },
+          {
+            "feature": "countri",
+            "coefficient": 1.1698499219317096
+          },
+          {
+            "feature": "origin",
+            "coefficient": 1.1615265485527526
+          },
+          {
+            "feature": "born",
+            "coefficient": 1.1108945024893524
+          },
+          {
+            "feature": "creat",
+            "coefficient": 1.0480251749982834
+          },
+          {
+            "feature": "chatbot 'm",
+            "coefficient": -0.0011085531056684395
+          },
+          {
+            "feature": "thi chatbot 'm",
+            "coefficient": -0.0011085531056684395
+          },
+          {
+            "feature": "'m talk ?",
+            "coefficient": -0.0011085531056684395
+          },
+          {
+            "feature": "chatbot 'm talk",
+            "coefficient": -0.0011085531056684395
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.2619817099816071
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.2170430393841026
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.20779625038458943
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.19025924387578155
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.18057054510659173
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.13749711136696
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.13543289138916026
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.134710386284773
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.12470151990901965
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.11424012252611479
+          }
+        ]
+      },
+      "agent.ready": {
+        "top_positive": [
+          {
+            "feature": "readi",
+            "coefficient": 2.705566989190466
+          },
+          {
+            "feature": "set",
+            "coefficient": 2.111373839102107
+          },
+          {
+            "feature": "prepar",
+            "coefficient": 1.4886999597889028
+          },
+          {
+            "feature": "start",
+            "coefficient": 1.4749023452213972
+          },
+          {
+            "feature": "standbi",
+            "coefficient": 0.7699144615143232
+          },
+          {
+            "feature": "stand",
+            "coefficient": 0.7699144615143232
+          },
+          {
+            "feature": "avail",
+            "coefficient": 0.7133532017198646
+          },
+          {
+            "feature": "good",
+            "coefficient": 0.4873298039416437
+          },
+          {
+            "feature": "readi help",
+            "coefficient": 0.4852852232356211
+          },
+          {
+            "feature": "readi today",
+            "coefficient": 0.4691995674881505
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.2635223488190741
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.2138854239733171
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.20892825180446176
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.17812323051014015
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.13559640234588233
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.1328965156269605
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.13207125831553945
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.1223736560770258
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.11311541315095217
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.10969438286238253
+          }
+        ]
+      },
+      "agent.real": {
+        "top_positive": [
+          {
+            "feature": "real",
+            "coefficient": 3.939256899333754
+          },
+          {
+            "feature": "fake",
+            "coefficient": 2.4048762003019752
+          },
+          {
+            "feature": "'re real",
+            "coefficient": 1.9372915513599909
+          },
+          {
+            "feature": "real person",
+            "coefficient": 1.2804167369650288
+          },
+          {
+            "feature": "person",
+            "coefficient": 1.0681181561535784
+          },
+          {
+            "feature": "'re",
+            "coefficient": 1.0037875349397736
+          },
+          {
+            "feature": "think 're real",
+            "coefficient": 0.8788981380793547
+          },
+          {
+            "feature": "think 're",
+            "coefficient": 0.8205240840611838
+          },
+          {
+            "feature": "think",
+            "coefficient": 0.6428994417631498
+          },
+          {
+            "feature": "just robot ,",
+            "coefficient": -0.0008035952359631765
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.18836768592486708
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.15786368065828082
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.15301863461906154
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.14089348543530736
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.10247298814970465
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.09935251392643493
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.09701697098210946
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.09192463411884427
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.09075934926545322
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.0823525729384982
+          }
+        ]
+      },
+      "agent.residence": {
+        "top_positive": [
+          {
+            "feature": "live",
+            "coefficient": 2.72476914979749
+          },
+          {
+            "feature": "resid",
+            "coefficient": 2.72476914979749
+          },
+          {
+            "feature": "stay",
+            "coefficient": 2.0141990996978922
+          },
+          {
+            "feature": "address",
+            "coefficient": 1.0795124300360999
+          },
+          {
+            "feature": "town",
+            "coefficient": 1.0795124300360999
+          },
+          {
+            "feature": "home",
+            "coefficient": 1.0795124300360999
+          },
+          {
+            "feature": "citi",
+            "coefficient": 0.7009285688882523
+          },
+          {
+            "feature": "tell citi",
+            "coefficient": 0.7009285688882523
+          },
+          {
+            "feature": "tell",
+            "coefficient": 0.32089073415992414
+          },
+          {
+            "feature": "talk ?",
+            "coefficient": -0.0010565063098517096
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.24697740531463758
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.2069453259966119
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.19849200083605753
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.18182460087158112
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.172368498751273
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.13113199729692526
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.12947212891502932
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.1292682679811878
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.1188978870287518
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.10898924323044114
+          }
+        ]
+      },
+      "agent.right": {
+        "top_positive": [
+          {
+            "feature": "right",
+            "coefficient": 3.153056950862691
+          },
+          {
+            "feature": "exactli",
+            "coefficient": 1.6334049177727183
+          },
+          {
+            "feature": "'re",
+            "coefficient": 1.598784799223091
+          },
+          {
+            "feature": "true",
+            "coefficient": 1.0118456866984182
+          },
+          {
+            "feature": "'re right",
+            "coefficient": 0.9626904622098473
+          },
+          {
+            "feature": "absolut right",
+            "coefficient": 0.9456670153175595
+          },
+          {
+            "feature": "absolut",
+            "coefficient": 0.903396611068676
+          },
+          {
+            "feature": "correct",
+            "coefficient": 0.6568602858305553
+          },
+          {
+            "feature": "exactli right",
+            "coefficient": 0.5234420452011984
+          },
+          {
+            "feature": "'s true",
+            "coefficient": 0.46072342562044966
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'m",
+            "coefficient": -0.20363759393788164
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.19024671286516784
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.17975397001021723
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.12562792975135184
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.12548933756956182
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.1251802606375984
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.12189423848125236
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.11454053219753656
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.10416071649057415
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.10151066762391414
+          }
+        ]
+      },
+      "agent.sure": {
+        "top_positive": [
+          {
+            "feature": "sure",
+            "coefficient": 3.1801945369007476
+          },
+          {
+            "feature": "certain",
+            "coefficient": 1.4912896400365054
+          },
+          {
+            "feature": "confirm",
+            "coefficient": 1.4890915648321392
+          },
+          {
+            "feature": "posit",
+            "coefficient": 1.429854658155695
+          },
+          {
+            "feature": "true",
+            "coefficient": 1.145263014873474
+          },
+          {
+            "feature": "fact",
+            "coefficient": 0.7706293322674147
+          },
+          {
+            "feature": "realli",
+            "coefficient": 0.6929294201135568
+          },
+          {
+            "feature": "realli mean",
+            "coefficient": 0.5113573179533547
+          },
+          {
+            "feature": "realli true",
+            "coefficient": 0.4902193533134826
+          },
+          {
+            "feature": "sure thi",
+            "coefficient": 0.4833878595408483
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.2510907960006591
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.21072445326801892
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.19906984492852753
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.18354143193136122
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.17647471182637853
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.13251883141076262
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.12966821610645513
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.12874903288236214
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.11931558033280378
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.11348413033415986
+          }
+        ]
+      },
+      "agent.talktome": {
+        "top_positive": [
+          {
+            "feature": "chat",
+            "coefficient": 2.6122668313992596
+          },
+          {
+            "feature": "speak",
+            "coefficient": 2.1746730407158155
+          },
+          {
+            "feature": "convers",
+            "coefficient": 2.1622190545586832
+          },
+          {
+            "feature": "talk",
+            "coefficient": 1.963726969435851
+          },
+          {
+            "feature": "say someth",
+            "coefficient": 1.3002094102018906
+          },
+          {
+            "feature": "say",
+            "coefficient": 1.3002094102018906
+          },
+          {
+            "feature": "someth",
+            "coefficient": 1.1395380464395557
+          },
+          {
+            "feature": "let chat",
+            "coefficient": 0.7006668408035545
+          },
+          {
+            "feature": "let",
+            "coefficient": 0.4868377083597731
+          },
+          {
+            "feature": ", right",
+            "coefficient": -0.0010472341105724713
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.24796473823063592
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.20239450903704517
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.19377043608717626
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.17759524976437158
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.16795907574667282
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.1597342837783298
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.13331528003886808
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.12805294696920433
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.12515278138372654
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.1064809329766951
+          }
+        ]
+      },
+      "agent.there": {
+        "top_positive": [
+          {
+            "feature": "hello",
+            "coefficient": 2.0660255894845974
+          },
+          {
+            "feature": "hear",
+            "coefficient": 1.1670659017248066
+          },
+          {
+            "feature": "listen",
+            "coefficient": 1.1670659017248066
+          },
+          {
+            "feature": "'m talk",
+            "coefficient": -0.0011571662708656982
+          },
+          {
+            "feature": "'m talk ?",
+            "coefficient": -0.0011571662708656982
+          },
+          {
+            "feature": "talk ?",
+            "coefficient": -0.0011571662708656982
+          },
+          {
+            "feature": "chatbot 'm talk",
+            "coefficient": -0.0011571662708656982
+          },
+          {
+            "feature": "thi chatbot 'm",
+            "coefficient": -0.0011571662708656982
+          },
+          {
+            "feature": "chatbot 'm",
+            "coefficient": -0.0011571662708656982
+          },
+          {
+            "feature": "robot",
+            "coefficient": -0.0011829939282514289
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.26939878930124406
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.2264627439889891
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.21647474601240851
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.19834119279468132
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.18847024443947658
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.14342982486459824
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.14115029494981007
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.14079172674524276
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.13010529973794324
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.11909549925227525
+          }
+        ]
+      },
+      "album.info": {
+        "top_positive": [
+          {
+            "feature": "album",
+            "coefficient": 2.516541252372314
+          },
+          {
+            "feature": "discographi",
+            "coefficient": 1.618442170162004
+          },
+          {
+            "feature": "record",
+            "coefficient": 1.3996070623094146
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": 0.9220758856581834
+          },
+          {
+            "feature": "rhcp discographi",
+            "coefficient": 0.9067366670823357
+          },
+          {
+            "feature": "rundown album",
+            "coefficient": 0.8467933343832973
+          },
+          {
+            "feature": "rundown",
+            "coefficient": 0.8467933343832973
+          },
+          {
+            "feature": "main album",
+            "coefficient": 0.8467933343832973
+          },
+          {
+            "feature": "main",
+            "coefficient": 0.8467933343832973
+          },
+          {
+            "feature": "notabl record",
+            "coefficient": 0.8432557500137435
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.25294098981241736
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.2042044327935234
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.19591669154069724
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.17932368461612896
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.16976985988124108
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.1293989847107018
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.12758292545994357
+          },
+          {
+            "feature": "[",
+            "coefficient": -0.12027763005367019
+          },
+          {
+            "feature": "]",
+            "coefficient": -0.12027763005367019
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.117353470134135
+          }
+        ]
+      },
+      "album.specific": {
+        "top_positive": [
+          {
+            "feature": "album ]",
+            "coefficient": 2.4021949473013433
+          },
+          {
+            "feature": "[ album ]",
+            "coefficient": 2.4021949473013433
+          },
+          {
+            "feature": "[ album",
+            "coefficient": 2.4021949473013433
+          },
+          {
+            "feature": "album",
+            "coefficient": 2.303092252563853
+          },
+          {
+            "feature": "]",
+            "coefficient": 1.7730645124182067
+          },
+          {
+            "feature": "[",
+            "coefficient": 1.7730645124182067
+          },
+          {
+            "feature": "'s",
+            "coefficient": 0.4616950204378188
+          },
+          {
+            "feature": "song [ album",
+            "coefficient": 0.2879646857241398
+          },
+          {
+            "feature": "know [ album",
+            "coefficient": 0.2848846664831355
+          },
+          {
+            "feature": "produc",
+            "coefficient": 0.28416346818257116
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'m",
+            "coefficient": -0.14191538642861734
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.13763120352623642
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.1323456504427821
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.11815928324834271
+          },
+          {
+            "feature": "song ]",
+            "coefficient": -0.1093093691523919
+          },
+          {
+            "feature": "[ song",
+            "coefficient": -0.1093093691523919
+          },
+          {
+            "feature": "[ song ]",
+            "coefficient": -0.1093093691523919
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.09656622610389297
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.0923076774257843
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.08999119667032983
+          }
+        ]
+      },
+      "appraisal.bad": {
+        "top_positive": [
+          {
+            "feature": "'s",
+            "coefficient": 3.0905673500418005
+          },
+          {
+            "feature": "bad",
+            "coefficient": 1.4186849491089666
+          },
+          {
+            "feature": "'s bad",
+            "coefficient": 1.007002770300932
+          },
+          {
+            "feature": "'s want",
+            "coefficient": 0.7756360802845833
+          },
+          {
+            "feature": "'s terribl",
+            "coefficient": 0.7175839834525064
+          },
+          {
+            "feature": "'s disappoint",
+            "coefficient": 0.704825583881185
+          },
+          {
+            "feature": "'s aw",
+            "coefficient": 0.704825583881185
+          },
+          {
+            "feature": "unfortun",
+            "coefficient": 0.6876182669332437
+          },
+          {
+            "feature": "'s unfortun",
+            "coefficient": 0.6876182669332437
+          },
+          {
+            "feature": "disappoint",
+            "coefficient": 0.6443846144609499
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "work",
+            "coefficient": -0.18662666879093132
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.16196555133584664
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.14466558168775223
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.12800867808792774
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.120614298802202
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.1200744108458432
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.1131130461997198
+          },
+          {
+            "feature": "]",
+            "coefficient": -0.10711890244608334
+          },
+          {
+            "feature": "[",
+            "coefficient": -0.10711890244608334
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.10162936685314292
+          }
+        ]
+      },
+      "appraisal.good": {
+        "top_positive": [
+          {
+            "feature": "'s",
+            "coefficient": 2.845474500390688
+          },
+          {
+            "feature": "realli",
+            "coefficient": 1.015564753217073
+          },
+          {
+            "feature": "'s help",
+            "coefficient": 0.7826537761128073
+          },
+          {
+            "feature": "good know",
+            "coefficient": 0.765972514898462
+          },
+          {
+            "feature": "'s wonder",
+            "coefficient": 0.7216921812824636
+          },
+          {
+            "feature": "'s fantast",
+            "coefficient": 0.7081734865611728
+          },
+          {
+            "feature": "excel",
+            "coefficient": 0.6913270304295238
+          },
+          {
+            "feature": "'s perfect",
+            "coefficient": 0.6913270304295238
+          },
+          {
+            "feature": "'s excel",
+            "coefficient": 0.6913270304295238
+          },
+          {
+            "feature": "perfect",
+            "coefficient": 0.6913270304295238
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'m",
+            "coefficient": -0.19637896358828655
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.1916847082571473
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.16220112988990704
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.14367733968995353
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.12883661228343624
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.12403141091610251
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.12143403343323134
+          },
+          {
+            "feature": "]",
+            "coefficient": -0.10726039448504993
+          },
+          {
+            "feature": "[",
+            "coefficient": -0.10726039448504993
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.10719936380786763
+          }
+        ]
+      },
+      "appraisal.noproblem": {
+        "top_positive": [
+          {
+            "feature": "problem",
+            "coefficient": 2.938897389819639
+          },
+          {
+            "feature": "worri",
+            "coefficient": 1.6041695033091101
+          },
+          {
+            "feature": "good",
+            "coefficient": 1.165493030869621
+          },
+          {
+            "feature": "'s",
+            "coefficient": 1.1225688403401308
+          },
+          {
+            "feature": "'s okay",
+            "coefficient": 0.7473822088573113
+          },
+          {
+            "feature": "issu",
+            "coefficient": 0.7157318553091329
+          },
+          {
+            "feature": "noth",
+            "coefficient": 0.7157318553091329
+          },
+          {
+            "feature": "'s noth",
+            "coefficient": 0.7157318553091329
+          },
+          {
+            "feature": "'s issu",
+            "coefficient": 0.7157318553091329
+          },
+          {
+            "feature": "n't worri",
+            "coefficient": 0.6908683720814831
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "work",
+            "coefficient": -0.19582510656841243
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.1953190662200178
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.1629658714385469
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.1296021038048058
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.12414237766904507
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.12337049330866286
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.11515074187656814
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.10567585618232252
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.10264657524582446
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.10057604129894113
+          }
+        ]
+      },
+      "appraisal.thankyou": {
+        "top_positive": [
+          {
+            "feature": "thank",
+            "coefficient": 3.3478852634304697
+          },
+          {
+            "feature": "oblig",
+            "coefficient": 2.0364172168850603
+          },
+          {
+            "feature": "cheer",
+            "coefficient": 1.9514497935468584
+          },
+          {
+            "feature": "nice thank",
+            "coefficient": 1.1613286545838173
+          },
+          {
+            "feature": "thank veri",
+            "coefficient": 1.1338882967379111
+          },
+          {
+            "feature": "buddi",
+            "coefficient": 0.7753109840949884
+          },
+          {
+            "feature": "lot buddi",
+            "coefficient": 0.7753109840949884
+          },
+          {
+            "feature": "thank lot buddi",
+            "coefficient": 0.7753109840949884
+          },
+          {
+            "feature": "thank lot",
+            "coefficient": 0.7753109840949884
+          },
+          {
+            "feature": "heap",
+            "coefficient": 0.7681652271450331
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.23342486863753387
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.19351656895710173
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.18964596750585036
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.1694298303137866
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.16231571769696657
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.12895201925451524
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.11939642978784057
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.11900153017668406
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.10148465923252625
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.10037787247654205
+          }
+        ]
+      },
+      "appraisal.welcome": {
+        "top_positive": [
+          {
+            "feature": "pleasur",
+            "coefficient": 1.6493425176268475
+          },
+          {
+            "feature": "happi help",
+            "coefficient": 1.1418330682797362
+          },
+          {
+            "feature": "welcom",
+            "coefficient": 1.1340217089180993
+          },
+          {
+            "feature": "cours",
+            "coefficient": 1.077840997145408
+          },
+          {
+            "feature": "anytim",
+            "coefficient": 1.077840997145408
+          },
+          {
+            "feature": "worri",
+            "coefficient": 1.0143081856533955
+          },
+          {
+            "feature": "problem",
+            "coefficient": 0.9640849331737054
+          },
+          {
+            "feature": "happi",
+            "coefficient": 0.8502454470118241
+          },
+          {
+            "feature": "'s pleasur",
+            "coefficient": 0.7419253746991321
+          },
+          {
+            "feature": "'re welcom",
+            "coefficient": 0.7109984595524756
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'m",
+            "coefficient": -0.2145133114586277
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.2055521358717554
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.1922328036258938
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.13853988282443813
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.13834098450310525
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.13652824007467365
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.13366390840510015
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.11814095193734203
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.11049923544256479
+          },
+          {
+            "feature": "tell",
+            "coefficient": -0.10646117384076394
+          }
+        ]
+      },
+      "appraisal.welldone": {
+        "top_positive": [
+          {
+            "feature": "work",
+            "coefficient": 2.2982194911328935
+          },
+          {
+            "feature": "job",
+            "coefficient": 2.246593076970185
+          },
+          {
+            "feature": "great",
+            "coefficient": 1.7872772890924336
+          },
+          {
+            "feature": "nice work",
+            "coefficient": 1.4152008369688163
+          },
+          {
+            "feature": "good work",
+            "coefficient": 1.3981722271707286
+          },
+          {
+            "feature": "good",
+            "coefficient": 1.2828897114011821
+          },
+          {
+            "feature": "great work",
+            "coefficient": 1.2684441683748602
+          },
+          {
+            "feature": "amazin",
+            "coefficient": 1.2467458935057447
+          },
+          {
+            "feature": "amazin work",
+            "coefficient": 1.2467458935057447
+          },
+          {
+            "feature": "good job",
+            "coefficient": 1.2415575226492166
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.2504919574822959
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.17181641914617762
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.14205696818650473
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.11632739664182566
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.10764162298840732
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.10439292200249876
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.08972192498546334
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.08861206905954543
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.08647155715331412
+          },
+          {
+            "feature": "tell",
+            "coefficient": -0.08314606516034669
+          }
+        ]
+      },
+      "band.awards": {
+        "top_positive": [
+          {
+            "feature": "award",
+            "coefficient": 3.1037013196629992
+          },
+          {
+            "feature": "achiev",
+            "coefficient": 1.7820726029427012
+          },
+          {
+            "feature": "won",
+            "coefficient": 1.486115354683131
+          },
+          {
+            "feature": "ani",
+            "coefficient": 0.9554979750218252
+          },
+          {
+            "feature": "major award",
+            "coefficient": 0.9516986050491169
+          },
+          {
+            "feature": "major",
+            "coefficient": 0.9516986050491169
+          },
+          {
+            "feature": "award won",
+            "coefficient": 0.9178984541228516
+          },
+          {
+            "feature": "won ani",
+            "coefficient": 0.7360871034424895
+          },
+          {
+            "feature": "won ani grammi",
+            "coefficient": 0.7360871034424895
+          },
+          {
+            "feature": "grammi",
+            "coefficient": 0.7360871034424895
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.23564848431606938
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.19622193190870635
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.1885466039159266
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.17266176016245938
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.1630657099427716
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.12436691805773016
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.12273012771636975
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.11278154570921609
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.1034512679566316
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.10272175979396635
+          }
+        ]
+      },
+      "band.collaborations": {
+        "top_positive": [
+          {
+            "feature": "collabor",
+            "coefficient": 2.5259345077380453
+          },
+          {
+            "feature": "perform",
+            "coefficient": 1.7652870942937708
+          },
+          {
+            "feature": "record",
+            "coefficient": 1.7336177598075715
+          },
+          {
+            "feature": "work",
+            "coefficient": 1.299497763616509
+          },
+          {
+            "feature": "artist",
+            "coefficient": 1.2925935691627746
+          },
+          {
+            "feature": "artist collabor",
+            "coefficient": 0.9530011853418777
+          },
+          {
+            "feature": "pepper joint project",
+            "coefficient": 0.5564316574320531
+          },
+          {
+            "feature": "joint",
+            "coefficient": 0.5564316574320531
+          },
+          {
+            "feature": "project",
+            "coefficient": 0.5564316574320531
+          },
+          {
+            "feature": "joint project",
+            "coefficient": 0.5564316574320531
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.2389158701274698
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.20097698985174595
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.18549243143742974
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.1660085047462222
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.1363837183724557
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.12657172267416036
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.11466232274743905
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.10528377741967637
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.10464111182584218
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.10211666719485774
+          }
+        ]
+      },
+      "band.history": {
+        "top_positive": [
+          {
+            "feature": "band",
+            "coefficient": 1.4614705031925905
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": 1.4151545650958863
+          },
+          {
+            "feature": "begin",
+            "coefficient": 1.3146499202762205
+          },
+          {
+            "feature": "form",
+            "coefficient": 0.9577345119979085
+          },
+          {
+            "feature": "begin rhcp",
+            "coefficient": 0.9063126730574319
+          },
+          {
+            "feature": "did",
+            "coefficient": 0.8671721429778169
+          },
+          {
+            "feature": "wa",
+            "coefficient": 0.8001000261928081
+          },
+          {
+            "feature": "'s histori rhcp",
+            "coefficient": 0.6956984928903259
+          },
+          {
+            "feature": "histori rhcp",
+            "coefficient": 0.6956984928903259
+          },
+          {
+            "feature": "day band",
+            "coefficient": 0.6180931087926351
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'m",
+            "coefficient": -0.20799461517511217
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.19728673011715486
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.18899556001535886
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.17124969854365477
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.13347727030302872
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.13037458006945363
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.11946477546691309
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.1091206805058368
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.10842131728763459
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.10568384507585887
+          }
+        ]
+      },
+      "band.influence": {
+        "top_positive": [
+          {
+            "feature": "inspir",
+            "coefficient": 2.4053746662836786
+          },
+          {
+            "feature": "influenc",
+            "coefficient": 2.089138003908366
+          },
+          {
+            "feature": "music",
+            "coefficient": 2.005416178588312
+          },
+          {
+            "feature": "did look",
+            "coefficient": 1.186974093850135
+          },
+          {
+            "feature": "band",
+            "coefficient": 1.1751616003658394
+          },
+          {
+            "feature": "band inspir",
+            "coefficient": 1.074290255243121
+          },
+          {
+            "feature": "music influenc",
+            "coefficient": 0.9963514024054941
+          },
+          {
+            "feature": "inspir music",
+            "coefficient": 0.97283770535816
+          },
+          {
+            "feature": "did",
+            "coefficient": 0.9360625198294695
+          },
+          {
+            "feature": "look",
+            "coefficient": 0.8774369608379624
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.2386878989326011
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.1925746961192251
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.18382031798429171
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.1692725014254972
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.16069328874204478
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.12117794727023717
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.11962473021766044
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.10983399962805898
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.10082423454812788
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.09973661355089665
+          }
+        ]
+      },
+      "band.members": {
+        "top_positive": [
+          {
+            "feature": "current",
+            "coefficient": 1.575894095063581
+          },
+          {
+            "feature": "band",
+            "coefficient": 1.535580902459226
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": 1.399252065787766
+          },
+          {
+            "feature": "member",
+            "coefficient": 1.2075428029948911
+          },
+          {
+            "feature": "current rhcp",
+            "coefficient": 0.7573224333909065
+          },
+          {
+            "feature": "lineup",
+            "coefficient": 0.660548462035301
+          },
+          {
+            "feature": "?",
+            "coefficient": 0.6440250030384663
+          },
+          {
+            "feature": "hot",
+            "coefficient": 0.5712399119567506
+          },
+          {
+            "feature": "red",
+            "coefficient": 0.5712399119567506
+          },
+          {
+            "feature": "red hot",
+            "coefficient": 0.5712399119567506
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'m",
+            "coefficient": -0.20744982175069895
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.19644493201614302
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.1857021275793299
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.172209207002918
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.13061840466851038
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.12979283583822768
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.11894645846371088
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.10927132253408008
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.10793098136073677
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.10516803910484125
+          }
+        ]
+      },
+      "band.style": {
+        "top_positive": [
+          {
+            "feature": "genr",
+            "coefficient": 2.8440122962209053
+          },
+          {
+            "feature": "music",
+            "coefficient": 2.2261978793028745
+          },
+          {
+            "feature": "sound",
+            "coefficient": 1.5441042020935127
+          },
+          {
+            "feature": "describ",
+            "coefficient": 1.2736247684068631
+          },
+          {
+            "feature": "describ sound",
+            "coefficient": 1.0677438742882766
+          },
+          {
+            "feature": "genr music",
+            "coefficient": 0.8838478321240191
+          },
+          {
+            "feature": "'s music style",
+            "coefficient": 0.7932571168972681
+          },
+          {
+            "feature": "style",
+            "coefficient": 0.7932571168972681
+          },
+          {
+            "feature": "music style",
+            "coefficient": 0.7932571168972681
+          },
+          {
+            "feature": "music play",
+            "coefficient": 0.761275547007824
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'m",
+            "coefficient": -0.19037095506703958
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.1862815864288611
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.17149666109658052
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.15799261848124052
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.12082266803389546
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.12056270657048165
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.11010647712309109
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.10053411645799196
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.1003309734699156
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.09741557842482011
+          }
+        ]
+      },
+      "band.tours": {
+        "top_positive": [
+          {
+            "feature": "tour",
+            "coefficient": 3.7598347699920507
+          },
+          {
+            "feature": "play",
+            "coefficient": 1.5570673356092266
+          },
+          {
+            "feature": "rhcp tour",
+            "coefficient": 1.0734513709252982
+          },
+          {
+            "feature": "wa tour",
+            "coefficient": 0.8543137153367061
+          },
+          {
+            "feature": "wa",
+            "coefficient": 0.6668025008608525
+          },
+          {
+            "feature": "rhcp tour schedul",
+            "coefficient": 0.610963207409499
+          },
+          {
+            "feature": "tour schedul",
+            "coefficient": 0.610963207409499
+          },
+          {
+            "feature": "schedul",
+            "coefficient": 0.610963207409499
+          },
+          {
+            "feature": "come [ locat",
+            "coefficient": 0.5938431121634306
+          },
+          {
+            "feature": "[ locat",
+            "coefficient": 0.5938431121634306
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.22874264597528662
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.18683606434950692
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.17930409738421238
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.164158540500857
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.15467171366073915
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.11824625809730326
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.11807276483283112
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.10698641427851167
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.09828425890691396
+          },
+          {
+            "feature": "song",
+            "coefficient": -0.09739929413415953
+          }
+        ]
+      },
+      "dialog.holdon": {
+        "top_positive": [
+          {
+            "feature": "wait",
+            "coefficient": 3.031981052037252
+          },
+          {
+            "feature": "moment",
+            "coefficient": 2.1143845958803813
+          },
+          {
+            "feature": "hold",
+            "coefficient": 1.6389664300534033
+          },
+          {
+            "feature": "second",
+            "coefficient": 1.141204486888706
+          },
+          {
+            "feature": "just",
+            "coefficient": 1.1080411072163756
+          },
+          {
+            "feature": "hang",
+            "coefficient": 1.079619840770814
+          },
+          {
+            "feature": "pleas",
+            "coefficient": 1.0616324983281424
+          },
+          {
+            "feature": "just second",
+            "coefficient": 0.641900760973154
+          },
+          {
+            "feature": "just minut",
+            "coefficient": 0.641177121383002
+          },
+          {
+            "feature": "minut",
+            "coefficient": 0.641177121383002
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.24766717688150047
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.20649959896783499
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.19809133443417953
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.18144336052306456
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.17169393708246003
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.1308408925342079
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.12898904369938405
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.1279829612983004
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.11863849125570511
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.10875879557833065
+          }
+        ]
+      },
+      "dialog.hug": {
+        "top_positive": [
+          {
+            "feature": "hug",
+            "coefficient": 5.072174890964481
+          },
+          {
+            "feature": "want hug",
+            "coefficient": 1.0543017791512692
+          },
+          {
+            "feature": "want",
+            "coefficient": 0.7373139789503143
+          },
+          {
+            "feature": "like hug",
+            "coefficient": 0.6284411595892541
+          },
+          {
+            "feature": "need hug",
+            "coefficient": 0.6215738797057998
+          },
+          {
+            "feature": "accept hug",
+            "coefficient": 0.5790205862789367
+          },
+          {
+            "feature": "accept",
+            "coefficient": 0.5790205862789367
+          },
+          {
+            "feature": "let 's hug",
+            "coefficient": 0.4781029846382571
+          },
+          {
+            "feature": "'s hug",
+            "coefficient": 0.4781029846382571
+          },
+          {
+            "feature": "let 's",
+            "coefficient": 0.44581883549260526
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'m",
+            "coefficient": -0.1366535497370189
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.13291864858586674
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.12342343303605925
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.11301545981440288
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.08702888661328051
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.08676432909114502
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.08389286069045387
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.07886538219628521
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.07276449639527843
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.07253917279831078
+          }
+        ]
+      },
+      "dialog.idontcare": {
+        "top_positive": [
+          {
+            "feature": "care",
+            "coefficient": 2.6206053211467104
+          },
+          {
+            "feature": "n't",
+            "coefficient": 1.6325686731910387
+          },
+          {
+            "feature": "'m",
+            "coefficient": 1.2091641949934455
+          },
+          {
+            "feature": "prefer",
+            "coefficient": 1.0803174405739653
+          },
+          {
+            "feature": "n't care",
+            "coefficient": 0.9963608035392275
+          },
+          {
+            "feature": "'m bother",
+            "coefficient": 0.7210104386345081
+          },
+          {
+            "feature": "fuss",
+            "coefficient": 0.7030857802468662
+          },
+          {
+            "feature": "concern",
+            "coefficient": 0.7030857802468662
+          },
+          {
+            "feature": "indiffer",
+            "coefficient": 0.7030857802468662
+          },
+          {
+            "feature": "'m fuss",
+            "coefficient": 0.7030857802468662
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.24341404029655286
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.18120067556302805
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.16937732971119532
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.13472031950960642
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.13012530464239425
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.12982949184989248
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.12629639187419417
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.1174053429486751
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.10645141518790167
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.10520816162999147
+          }
+        ]
+      },
+      "dialog.sorry": {
+        "top_positive": [
+          {
+            "feature": "sorri",
+            "coefficient": 2.4857071643023945
+          },
+          {
+            "feature": "apolog",
+            "coefficient": 2.0202149441292083
+          },
+          {
+            "feature": "did n't mean",
+            "coefficient": 1.1437300028747583
+          },
+          {
+            "feature": "did n't",
+            "coefficient": 1.1437300028747583
+          },
+          {
+            "feature": "n't mean",
+            "coefficient": 1.1437300028747583
+          },
+          {
+            "feature": "regret",
+            "coefficient": 1.0791046926949985
+          },
+          {
+            "feature": "excus",
+            "coefficient": 1.0791046926949985
+          },
+          {
+            "feature": "did",
+            "coefficient": 0.9997856167500184
+          },
+          {
+            "feature": "mean",
+            "coefficient": 0.9877925284017539
+          },
+          {
+            "feature": "n't",
+            "coefficient": 0.8200848407977487
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.25266773742735266
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.20980477056710914
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.20140236863161537
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.1832186769243337
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.17656102765290202
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.13605540839884225
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.1313625042914196
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.13083624051915724
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.11988978759549557
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.1098570161728216
+          }
+        ]
+      },
+      "greetings.bye": {
+        "top_positive": [
+          {
+            "feature": "later",
+            "coefficient": 1.9871667426049457
+          },
+          {
+            "feature": "bye",
+            "coefficient": 1.4771953014414552
+          },
+          {
+            "feature": "time",
+            "coefficient": 0.8214115374780763
+          },
+          {
+            "feature": "farewel",
+            "coefficient": 0.7014829175757317
+          },
+          {
+            "feature": "ciao",
+            "coefficient": 0.7014829175757317
+          },
+          {
+            "feature": "goodby",
+            "coefficient": 0.7014829175757317
+          },
+          {
+            "feature": "care",
+            "coefficient": 0.47803313134438286
+          },
+          {
+            "feature": "ya",
+            "coefficient": 0.470775551159727
+          },
+          {
+            "feature": "peac",
+            "coefficient": 0.470775551159727
+          },
+          {
+            "feature": "soon",
+            "coefficient": 0.470775551159727
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.2716064555034999
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.22406499364047472
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.21575485785747453
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.18606499954790132
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.14149395769951054
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.14134899478108168
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.13884741245818888
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.11740459399426616
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.11720326804576625
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.11433353772386874
+          }
+        ]
+      },
+      "greetings.hello": {
+        "top_positive": [
+          {
+            "feature": "good",
+            "coefficient": 1.5764453211712257
+          },
+          {
+            "feature": "sup",
+            "coefficient": 0.8175424668577886
+          },
+          {
+            "feature": "hi",
+            "coefficient": 0.8175424668577886
+          },
+          {
+            "feature": "hey",
+            "coefficient": 0.8175424668577886
+          },
+          {
+            "feature": "howdi",
+            "coefficient": 0.8175424668577886
+          },
+          {
+            "feature": "meet",
+            "coefficient": 0.8033092808387864
+          },
+          {
+            "feature": "'s",
+            "coefficient": 0.7639519147316095
+          },
+          {
+            "feature": "hello",
+            "coefficient": 0.7491144666051266
+          },
+          {
+            "feature": "long time",
+            "coefficient": 0.5329963297725544
+          },
+          {
+            "feature": "good morn",
+            "coefficient": 0.526429827432207
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "work",
+            "coefficient": -0.21410720426888297
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.20882311194940398
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.17483836888044998
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.13185717409969286
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.13175711332784384
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.12801417072560312
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.11165364178157759
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.10959071850270866
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.1072668405341855
+          },
+          {
+            "feature": "tell",
+            "coefficient": -0.10414246892432837
+          }
+        ]
+      },
+      "greetings.howareyou": {
+        "top_positive": [
+          {
+            "feature": "alright",
+            "coefficient": 2.000413941117125
+          },
+          {
+            "feature": "day",
+            "coefficient": 1.5097962385703956
+          },
+          {
+            "feature": "feel today",
+            "coefficient": 1.3418262598889548
+          },
+          {
+            "feature": "far",
+            "coefficient": 1.2202167635354069
+          },
+          {
+            "feature": "day far",
+            "coefficient": 1.2202167635354069
+          },
+          {
+            "feature": "today",
+            "coefficient": 1.0351609622216538
+          },
+          {
+            "feature": "feel",
+            "coefficient": 0.9747341542907019
+          },
+          {
+            "feature": "everyth okay ?",
+            "coefficient": 0.9004071557418929
+          },
+          {
+            "feature": "okay ?",
+            "coefficient": 0.9004071557418929
+          },
+          {
+            "feature": "everyth okay",
+            "coefficient": 0.9004071557418929
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.25219587727930665
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.21210963055653193
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.20459905125366742
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.19390098865557304
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.1751735921111724
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.13444060268008304
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.1325565610238744
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.1305903500860669
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.12037191758036318
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.11301761731387697
+          }
+        ]
+      },
+      "greetings.nicetomeetyou": {
+        "top_positive": [
+          {
+            "feature": "meet",
+            "coefficient": 3.6559572152465316
+          },
+          {
+            "feature": "nice meet",
+            "coefficient": 2.5542599281694813
+          },
+          {
+            "feature": "nice",
+            "coefficient": 1.8111919768125109
+          },
+          {
+            "feature": "glad meet",
+            "coefficient": 1.5331913231021617
+          },
+          {
+            "feature": "glad",
+            "coefficient": 1.4049737573022398
+          },
+          {
+            "feature": "wa veri",
+            "coefficient": 0.8243534967931349
+          },
+          {
+            "feature": "wa veri nice",
+            "coefficient": 0.8243534967931349
+          },
+          {
+            "feature": "veri nice meet",
+            "coefficient": 0.8243534967931349
+          },
+          {
+            "feature": "veri nice",
+            "coefficient": 0.8243534967931349
+          },
+          {
+            "feature": "wa",
+            "coefficient": 0.6562005838531298
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.1639104334687763
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.13686199905852123
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.12950416682146998
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.11491041682845661
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.10783692053476548
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.09531937611651835
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.08536436005372885
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.07964480458144585
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.06861194655375305
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.06730588638393778
+          }
+        ]
+      },
+      "greetings.nicetoseeyou": {
+        "top_positive": [
+          {
+            "feature": "nice",
+            "coefficient": 2.92434923419704
+          },
+          {
+            "feature": "great",
+            "coefficient": 1.5494792254197227
+          },
+          {
+            "feature": "good",
+            "coefficient": 1.1907893672731058
+          },
+          {
+            "feature": "delight",
+            "coefficient": 1.0691833420857193
+          },
+          {
+            "feature": "glad",
+            "coefficient": 1.0507777975374795
+          },
+          {
+            "feature": "wonder",
+            "coefficient": 1.0482920215582614
+          },
+          {
+            "feature": "love",
+            "coefficient": 0.8710514039344155
+          },
+          {
+            "feature": "'s",
+            "coefficient": 0.8087588266959884
+          },
+          {
+            "feature": "'s nice",
+            "coefficient": 0.6609604125787969
+          },
+          {
+            "feature": "'s great",
+            "coefficient": 0.6293043973962147
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "work",
+            "coefficient": -0.23613483153763443
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.2029190864082499
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.1925116699883578
+          },
+          {
+            "feature": "meet",
+            "coefficient": -0.17317636410654455
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.15829934736165674
+          },
+          {
+            "feature": "nice meet",
+            "coefficient": -0.14502460366641004
+          },
+          {
+            "feature": "nice talk",
+            "coefficient": -0.12805557772586895
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.11956594405288834
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.1017472206862782
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.0997743614327332
+          }
+        ]
+      },
+      "greetings.nicetotalktoyou": {
+        "top_positive": [
+          {
+            "feature": "talk",
+            "coefficient": 3.419574728874833
+          },
+          {
+            "feature": "nice talk",
+            "coefficient": 2.2519852321297873
+          },
+          {
+            "feature": "nice",
+            "coefficient": 1.6262205896883009
+          },
+          {
+            "feature": "'s nice talk",
+            "coefficient": 0.7870268548867815
+          },
+          {
+            "feature": "'s nice",
+            "coefficient": 0.7149540258567015
+          },
+          {
+            "feature": "happi talk",
+            "coefficient": 0.7029071617884943
+          },
+          {
+            "feature": "great talk",
+            "coefficient": 0.6984523886497703
+          },
+          {
+            "feature": "pleasur talk",
+            "coefficient": 0.6813162677752675
+          },
+          {
+            "feature": "wonder talk",
+            "coefficient": 0.6731253239124465
+          },
+          {
+            "feature": "delight talk",
+            "coefficient": 0.663063899543639
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "work",
+            "coefficient": -0.16644056227427984
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.15793079396283477
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.14462670704359165
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.13379142659153234
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.09976804990301999
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.09768314318461352
+          },
+          {
+            "feature": "meet",
+            "coefficient": -0.08847186918777594
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.08640152307114148
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.083255408743506
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.08033476596159356
+          }
+        ]
+      },
+      "intent.outofscope": {
+        "top_positive": [
+          {
+            "feature": "tell",
+            "coefficient": 0.625757669377477
+          },
+          {
+            "feature": "joke",
+            "coefficient": 0.5261250952045295
+          },
+          {
+            "feature": "tell joke",
+            "coefficient": 0.5261250952045295
+          },
+          {
+            "feature": "sing",
+            "coefficient": 0.525180974103023
+          },
+          {
+            "feature": "sing song",
+            "coefficient": 0.525180974103023
+          },
+          {
+            "feature": "like movi",
+            "coefficient": 0.5158971507344136
+          },
+          {
+            "feature": "movi",
+            "coefficient": 0.5158971507344136
+          },
+          {
+            "feature": "favorit color",
+            "coefficient": 0.4949555331135941
+          },
+          {
+            "feature": "color",
+            "coefficient": 0.4949555331135941
+          },
+          {
+            "feature": "javascript",
+            "coefficient": 0.48623631950147
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'m",
+            "coefficient": -0.2237479548800655
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.19967013435208203
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.18625653525860714
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.1411721559313102
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.14116534761828203
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.14075901572023397
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.12836595907679652
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.11692952641851578
+          },
+          {
+            "feature": "[",
+            "coefficient": -0.11227824483433757
+          },
+          {
+            "feature": "]",
+            "coefficient": -0.11227824483433757
+          }
+        ]
+      },
+      "member.biography": {
+        "top_positive": [
+          {
+            "feature": "member ]",
+            "coefficient": 1.1580281331617963
+          },
+          {
+            "feature": "[ member",
+            "coefficient": 1.1580281331617963
+          },
+          {
+            "feature": "[ member ]",
+            "coefficient": 1.1580281331617963
+          },
+          {
+            "feature": "member",
+            "coefficient": 0.9948032672674764
+          },
+          {
+            "feature": "biographi",
+            "coefficient": 0.798403099585236
+          },
+          {
+            "feature": "'s",
+            "coefficient": 0.750386821787243
+          },
+          {
+            "feature": "]",
+            "coefficient": 0.7371053299260091
+          },
+          {
+            "feature": "[",
+            "coefficient": 0.7371053299260091
+          },
+          {
+            "feature": "tell",
+            "coefficient": 0.627403226684668
+          },
+          {
+            "feature": "josh klinghoff",
+            "coefficient": 0.4598851116404566
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'m",
+            "coefficient": -0.21113454390773287
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.2014533912583565
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.19786570112260615
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.17582994309328412
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.1372432677592352
+          },
+          {
+            "feature": "song",
+            "coefficient": -0.13370656279729898
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.13327849999687874
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.12345365083695149
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.1135806784031915
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.1108200995947676
+          }
+        ]
+      },
+      "song.info": {
+        "top_positive": [
+          {
+            "feature": "song",
+            "coefficient": 1.9100337828900236
+          },
+          {
+            "feature": "hit",
+            "coefficient": 1.2421652799721694
+          },
+          {
+            "feature": "popular",
+            "coefficient": 1.175287888666068
+          },
+          {
+            "feature": "track",
+            "coefficient": 0.9406242445310358
+          },
+          {
+            "feature": "popular song",
+            "coefficient": 0.8780071866137921
+          },
+          {
+            "feature": "well-known song",
+            "coefficient": 0.8759599716683318
+          },
+          {
+            "feature": "well-known",
+            "coefficient": 0.8759599716683318
+          },
+          {
+            "feature": "greatest hit",
+            "coefficient": 0.8198343969115653
+          },
+          {
+            "feature": "greatest",
+            "coefficient": 0.8198343969115653
+          },
+          {
+            "feature": "famou song ?",
+            "coefficient": 0.5094928036892657
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.25349704223718234
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.2060683582550803
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.1976391261520709
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.1809150292445388
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.17321004784754399
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.1305779786760971
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.12874358178471165
+          },
+          {
+            "feature": "]",
+            "coefficient": -0.12607252495741594
+          },
+          {
+            "feature": "[",
+            "coefficient": -0.12607252495741594
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.11843964075171269
+          }
+        ]
+      },
+      "song.lyrics": {
+        "top_positive": [
+          {
+            "feature": "[ song",
+            "coefficient": 1.8191139968355863
+          },
+          {
+            "feature": "[ song ]",
+            "coefficient": 1.8191139968355863
+          },
+          {
+            "feature": "song ]",
+            "coefficient": 1.8191139968355863
+          },
+          {
+            "feature": "song",
+            "coefficient": 1.6324337475122677
+          },
+          {
+            "feature": "lyric [",
+            "coefficient": 1.5735494905271274
+          },
+          {
+            "feature": "lyric",
+            "coefficient": 1.5735494905271274
+          },
+          {
+            "feature": "lyric [ song",
+            "coefficient": 1.5735494905271274
+          },
+          {
+            "feature": "]",
+            "coefficient": 1.4709317015570011
+          },
+          {
+            "feature": "[",
+            "coefficient": 1.4709317015570011
+          },
+          {
+            "feature": "mean",
+            "coefficient": 1.0838722394740792
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'m",
+            "coefficient": -0.12375339403031133
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.12099423100992203
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.11238952292657076
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.1023564509935558
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.07918824210494368
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.07863336427511144
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.0765798861998462
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.07152717514080291
+          },
+          {
+            "feature": "album",
+            "coefficient": -0.06921009709081036
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.06584831552039092
+          }
+        ]
+      },
+      "song.specific": {
+        "top_positive": [
+          {
+            "feature": "[ song",
+            "coefficient": 2.2336258580700536
+          },
+          {
+            "feature": "[ song ]",
+            "coefficient": 2.2336258580700536
+          },
+          {
+            "feature": "song ]",
+            "coefficient": 2.2336258580700536
+          },
+          {
+            "feature": "song",
+            "coefficient": 2.2067578695518932
+          },
+          {
+            "feature": "]",
+            "coefficient": 1.7930088052297606
+          },
+          {
+            "feature": "[",
+            "coefficient": 1.7930088052297606
+          },
+          {
+            "feature": "'s",
+            "coefficient": 0.4821077898566563
+          },
+          {
+            "feature": "tell [ song",
+            "coefficient": 0.33554503775942074
+          },
+          {
+            "feature": "inspir [ song",
+            "coefficient": 0.3318730076306758
+          },
+          {
+            "feature": "inspir [",
+            "coefficient": 0.3318730076306758
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "lyric",
+            "coefficient": -0.27169895482467343
+          },
+          {
+            "feature": "lyric [",
+            "coefficient": -0.27169895482467343
+          },
+          {
+            "feature": "lyric [ song",
+            "coefficient": -0.27169895482467343
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.13446737998740352
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.13054317954516348
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.1257903480094863
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.11122924646319492
+          },
+          {
+            "feature": "doe [",
+            "coefficient": -0.09841750196716495
+          },
+          {
+            "feature": "doe [ song",
+            "coefficient": -0.09841750196716495
+          },
+          {
+            "feature": "song ] mean",
+            "coefficient": -0.09841750196716495
+          }
+        ]
+      },
+      "user.angry": {
+        "top_positive": [
+          {
+            "feature": "enrag",
+            "coefficient": 1.9910444328843986
+          },
+          {
+            "feature": "furiou",
+            "coefficient": 1.5728873216990589
+          },
+          {
+            "feature": "livid",
+            "coefficient": 1.5728873216990589
+          },
+          {
+            "feature": "frustrat",
+            "coefficient": 1.477767003767461
+          },
+          {
+            "feature": "'m angri",
+            "coefficient": 1.0225426730448557
+          },
+          {
+            "feature": "angri",
+            "coefficient": 1.0225426730448557
+          },
+          {
+            "feature": "realli upset",
+            "coefficient": 0.98011685412206
+          },
+          {
+            "feature": "upset",
+            "coefficient": 0.9315277274031747
+          },
+          {
+            "feature": "'m",
+            "coefficient": 0.8769754908210113
+          },
+          {
+            "feature": "realli",
+            "coefficient": 0.7145701642496467
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.25369795693003677
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.2046334345275669
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.18664225620410513
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.17803721220785626
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.1401293150513715
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.13325625402777663
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.13285187195428458
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.1319570575020766
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.12251017265878007
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.11435600814482817
+          }
+        ]
+      },
+      "user.back": {
+        "top_positive": [
+          {
+            "feature": "return",
+            "coefficient": 1.7645560228572261
+          },
+          {
+            "feature": "came",
+            "coefficient": 1.7645560228572261
+          },
+          {
+            "feature": "come",
+            "coefficient": 1.6061494277370145
+          },
+          {
+            "feature": "got",
+            "coefficient": 0.905400110236972
+          },
+          {
+            "feature": "'m",
+            "coefficient": 0.6512287475445032
+          },
+          {
+            "feature": "robot , right",
+            "coefficient": -0.0011483568987197793
+          },
+          {
+            "feature": "just robot",
+            "coefficient": -0.0011483568987197793
+          },
+          {
+            "feature": "robot ,",
+            "coefficient": -0.0011483568987197793
+          },
+          {
+            "feature": ", right ?",
+            "coefficient": -0.0011483568987197793
+          },
+          {
+            "feature": "just robot ,",
+            "coefficient": -0.0011483568987197793
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.2625988881313896
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.21438130423284935
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.1931250522107059
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.18326867214308232
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.1422714085741709
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.1374696690095502
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.13686289201982357
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.12758298918238936
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.126744006666235
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.11492080925848604
+          }
+        ]
+      },
+      "user.bored": {
+        "top_positive": [
+          {
+            "feature": "bore",
+            "coefficient": 3.823450591382237
+          },
+          {
+            "feature": "'m bore",
+            "coefficient": 2.435910125136884
+          },
+          {
+            "feature": "'m",
+            "coefficient": 1.8436868510746645
+          },
+          {
+            "feature": "thi bore",
+            "coefficient": 0.7050753571871544
+          },
+          {
+            "feature": "thi",
+            "coefficient": 0.6917785794137836
+          },
+          {
+            "feature": "'m realli bore",
+            "coefficient": 0.4900622890856921
+          },
+          {
+            "feature": "extrem",
+            "coefficient": 0.45899944187494174
+          },
+          {
+            "feature": "'m extrem",
+            "coefficient": 0.45899944187494174
+          },
+          {
+            "feature": "'m extrem bore",
+            "coefficient": 0.45899944187494174
+          },
+          {
+            "feature": "extrem bore",
+            "coefficient": 0.45899944187494174
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'re",
+            "coefficient": -0.17916268981238043
+          },
+          {
+            "feature": "'s",
+            "coefficient": -0.17372300503605975
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.14196104032298998
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.1287078315348362
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.09942227136935926
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.09137180438181075
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.08873179991087006
+          },
+          {
+            "feature": "'re bore",
+            "coefficient": -0.08390115968764887
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.08361678865027676
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.07638010711367113
+          }
+        ]
+      },
+      "user.busy": {
+        "top_positive": [
+          {
+            "feature": "'m",
+            "coefficient": 1.738936637589345
+          },
+          {
+            "feature": "tie",
+            "coefficient": 1.15885439958382
+          },
+          {
+            "feature": "occupi",
+            "coefficient": 1.15885439958382
+          },
+          {
+            "feature": "rush",
+            "coefficient": 1.15885439958382
+          },
+          {
+            "feature": "work",
+            "coefficient": 0.8420876491780204
+          },
+          {
+            "feature": "got",
+            "coefficient": 0.7681834414555581
+          },
+          {
+            "feature": "swamp",
+            "coefficient": 0.7285020506519846
+          },
+          {
+            "feature": "overwhelm",
+            "coefficient": 0.7285020506519846
+          },
+          {
+            "feature": "talk",
+            "coefficient": 0.5648422611085271
+          },
+          {
+            "feature": "'m busi",
+            "coefficient": 0.512378750960592
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.25254500947783914
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.19072506969822356
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.1749093625417797
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.1467775557065027
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.14110090797446267
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.1403835795262774
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.13022671538016778
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.10968805842809604
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.10744665129050146
+          },
+          {
+            "feature": "tell",
+            "coefficient": -0.10348615471187697
+          }
+        ]
+      },
+      "user.cannotsleep": {
+        "top_positive": [
+          {
+            "feature": "sleep",
+            "coefficient": 1.8913641664802319
+          },
+          {
+            "feature": "'m",
+            "coefficient": 1.6338441718212935
+          },
+          {
+            "feature": "ca n't",
+            "coefficient": 1.3677019368849037
+          },
+          {
+            "feature": "ca",
+            "coefficient": 1.3677019368849037
+          },
+          {
+            "feature": "insomnia",
+            "coefficient": 1.0805876565129457
+          },
+          {
+            "feature": "n't",
+            "coefficient": 1.036327247704296
+          },
+          {
+            "feature": "ca n't sleep",
+            "coefficient": 0.7831772781343176
+          },
+          {
+            "feature": "n't sleep",
+            "coefficient": 0.7831772781343176
+          },
+          {
+            "feature": "'m night",
+            "coefficient": 0.7143605599235646
+          },
+          {
+            "feature": "insomniac",
+            "coefficient": 0.697184496872946
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.24245330311468954
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.1978012825781715
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.17825763138138936
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.1684160731831964
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.1350625472458964
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.13412253483752623
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.1267986023296684
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.1261780941863562
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.11681240859375207
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.10587719509048192
+          }
+        ]
+      },
+      "user.excited": {
+        "top_positive": [
+          {
+            "feature": "excit",
+            "coefficient": 3.992669368022407
+          },
+          {
+            "feature": "'m excit",
+            "coefficient": 2.4475132794445784
+          },
+          {
+            "feature": "'m",
+            "coefficient": 2.063364049904291
+          },
+          {
+            "feature": "'m realli excit",
+            "coefficient": 0.4648235124576681
+          },
+          {
+            "feature": "realli excit",
+            "coefficient": 0.4648235124576681
+          },
+          {
+            "feature": "'m veri excit",
+            "coefficient": 0.46141697610402527
+          },
+          {
+            "feature": "'m veri",
+            "coefficient": 0.46141697610402527
+          },
+          {
+            "feature": "veri excit",
+            "coefficient": 0.46141697610402527
+          },
+          {
+            "feature": "'m super excit",
+            "coefficient": 0.4428751650237212
+          },
+          {
+            "feature": "super excit",
+            "coefficient": 0.4428751650237212
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.1798032303639024
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.14711784046211823
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.13257951243160693
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.12625703732733026
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.11100999319268458
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.10417374113049431
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.0946151053764035
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.09213621358877072
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.08611776920851001
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.07795569551514031
+          }
+        ]
+      },
+      "user.likeagent": {
+        "top_positive": [
+          {
+            "feature": "like",
+            "coefficient": 2.274703287751636
+          },
+          {
+            "feature": "'re",
+            "coefficient": 1.614334011778955
+          },
+          {
+            "feature": "appreci",
+            "coefficient": 1.0805300927585568
+          },
+          {
+            "feature": "like thi",
+            "coefficient": 0.9199638359742593
+          },
+          {
+            "feature": "realli like",
+            "coefficient": 0.7114926917951909
+          },
+          {
+            "feature": "'re best",
+            "coefficient": 0.7070778116010158
+          },
+          {
+            "feature": "'re special",
+            "coefficient": 0.7069196304445882
+          },
+          {
+            "feature": "enjoy talk",
+            "coefficient": 0.6922188674446893
+          },
+          {
+            "feature": "cool",
+            "coefficient": 0.690326348430057
+          },
+          {
+            "feature": "'re cool",
+            "coefficient": 0.690326348430057
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.24613167838626848
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.20596421407162033
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.19488089048390037
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.18014179826015
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.1334932975715388
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.13209418039703033
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.1303996332441591
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.1262284040358437
+          },
+          {
+            "feature": "help",
+            "coefficient": -0.10596241978335455
+          },
+          {
+            "feature": "tell",
+            "coefficient": -0.10190696577431817
+          }
+        ]
+      },
+      "user.lovesagent": {
+        "top_positive": [
+          {
+            "feature": "love",
+            "coefficient": 3.121627241363108
+          },
+          {
+            "feature": "ador",
+            "coefficient": 1.0852860075629427
+          },
+          {
+            "feature": "feel",
+            "coefficient": 1.0094166290158315
+          },
+          {
+            "feature": "'m",
+            "coefficient": 0.9233867229505439
+          },
+          {
+            "feature": "love thi",
+            "coefficient": 0.910532086068779
+          },
+          {
+            "feature": "'m crazi",
+            "coefficient": 0.7613952097461039
+          },
+          {
+            "feature": "'m love",
+            "coefficient": 0.7129384481470535
+          },
+          {
+            "feature": "fond",
+            "coefficient": 0.710588582600791
+          },
+          {
+            "feature": "'m fond",
+            "coefficient": 0.710588582600791
+          },
+          {
+            "feature": "think love",
+            "coefficient": 0.6824780067435215
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.21952461159268888
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.17788635789837268
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.16219705593281278
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.15468504290476429
+          },
+          {
+            "feature": "veri",
+            "coefficient": -0.12887047479066288
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.11520218535988583
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.11387457092756721
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.11335053537238336
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.10628247475082957
+          },
+          {
+            "feature": "like",
+            "coefficient": -0.09763836535584196
+          }
+        ]
+      },
+      "user.needsadvice": {
+        "top_positive": [
+          {
+            "feature": "advic",
+            "coefficient": 2.30051647785063
+          },
+          {
+            "feature": "need",
+            "coefficient": 2.2811180550800167
+          },
+          {
+            "feature": "?",
+            "coefficient": 1.93213874879936
+          },
+          {
+            "feature": "advic ?",
+            "coefficient": 1.334940665889604
+          },
+          {
+            "feature": "think ?",
+            "coefficient": 0.743430794871455
+          },
+          {
+            "feature": "need help",
+            "coefficient": 0.7107938646128469
+          },
+          {
+            "feature": "advis",
+            "coefficient": 0.6817578013596053
+          },
+          {
+            "feature": "advis ?",
+            "coefficient": 0.6817578013596053
+          },
+          {
+            "feature": "help",
+            "coefficient": 0.6727375694585233
+          },
+          {
+            "feature": "need suggest",
+            "coefficient": 0.6587880848383069
+          }
+        ],
+        "top_negative": [
+          {
+            "feature": "'s",
+            "coefficient": -0.2433006380441775
+          },
+          {
+            "feature": "'m",
+            "coefficient": -0.20203116177175193
+          },
+          {
+            "feature": "work",
+            "coefficient": -0.19369491937853878
+          },
+          {
+            "feature": "good",
+            "coefficient": -0.17737365824354073
+          },
+          {
+            "feature": "'re",
+            "coefficient": -0.16987466594708936
+          },
+          {
+            "feature": "rhcp",
+            "coefficient": -0.14000031054392625
+          },
+          {
+            "feature": "love",
+            "coefficient": -0.1301082037027621
+          },
+          {
+            "feature": "nice",
+            "coefficient": -0.12613650066134188
+          },
+          {
+            "feature": "talk",
+            "coefficient": -0.11624338563285964
+          },
+          {
+            "feature": "bore",
+            "coefficient": -0.10632428938958477
+          }
+        ]
+      }
+    }
+  },
+  "confidence_analysis": {
+    "low_confidence_classes": [
+      {
+        "class": "agent.busy",
+        "f1_score": 0.4,
+        "precision": 0.5,
+        "recall": 0.3333333333333333
+      },
+      {
+        "class": "agent.fire",
+        "f1_score": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      {
+        "class": "agent.good",
+        "f1_score": 0.4,
+        "precision": 0.3333333333333333,
+        "recall": 0.5
+      },
+      {
+        "class": "agent.happy",
+        "f1_score": 0.4,
+        "precision": 0.5,
+        "recall": 0.3333333333333333
+      },
+      {
+        "class": "agent.occupation",
+        "f1_score": 0.2857142857142857,
+        "precision": 0.3333333333333333,
+        "recall": 0.25
+      },
+      {
+        "class": "agent.talktome",
+        "f1_score": 0.4,
+        "precision": 0.5,
+        "recall": 0.3333333333333333
+      },
+      {
+        "class": "agent.there",
+        "f1_score": 0.2222222222222222,
+        "precision": 0.125,
+        "recall": 1.0
+      },
+      {
+        "class": "appraisal.bad",
+        "f1_score": 0.4,
+        "precision": 0.2857142857142857,
+        "recall": 0.6666666666666666
+      },
+      {
+        "class": "appraisal.good",
+        "f1_score": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      {
+        "class": "appraisal.noproblem",
+        "f1_score": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      {
+        "class": "appraisal.welcome",
+        "f1_score": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      {
+        "class": "appraisal.welldone",
+        "f1_score": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      {
+        "class": "band.awards",
+        "f1_score": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      {
+        "class": "band.history",
+        "f1_score": 0.3333333333333333,
+        "precision": 0.25,
+        "recall": 0.5
+      },
+      {
+        "class": "greetings.hello",
+        "f1_score": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      {
+        "class": "greetings.nicetoseeyou",
+        "f1_score": 0.4,
+        "precision": 0.5,
+        "recall": 0.3333333333333333
+      },
+      {
+        "class": "intent.outofscope",
+        "f1_score": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      {
+        "class": "song.lyrics",
+        "f1_score": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      {
+        "class": "user.likeagent",
+        "f1_score": 0.4,
+        "precision": 0.2857142857142857,
+        "recall": 0.6666666666666666
+      }
+    ],
+    "high_confidence_classes": [
+      {
+        "class": "agent.age",
+        "f1_score": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      {
+        "class": "agent.annoying",
+        "f1_score": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      {
+        "class": "agent.beautiful",
+        "f1_score": 0.9090909090909091,
+        "precision": 0.8333333333333334,
+        "recall": 1.0
+      },
+      {
+        "class": "agent.beclever",
+        "f1_score": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      {
+        "class": "agent.boss",
+        "f1_score": 0.8571428571428571,
+        "precision": 0.75,
+        "recall": 1.0
+      },
+      {
+        "class": "agent.hungry",
+        "f1_score": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      {
+        "class": "agent.marryuser",
+        "f1_score": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      {
+        "class": "agent.myfriend",
+        "f1_score": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      {
+        "class": "album.info",
+        "f1_score": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      {
+        "class": "album.specific",
+        "f1_score": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      {
+        "class": "band.collaborations",
+        "f1_score": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      {
+        "class": "band.members",
+        "f1_score": 0.8333333333333334,
+        "precision": 1.0,
+        "recall": 0.7142857142857143
+      },
+      {
+        "class": "band.tours",
+        "f1_score": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      {
+        "class": "dialog.sorry",
+        "f1_score": 0.8571428571428571,
+        "precision": 0.75,
+        "recall": 1.0
+      },
+      {
+        "class": "greetings.howareyou",
+        "f1_score": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      {
+        "class": "greetings.nicetomeetyou",
+        "f1_score": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      {
+        "class": "member.biography",
+        "f1_score": 0.9230769230769231,
+        "precision": 0.8571428571428571,
+        "recall": 1.0
+      },
+      {
+        "class": "song.info",
+        "f1_score": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      {
+        "class": "song.specific",
+        "f1_score": 0.8571428571428571,
+        "precision": 0.75,
+        "recall": 1.0
+      },
+      {
+        "class": "user.angry",
+        "f1_score": 0.8571428571428571,
+        "precision": 1.0,
+        "recall": 0.75
+      },
+      {
+        "class": "user.bored",
+        "f1_score": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      {
+        "class": "user.needsadvice",
+        "f1_score": 0.8571428571428571,
+        "precision": 0.75,
+        "recall": 1.0
+      }
+    ],
+    "avg_f1_score": 0.6249637663923376
+  },
+  "performance_comparison": {
+    "accuracy": {
+      "test_score": 0.6386554621848739,
+      "cv_mean": 0.6327731092436975,
+      "cv_std": 0.014699878726500755,
+      "difference": 0.00588235294117645,
+      "within_expected_range": true
+    },
+    "macro_f1": {
+      "test_score": 0.6249637663923376,
+      "cv_mean": NaN,
+      "cv_std": NaN,
+      "difference": NaN,
+      "within_expected_range": false
+    }
+  },
+  "recommendations": [
+    {
+      "type": "performance",
+      "issue": "Low overall accuracy",
+      "recommendation": "Consider adding more training data or trying different algorithms"
+    },
+    {
+      "type": "class_specific",
+      "issue": "Poor performance on classes: ['agent.fire', 'agent.occupation', 'agent.there', 'appraisal.good', 'appraisal.noproblem', 'appraisal.welcome', 'appraisal.welldone', 'band.awards', 'greetings.hello', 'intent.outofscope', 'song.lyrics']",
+      "recommendation": "Add more training examples for these classes or review data quality"
+    }
+  ]
+}

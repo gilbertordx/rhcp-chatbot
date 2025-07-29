@@ -30,7 +30,7 @@ import joblib
 import matplotlib.pyplot as plt
 from sklearn.metrics import ConfusionMatrixDisplay
 
-print("🚀 RHCP Chatbot Model Training Pipeline (Notebook Version)")
+print("RHCP Chatbot Model Training Pipeline (Notebook Version)")
 print("=" * 60)
 
 
@@ -45,10 +45,10 @@ class NotebookModelTrainer:
     def _setup_simple_logger(self):
         """Simple logger for notebook environment."""
         class SimpleLogger:
-            def info(self, msg): print(f"ℹ️  {msg}")
-            def warning(self, msg): print(f"⚠️  {msg}")
-            def error(self, msg): print(f"❌ {msg}")
-            def debug(self, msg): print(f"🔍 {msg}")
+            def info(self, msg): print(f"{msg}")
+            def warning(self, msg): print(f"WARNING: {msg}")
+            def error(self, msg): print(f"ERROR: {msg}")
+            def debug(self, msg): print(f"DEBUG: {msg}")
         return SimpleLogger()
     
     def load_training_data(self):
@@ -337,20 +337,20 @@ def main():
         pipeline, test_results, cv_results, model_path = trainer.run_training_pipeline()
         
         # Print summary
-        print(f"\n✅ TRAINING COMPLETED SUCCESSFULLY!")
-        print(f"\n📊 PERFORMANCE SUMMARY:")
+        print(f"\nTRAINING COMPLETED SUCCESSFULLY!")
+        print(f"\nPERFORMANCE SUMMARY:")
         print(f"  Test Accuracy: {test_results['accuracy']:.4f}")
         print(f"  Test Macro F1: {test_results['macro_f1']:.4f}")
         print(f"  CV Accuracy: {cv_results['accuracy']['mean']:.4f} ± {cv_results['accuracy']['std']:.4f}")
         print(f"  CV Macro F1: {cv_results['macro_f1']['mean']:.4f} ± {cv_results['macro_f1']['std']:.4f}")
         
-        print(f"\n🎯 Model saved to: {model_path}")
-        print(f"🚀 Model is ready for deployment!")
+        print(f"\nModel saved to: {model_path}")
+        print(f"Model is ready for deployment!")
         
         return pipeline, test_results, cv_results
         
     except Exception as e:
-        print(f"\n❌ TRAINING FAILED: {e}")
+        print(f"\nTRAINING FAILED: {e}")
         raise
 
 

@@ -26,15 +26,15 @@ class RHCPChatbotCLI:
         self.auth_token = None
         
     async def initialize(self):
-        """Initialize the chatbot components."""
+        """Initialize the chatbot processor."""
         if not self.use_api:
             print("Initializing local chatbot...")
             self.chatbot_processor = await initialize_chatbot()
             self.memory_manager = ConversationMemory(max_sessions=10, session_timeout_hours=1)
             self.session_id = self.memory_manager.create_session()
-            print("✅ Local chatbot initialized successfully!")
+            print("Local chatbot initialized successfully!")
         else:
-            print("✅ Using API mode - no local initialization needed")
+            print("Using API mode - no local initialization needed")
     
     def authenticate(self, username: str, password: str) -> bool:
         """Authenticate with the API."""
@@ -50,15 +50,13 @@ class RHCPChatbotCLI:
             if response.status_code == 200:
                 data = response.json()
                 self.auth_token = data["access_token"]
-                self.session_id = data.get("session_id")
-                print(f"✅ Authenticated as {username}")
-                return True
+                print(f"Authenticated as {username}")
             else:
-                print(f"❌ Authentication failed: {response.text}")
-                return False
+                print(f"Authentication failed: {response.text}")
         except requests.exceptions.RequestException as e:
-            print(f"❌ Connection error: {e}")
-            return False
+            print(f"Connection error: {e}")
+        
+        return self.auth_token is not None
     
     def send_message(self, message: str) -> Dict[str, Any]:
         """Send a message and get response."""
@@ -145,11 +143,11 @@ class RHCPChatbotCLI:
     
     def print_response(self, response: Dict[str, Any]):
         """Print a formatted response."""
-        print(f"\n🤖 {response['message']}")
-        print(f"📊 Intent: {response['intent']} (confidence: {response.get('confidence', 0):.2f})")
+        print(f"\n{response['message']}")
+        print(f"Intent: {response['intent']} (confidence: {response.get('confidence', 0):.2f})")
         
         if response.get('entities'):
-            print("🏷️  Entities:")
+            print("Entities:")
             for entity in response['entities']:
                 print(f"   - {entity['type']}: {entity['value'].get('name', entity['value'])}")
         
@@ -157,7 +155,7 @@ class RHCPChatbotCLI:
     
     def interactive_mode(self):
         """Run interactive chat mode."""
-        print("\n🎸 Welcome to RHCP Chatbot CLI!")
+        print("\nWelcome to RHCP Chatbot CLI!")
         print("Type 'quit', 'exit', or 'bye' to end the conversation")
         print("Type 'history' to see conversation history")
         print("Type 'help' for available commands")
@@ -165,28 +163,28 @@ class RHCPChatbotCLI:
         
         while True:
             try:
-                user_input = input("\n💬 You: ").strip()
+                user_input = input("\nYou: ").strip()
                 
                 if not user_input:
                     continue
                 
                 if user_input.lower() in ['quit', 'exit', 'bye']:
-                    print("👋 Goodbye! Thanks for chatting about RHCP!")
+                    print("Goodbye! Thanks for chatting about RHCP!")
                     break
                 
                 if user_input.lower() == 'history':
                     history = self.get_history()
                     if history:
-                        print("\n📜 Conversation History:")
+                        print("\nConversation History:")
                         for i, entry in enumerate(history[-5:], 1):  # Show last 5 messages
                             print(f"{i}. You: {entry['user_message']}")
                             print(f"   Bot: {entry['bot_response']['message'][:100]}...")
                     else:
-                        print("📜 No conversation history yet.")
+                        print("No conversation history yet.")
                     continue
                 
                 if user_input.lower() == 'help':
-                    print("\n📖 Available Commands:")
+                    print("\nAvailable Commands:")
                     print("  - Type any question about RHCP")
                     print("  - 'history' - Show conversation history")
                     print("  - 'quit', 'exit', 'bye' - End conversation")
@@ -198,10 +196,10 @@ class RHCPChatbotCLI:
                 self.print_response(response)
                 
             except KeyboardInterrupt:
-                print("\n\n👋 Goodbye! Thanks for chatting about RHCP!")
+                print("\nGoodbye! Thanks for chatting about RHCP!")
                 break
             except Exception as e:
-                print(f"❌ Error: {e}")
+                print(f"Error: {e}")
 
 
 def main():

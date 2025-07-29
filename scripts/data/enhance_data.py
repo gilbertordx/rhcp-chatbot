@@ -382,7 +382,7 @@ class DataEnhancer:
 def main():
     """Main function for standalone execution."""
     try:
-        print("🔧 RHCP Chatbot Data Enhancement")
+        print("RHCP Chatbot Data Enhancement")
         print("=" * 40)
         
         # Initialize enhancer
@@ -404,15 +404,15 @@ def main():
         # Analyze impact
         impact = enhancer.analyze_enhancement_impact(original_df, enhanced_df)
         
-        print(f"\n📊 ENHANCEMENT IMPACT:")
+        print(f"\nENHANCEMENT IMPACT:")
         print(f"  Samples added: {impact['improvement']['total_samples_added']}")
         print(f"  Percentage increase: {impact['improvement']['percentage_increase']:.1f}%")
         print(f"  Imbalance ratio: {impact['original_stats']['imbalance_ratio']:.1f}:1 -> {impact['enhanced_stats']['imbalance_ratio']:.1f}:1")
         
-        print(f"\n✅ Data enhancement completed successfully!")
+        print(f"\nData enhancement completed successfully!")
         
     except Exception as e:
-        print(f"❌ Error during data enhancement: {e}")
+        print(f"Error during data enhancement: {e}")
         sys.exit(1)
 
 

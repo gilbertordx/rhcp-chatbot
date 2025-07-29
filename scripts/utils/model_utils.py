@@ -25,6 +25,56 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
+def convert_numpy_types(obj):
+    """Convert numpy types to Python native types for JSON serialization."""
+    if isinstance(obj, np.integer):
+        return int(obj)
+    elif isinstance(obj, np.floating):
+        return float(obj)
+    elif isinstance(obj, np.ndarray):
+        return obj.tolist()
+    elif isinstance(obj, dict):
+        return {key: convert_numpy_types(value) for key, value in obj.items()}
+    elif isinstance(obj, list):
+        return [convert_numpy_types(item) for item in obj]
+    elif isinstance(obj, tuple):
+        return tuple(convert_numpy_types(item) for item in obj)
+    else:
+        return obj
+
+
+class TextTokenizer:
+    """Tokenizer class that can be pickled for model persistence."""
+    
+    def __init__(self, use_stemming: bool = True):
+        """
+        Initialize the tokenizer.
+        
+        Args:
+            use_stemming: Whether to use stemming in tokenization
+        """
+        self.use_stemming = use_stemming
+        if use_stemming:
+            self.stemmer = PorterStemmer()
+    
+    def __call__(self, text: str) -> List[str]:
+        """
+        Tokenize and optionally stem the input text.
+        
+        Args:
+            text: Input text to tokenize
+            
+        Returns:
+            List of tokens
+        """
+        tokens = word_tokenize(text.lower())
+        
+        if self.use_stemming:
+            return [self.stemmer.stem(token) for token in tokens]
+        else:
+            return tokens
+
+
 class ModelUtils:
     """Utility class for model operations."""
     
@@ -37,24 +87,12 @@ class ModelUtils:
             config: Configuration dictionary with preprocessing settings
             
         Returns:
-            Text processing function
+            Text processing function that can be pickled
         """
         preprocessing_config = config.get('training', {}).get('preprocessing', {})
         use_stemming = preprocessing_config.get('use_stemming', True)
         
-        if use_stemming:
-            stemmer = PorterStemmer()
-            
-            def tokenize_and_stem(text):
-                tokens = word_tokenize(text.lower())
-                return [stemmer.stem(token) for token in tokens]
-            
-            return tokenize_and_stem
-        else:
-            def simple_tokenize(text):
-                return word_tokenize(text.lower())
-            
-            return simple_tokenize
+        return TextTokenizer(use_stemming=use_stemming)
     
     @staticmethod
     def create_pipeline(config: Dict[str, Any]) -> Pipeline:
@@ -197,6 +235,9 @@ class ModelUtils:
         if logger:
             logger.info(f"Evaluation completed - Accuracy: {accuracy:.4f}, Macro F1: {macro_f1:.4f}")
         
+        # Convert numpy types to Python native types for JSON serialization
+        results = convert_numpy_types(results)
+        
         return results
     
     @staticmethod
@@ -261,6 +302,9 @@ class ModelUtils:
             for metric, results in cv_results.items():
                 logger.info(f"{metric}: {results['mean']:.4f} ± {results['std']:.4f}")
         
+        # Convert numpy types to Python native types for JSON serialization
+        cv_results = convert_numpy_types(cv_results)
+        
         return cv_results
     
     @staticmethod
@@ -300,6 +344,9 @@ class ModelUtils:
             if logger:
                 logger.info(f"'{text}' -> '{pred}' (confidence: {max_prob:.3f})")
         
+        # Convert numpy types to Python native types for JSON serialization
+        results = convert_numpy_types(results)
+        
         return results
     
     @staticmethod
@@ -323,6 +370,8 @@ class ModelUtils:
         
         # Save metadata
         metadata_path = model_path.with_suffix('.json')
+        # Convert numpy types to Python native types for JSON serialization
+        metadata = convert_numpy_types(metadata)
         with open(metadata_path, 'w', encoding='utf-8') as f:
             json.dump(metadata, f, indent=2, ensure_ascii=False)
         

@@ -152,10 +152,10 @@ def main():
         backup_dir = loader.create_data_backup()
         print(f"\nBackup created: {backup_dir}")
         
-        print(f"\n✅ Data loading completed successfully!")
+        print(f"\nData loading completed successfully!")
         
     except Exception as e:
-        print(f"❌ Error during data loading: {e}")
+        print(f"Error during data loading: {e}")
         sys.exit(1)
 
 

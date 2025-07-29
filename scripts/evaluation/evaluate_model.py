@@ -320,15 +320,15 @@ class ModelEvaluator:
 def main():
     """Main function for standalone execution."""
     try:
-        print("📊 RHCP Chatbot Model Evaluation")
+        print("RHCP Chatbot Model Evaluation")
         print("=" * 40)
         
         # This would typically load a trained model and test data
-        print("⚠️  This script is typically called from the training pipeline")
+        print("This script is typically called from the training pipeline")
         print("To run evaluation, use: python scripts/training/train_model.py")
         
     except Exception as e:
-        print(f"❌ Error during evaluation: {e}")
+        print(f"Error during evaluation: {e}")
         sys.exit(1)
 
 

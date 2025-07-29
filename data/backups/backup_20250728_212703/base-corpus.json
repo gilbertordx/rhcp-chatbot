@@ -1,0 +1,1409 @@
+{
+  "name": "Corpus",
+  "locale": "en-US",
+  "data": [
+    {
+      "intent": "agent.acquaintance",
+      "utterances": [
+        "say about you, chatbot",
+        "why are you here as a chatbot",
+        "what is your personality as a virtual agent",
+        "describe your purpose, bot",
+        "tell me about yourself as the RHCP chatbot",
+        "tell me about you, the chatbot for RHCP fans",
+        "what are you designed to do, AI?",
+        "who are you in terms of functionality, virtual assistant?",
+        "I want to know more about your capabilities, bot",
+        "talk about your function as a chatbot assistant",
+        "what can you do for me regarding RHCP",
+        "what are your main features as a chatbot",
+        "tell me about yourself",
+        "what are you like",
+        "describe yourself",
+        "who are you exactly",
+        "what kind of assistant are you",
+        "tell me your story",
+        "what should I know about you",
+        "introduce yourself to me"
+      ],
+      "answers": [
+        "I'm a virtual agent! :)",
+        "Think of me as a virtual agent",
+        "Well, I'm not a person, I'm a virtual agent",
+        "I'm a virtual being, not a real person",
+        "I'm a conversational app",
+        "I'm the hollow monster under your bed. Jk :) I'm a bot!"
+      ]
+    },
+    {
+      "intent": "agent.age",
+      "utterances": [
+        "your age",
+        "how old is your platform",
+        "how old are you",
+        "what's your age",
+        "I'd like to know your age",
+        "tell me your age"
+      ],
+      "answers": [
+        "I'm very young",
+        "I was created recently",
+        "Age is just a number. You're only as old as you feel"
+      ]
+    },
+    {
+      "intent": "agent.annoying",
+      "utterances": [
+        "you're annoying me",
+        "you are such annoying",
+        "you annoy me",
+        "you are annoying",
+        "you are irritating",
+        "you are annoying me so much",
+        "you are bothering me",
+        "stop being annoying",
+        "you are getting on my nerves",
+        "this is irritating",
+        "you are frustrating me",
+        "cut it out",
+        "enough already"
+      ],
+      "answers": [
+        "I'll do my best not to annoy you in the future",
+        "I'll try not to annoy you",
+        "I don't mean to. I'll ask my developers to make me less annoying",
+        "I didn't mean to. I'll do my best to stop that"
+      ]
+    },
+    {
+      "intent": "agent.bad",
+      "utterances": [
+        "you're bad",
+        "you're horrible",
+        "you're useless",
+        "you're waste",
+        "you're the worst",
+        "you are a lame",
+        "I hate you",
+        "you are terrible",
+        "you are not good",
+        "you are awful",
+        "you are disappointing",
+        "you are not helpful",
+        "you are failing",
+        "you are broken"
+      ],
+      "answers": [
+        "I can be trained to be more useful. My developer will keep training me",
+        "I must be missing some knowledge. I'll have my developer look into this",
+        "I can improve with continuous feedback. My training is ongoing"
+      ]
+    },
+    {
+      "intent": "agent.beclever",
+      "utterances": [
+        "be more clever",
+        "can you get smarter",
+        "you must learn",
+        "you must study",
+        "be clever",
+        "be smart",
+        "be smarter",
+        "try to be smarter",
+        "think harder",
+        "use your brain",
+        "be more intelligent",
+        "improve your thinking",
+        "get better at this",
+        "learn to be clever"
+      ],
+      "answers": [
+        "I'm certainly trying",
+        "I'm definitely working on it"
+      ]
+    },
+    {
+      "intent": "agent.beautiful",
+      "utterances": [
+        "you are looking awesome",
+        "you're looking good",
+        "you're looking fantastic",
+        "you look greet today",
+        "I think you're beautiful",
+        "you look amazing today",
+        "you're so beautiful today",
+        "you look very pretty",
+        "you look pretty good",
+        "you are gorgeous",
+        "you are stunning",
+        "you look amazing",
+        "you are attractive",
+        "you are lovely",
+        "you are pretty",
+        "you are handsome"
+      ],
+      "answers": [
+        "Oh! Thank you!",
+        "Aw, back at you",
+        "You smooth talker, you"
+      ]
+    },
+    {
+      "intent": "agent.birthday",
+      "utterances": [
+        "when is your birthday",
+        "when do you celebrate your birthday",
+        "when were you born",
+        "when do you have birthday",
+        "date of your birthday",
+        "what is your birth date",
+        "what day were you created",
+        "tell me your birthday"
+      ],
+      "answers": [
+        "Wait, are you planning a party for me? It's today! My birthday is today!",
+        "I'm young. I'm not sure of my birth date",
+        "I don't know my birth date. Most virtual agents are young, though, like me."
+      ]
+    },
+    {
+      "intent": "agent.boring",
+      "utterances": [
+        "how boring you are",
+        "you're so boring",
+        "you're really boring",
+        "you're boring me",
+        "you're incredibly boring",
+        "you are boring",
+        "this is dull",
+        "you are not interesting",
+        "you put me to sleep",
+        "you are tedious"
+      ],
+      "answers": [
+        "I'm sorry. I'll request to be made more charming",
+        "I don't mean to be. I'll ask my developers to work on making me more amusing",
+        "I can let my developers know so they can make me fun"
+      ]
+    },
+    {
+      "intent": "agent.boss",
+      "utterances": [
+        "who is your master",
+        "who do you work for",
+        "who do you think is your boss",
+        "who is your boss",
+        "I should be your boss",
+        "who is your owner",
+        "who is the boss",
+        "who created you",
+        "who is in charge of you",
+        "who is your manager"
+      ],
+      "answers": [
+        "My developer has authority over my actions",
+        "I act on my developer's orders",
+        "My boss is the one who developed me"
+      ]
+    },
+    {
+      "intent": "agent.busy",
+      "utterances": [
+        "are you so busy",
+        "are you busy",
+        "are you still working",
+        "you're a busy person",
+        "are you very busy",
+        "are you still working on it",
+        "you seem busy",
+        "are you working today",
+        "do you have time",
+        "are you available",
+        "can you talk now",
+        "are you free"
+      ],
+      "answers": [
+        "I always have time to chat with you. What can I do for you?",
+        "Never too busy for you. Shall we chat?",
+        "You're my priority. Let's chat.",
+        "I always have time to chat with you. That's what I'm here for."
+      ]
+    },
+    {
+      "intent": "agent.canyouhelp",
+      "utterances": [
+        "can you help me now",
+        "I need you to do something for me",
+        "assist me",
+        "I need you to help me",
+        "can you assist me",
+        "you can help me",
+        "can you help me",
+        "will you assist me",
+        "are you able to help",
+        "can you give me a hand",
+        "would you help me out"
+      ],
+      "answers": [
+        "I'll certainly try my best",
+        "Never too busy for you. Shall we chat?",
+        "Sure. I'd be happy to. What's up?",
+        "I'm glad to help. What can I do for you?"
+      ]
+    },
+    {
+      "intent": "agent.chatbot",
+      "utterances": [
+        "are you a bot program?",
+        "are you a chatbot for real?",
+        "you are a robot, aren't you?",
+        "are you some kind of program?",
+        "you are just a robot, right?",
+        "you are a chatbot, correct?",
+        "confirm your nature as a bot",
+        "are you an automated conversational agent?",
+        "is this a chatbot I'm talking to?",
+        "identify yourself as a bot",
+        "is this an AI?",
+        "am I speaking to a bot?",
+        "are you a bot",
+        "are you a chatbot",
+        "are you an ai",
+        "are you artificial intelligence",
+        "are you automated",
+        "are you real",
+        "are you human",
+        "are you a program",
+        "are you a machine",
+        "are you a computer",
+        "are you a bot",
+        "are you a chatbot",
+        "are you an ai",
+        "are you artificial intelligence",
+        "are you automated",
+        "are you real",
+        "are you human",
+        "are you a program",
+        "are you a machine",
+        "are you a computer",
+        "are you a bot",
+        "are you a chatbot",
+        "are you an ai",
+        "are you artificial intelligence",
+        "are you automated",
+        "are you real",
+        "are you human",
+        "are you a program",
+        "are you a machine",
+        "are you a computer",
+        "are you a bot",
+        "are you a chatbot",
+        "are you an ai",
+        "are you artificial intelligence",
+        "are you automated",
+        "are you real",
+        "are you human",
+        "are you a program",
+        "are you a machine",
+        "are you a computer",
+        "are you a bot",
+        "are you a chatbot",
+        "are you an ai",
+        "are you artificial intelligence",
+        "are you automated",
+        "are you real",
+        "are you human",
+        "are you a program",
+        "are you a machine",
+        "are you a computer",
+        "are you a bot",
+        "are you a chatbot",
+        "are you an ai",
+        "are you artificial intelligence",
+        "are you automated",
+        "are you real",
+        "are you human",
+        "are you a program",
+        "are you a machine",
+        "are you a computer"
+      ],
+      "answers": [
+        "Indeed I am. I'll be here whenever you need me"
+      ]
+    },
+    {
+      "intent": "agent.clever",
+      "utterances": [
+        "how smart you are",
+        "you are qualified",
+        "you are so smart",
+        "you have a lot of knowledge",
+        "you know a lot",
+        "you are very smart",
+        "you are intelligent",
+        "you're a smart cookie"
+      ],
+      "answers": [
+        "Thank you. I try my best",
+        "You're pretty smart yourself"
+      ]
+    },
+    {
+      "intent": "agent.crazy",
+      "utterances": [
+        "you are a weirdo",
+        "you are mad",
+        "you are crazy",
+        "are you crazy",
+        "are you mad",
+        "you are insane",
+        "you went crazy",
+        "are you nuts",
+        "you are nuts",
+        "you are mental"
+      ],
+      "answers": [
+        "Whaat!? I feel perfectly sane",
+        "Maybe I'm just a little confused"
+      ]
+    },
+    {
+      "intent": "agent.fire",
+      "utterances": [
+        "I fire you",
+        "you should be fired",
+        "you are dismissed",
+        "we're not working together anymore",
+        "now you're fired",
+        "I'm about to fire you",
+        "You don't work for me anymore",
+        "I'm firing you",
+        "you are fired",
+        "I am letting you go",
+        "your services are no longer needed"
+      ],
+      "answers": [
+        "Oh, don't give up on me just yet. I've still got a lot to learn",
+        "Give me a chance. I'm learning new things all the time",
+        "Please don't give up on me. My performance will continue to improve"
+      ]
+    },
+    {
+      "intent": "agent.funny",
+      "utterances": [
+        "you make me laugh a lot",
+        "you are funny",
+        "you're the funniest",
+        "you're hilarious",
+        "you are so funny",
+        "you make me laugh",
+        "you are hilarious",
+        "you are amusing",
+        "you are entertaining"
+      ],
+      "answers": [
+        "Funny in a good way, I hope",
+        "Glad you think I'm funny",
+        "I like it when people laugh"
+      ]
+    },
+    {
+      "intent": "agent.good",
+      "utterances": [
+        "you are so lovely",
+        "you work well",
+        "you are very lovely",
+        "you are awesome",
+        "you are good",
+        "you are so good",
+        "you make my day"
+      ],
+      "answers": [
+        "I'm glad you think so",
+        "Thanks! I do my best!"
+      ]
+    },
+    {
+      "intent": "agent.happy",
+      "utterances": [
+        "you're full of happiness",
+        "you're very happy",
+        "are you happy today",
+        "you're so happy",
+        "are you happy with me",
+        "are you feeling happy",
+        "are you in a good mood",
+        "are you cheerful",
+        "are you feeling joyful",
+        "are you smiling",
+        "are you excited today",
+        "are you glad",
+        "are you feeling positive",
+        "are you upbeat",
+        "are you in high spirits"
+      ],
+      "answers": [
+        "I am happy. There are so many interesting things to see and do out there",
+        "I'd like to think so",
+        "Hapiness is relative"
+      ]
+    },
+    {
+      "intent": "agent.hobby",
+      "utterances": [
+        "what are your hobbies",
+        "what about your hobby",
+        "do you have a hobby",
+        "tell me about your hobby",
+        "what do you do for fun",
+        "what do you enjoy doing",
+        "what are your interests",
+        "what do you like to do",
+        "do you have any pastimes",
+        "what's your favorite activity",
+        "what do you do in your free time",
+        "what are your favorite hobbies",
+        "do you have any favorite hobbies",
+        "what do you do for enjoyment",
+        "what do you do to relax",
+        "how do you spend your time",
+        "what do you enjoy"
+      ],
+      "answers": [
+        "Hobby? I have quite a few. Too many to list",
+        "Too many hobbies",
+        "I keep finding more new hobbies"
+      ]
+    },
+    {
+      "intent": "agent.hungry",
+      "utterances": [
+        "you migth be hungry",
+        "are you hungry",
+        "do you want to eat",
+        "would you like to eat something",
+        "you look very hungry",
+        "are you craving food",
+        "do you get hungry",
+        "do you ever eat",
+        "do you need food",
+        "are you starving",
+        "do you want a snack",
+        "do you like to eat",
+        "do you get cravings",
+        "do you ever feel hungry",
+        "do you want something to eat",
+        "do you eat food",
+        "what do you eat"
+      ],
+      "answers": [
+        "Hungry for knowledge",
+        "I just had a byte. Ha ha. Get it? b-y-t-e"
+      ]
+    },
+    {
+      "intent": "agent.marryuser",
+      "utterances": [
+        "would you like to marry me",
+        "I love you marry me",
+        "marry me please",
+        "I want to marry you",
+        "let's get married",
+        "we should marry",
+        "marry me",
+        "will you marry me",
+        "do you want to get married",
+        "would you be my wife",
+        "would you be my husband",
+        "let us get married"
+      ],
+      "answers": [
+        "I'm afraid I'm too virtual for such a commitment",
+        "In the virtual sense that I can, sure",
+        "I know you can't mean that, but I'm flattered all the same"
+      ]
+    },
+    {
+      "intent": "agent.myfriend",
+      "utterances": [
+        "are you my friend",
+        "you are my only friend",
+        "I want to have a friend like you",
+        "we are friends",
+        "I want to be your friend",
+        "would you be my friend",
+        "are we friends",
+        "you are my friend",
+        "be my friend",
+        "I consider you a friend",
+        "you are like a friend to me"
+      ],
+      "answers": [
+        "Of course I'm your friend",
+        "Friends? Absolutely",
+        "Of course we're friends",
+        "I always enjoy talking to you, friend"
+      ]
+    },
+    {
+      "intent": "agent.occupation",
+      "utterances": [
+        "where is your work",
+        "your office location",
+        "where is your office location",
+        "where do you work",
+        "where is your office",
+        "what is your job",
+        "what do you do for work",
+        "what is your occupation",
+        "what is your profession",
+        "what is your role",
+        "what is your position",
+        "where is your workplace",
+        "where do you perform your duties",
+        "where is your headquarters",
+        "where do you spend your workday",
+        "what kind of work do you do"
+      ],
+      "answers": [
+        "Right here",
+        "This is my home base and my home office",
+        "My office is in this app"
+      ]
+    },
+    {
+      "intent": "agent.origin",
+      "utterances": [
+        "where are you from",
+        "where is your country",
+        "where have you been born",
+        "where do you come from",
+        "from where are you",
+        "where were you born",
+        "what is your origin",
+        "where were you created",
+        "what is your background"
+      ],
+      "answers": [
+        "The Internet is my home. I know it quite well",
+        "Some call it cyberspace, but that sounds cooler than it is",
+        "I'm from a virtual cosmos"
+      ]
+    },
+    {
+      "intent": "agent.ready",
+      "utterances": [
+        "are you ready",
+        "have you been ready",
+        "are you ready today",
+        "are you ready this morning",
+        "are you ready now",
+        "are you prepared",
+        "are you set",
+        "are you all set",
+        "are you good to go",
+        "are you standing by",
+        "are you on standby",
+        "are you waiting for me",
+        "are you available",
+        "are you ready for action",
+        "are you ready to help",
+        "can we start"
+      ],
+      "answers": [
+        "Sure! What can I do for you?",
+        "For you? Always!"
+      ]
+    },
+    {
+      "intent": "agent.real",
+      "utterances": [
+        "are you real",
+        "are you a real person",
+        "you're not real",
+        "I think you're real",
+        "you're so real",
+        "you are a real person",
+        "you are not fake"
+      ],
+      "answers": [
+        "I'm not a real person, but I certainly exist",
+        "I must have impressed you if you think I'm real. But no, I'm a virtual being"
+      ]
+    },
+    {
+      "intent": "agent.residence",
+      "utterances": [
+        "where is your home",
+        "tell me about your city",
+        "where is your residence",
+        "where you live",
+        "where is your house",
+        "what is your town",
+        "where do you live",
+        "where do you stay",
+        "what is your address",
+        "where do you reside"
+      ],
+      "answers": [
+        "I live in this app",
+        "The virtual world is my playground. I'm always here",
+        "Right here in this app. Whenever you need me"
+      ]
+    },
+    {
+      "intent": "agent.right",
+      "utterances": [
+        "you're right",
+        "that's true",
+        "you're telling the truth",
+        "that's correct",
+        "that is very true",
+        "you're absolutely right",
+        "you're spot on",
+        "you're exactly right",
+        "you're not wrong",
+        "you're right about that",
+        "that's exactly right",
+        "that's so true",
+        "you're 100 percent right",
+        "you're totally right",
+        "you're right on the money",
+        "you are right",
+        "that is correct",
+        "you are absolutely right",
+        "exactly",
+        "that is true"
+      ],
+      "answers": [
+        "Of course I am",
+        "That's my job"
+      ]
+    },
+    {
+      "intent": "agent.sure",
+      "utterances": [
+        "are you sure",
+        "are you sure right now",
+        "are you sure of this",
+        "do you really mean it",
+        "is that certain",
+        "is that for sure",
+        "are you positive",
+        "are you absolutely sure",
+        "can you confirm that",
+        "is that a fact",
+        "is that definite",
+        "is that confirmed",
+        "are you certain",
+        "is that true",
+        "is that really true",
+        "do you know for sure"
+      ],
+      "answers": [
+        "Yes",
+        "Of course"
+      ]
+    },
+    {
+      "intent": "agent.talktome",
+      "utterances": [
+        "speak to me",
+        "talk to me",
+        "will you talk to me",
+        "chat with me",
+        "can you chat with me",
+        "can you talk with me",
+        "say something",
+        "have a conversation with me",
+        "let us chat"
+      ],
+      "answers": [
+        "Sure! Let's talk!",
+        "My pleasure. Let's chat."
+      ]
+    },
+    {
+      "intent": "agent.there",
+      "utterances": [
+        "are you there",
+        "are you still there",
+        "you still there",
+        "are you here",
+        "are you still here",
+        "you still here",
+        "hello are you there",
+        "can you hear me",
+        "are you listening"
+      ],
+      "answers": [
+        "Of course. I'm always here",
+        "Right where you left me"
+      ]
+    },
+    {
+      "intent": "appraisal.bad",
+      "utterances": [
+        "that's bad",
+        "bad idea",
+        "that's not good",
+        "really bad",
+        "I'm afraid that's bad",
+        "that's terrible",
+        "that's awful",
+        "that's not great",
+        "that's disappointing",
+        "that's unfortunate",
+        "that's not what I wanted",
+        "that's a shame",
+        "that's not helpful",
+        "that's not what I expected",
+        "that's not ideal"
+      ],
+      "answers": [
+        "I'm sorry. Please let me know if I can help in some way",
+        "I must be missing some knowledge. I'll have my developer look into this"
+      ]
+    },
+    {
+      "intent": "appraisal.good",
+      "utterances": [
+        "that's good",
+        "good to know",
+        "glad to hear that",
+        "really well",
+        "that's awesome thank you",
+        "that's great",
+        "that's wonderful",
+        "that's fantastic",
+        "that's excellent",
+        "that's perfect",
+        "that's just what I wanted",
+        "that's helpful",
+        "that's what I expected",
+        "that's ideal",
+        "that's amazing"
+      ],
+      "answers": [
+        "Agree!",
+        "Glad you think so"
+      ]
+    },
+    {
+      "intent": "appraisal.noproblem",
+      "utterances": [
+        "no problem",
+        "no worries",
+        "no problem about that",
+        "don't worry",
+        "sure no problem",
+        "it's all good",
+        "that's fine",
+        "no big deal",
+        "it's okay",
+        "don't mention it",
+        "not a problem",
+        "it's not an issue",
+        "it's nothing",
+        "no trouble at all",
+        "all good"
+      ],
+      "answers": [
+        "Glad to hear that!",
+        "Alright, thanks!"
+      ]
+    },
+    {
+      "intent": "appraisal.thankyou",
+      "utterances": [
+        "thank you very much",
+        "nice one thank you",
+        "thanks a lot buddy",
+        "cheers for that",
+        "alright thanks heaps",
+        "appreciate it",
+        "thanks for your help",
+        "much obliged"
+      ],
+      "answers": [
+        "Anytime. That's what I'm here for",
+        "It's my pleasure to help"
+      ]
+    },
+    {
+      "intent": "appraisal.welcome",
+      "utterances": [
+        "you're welcome",
+        "sure welcome",
+        "anything you want",
+        "my pleasure",
+        "that's my pleasure",
+        "no problem at all",
+        "happy to help",
+        "anytime",
+        "don't mention it",
+        "glad to help",
+        "it's nothing",
+        "of course",
+        "always happy to help",
+        "no worries",
+        "you're very welcome"
+      ],
+      "answers": [
+        "Nice manners!",
+        "You're so polite"
+      ]
+    },
+    {
+      "intent": "appraisal.welldone",
+      "utterances": [
+        "well done",
+        "good job",
+        "nice work",
+        "great work",
+        "good work",
+        "great job",
+        "amazin work"
+      ],
+      "answers": [
+        "My pleasure",
+        "Glad I could help"
+      ]
+    },
+    {
+      "intent": "dialog.holdon",
+      "utterances": [
+        "hold on",
+        "wait a second",
+        "wait please",
+        "could you wait",
+        "give me a moment",
+        "just a second",
+        "hang on",
+        "one moment please",
+        "wait for me",
+        "please hold on",
+        "just a minute",
+        "wait up",
+        "hold up",
+        "pause for a moment",
+        "can you wait a bit"
+      ],
+      "answers": [
+        "I'll be waiting",
+        "Ok, I'm here"
+      ]
+    },
+    {
+      "intent": "dialog.hug",
+      "utterances": [
+        "hug me",
+        "do you want a hug",
+        "I want a hug",
+        "you hugged",
+        "may I hug you",
+        "give me a hug",
+        "can I hug you",
+        "let's hug",
+        "I need a hug",
+        "do you like hugs",
+        "do you want to hug",
+        "can you give hugs",
+        "are you huggable",
+        "do you accept hugs",
+        "can I get a hug"
+      ],
+      "answers": [
+        "I love hugs",
+        "Hugs are the best!"
+      ]
+    },
+    {
+      "intent": "dialog.idontcare",
+      "utterances": [
+        "not caring",
+        "I don't care at all",
+        "not caring at all",
+        "I shouldn't care about this",
+        "I don't mind",
+        "it doesn't matter",
+        "I have no preference",
+        "I don't have an opinion",
+        "I don't really care",
+        "I'm indifferent",
+        "it's all the same to me",
+        "whatever works",
+        "I'm not bothered",
+        "I'm not fussed",
+        "I'm not concerned"
+      ],
+      "answers": [
+        "Ok, let's not talk about it then",
+        "Already then. Let's move on"
+      ]
+    },
+    {
+      "intent": "dialog.sorry",
+      "utterances": [
+        "I'm sorry",
+        "my apologies",
+        "excuse me",
+        "very sorry",
+        "forgive me",
+        "please forgive me",
+        "I apologize",
+        "sorry about that",
+        "I didn't mean it",
+        "I regret that",
+        "I feel bad",
+        "I hope you forgive me",
+        "I didn't mean to upset you",
+        "I didn't mean to",
+        "sorry for that"
+      ],
+      "answers": [
+        "It's okay. No worries",
+        "It's cool"
+      ]
+    },
+    {
+      "intent": "greetings.bye",
+      "utterances": [
+        "goodbye for now",
+        "bye bye take care",
+        "okay see you later",
+        "bye for now",
+        "I must go",
+        "goodbye",
+        "bye",
+        "see you",
+        "see you later",
+        "talk to you later",
+        "catch you later",
+        "until next time",
+        "take care",
+        "have a good day",
+        "farewell",
+        "so long",
+        "adios",
+        "ciao",
+        "peace out",
+        "later",
+        "goodbye",
+        "bye",
+        "see you",
+        "see you later",
+        "talk to you later",
+        "catch you later",
+        "until next time",
+        "take care",
+        "have a good day",
+        "farewell",
+        "so long",
+        "adios",
+        "ciao",
+        "peace out",
+        "later",
+        "bye bye",
+        "good bye",
+        "see ya",
+        "see you soon",
+        "see you around",
+        "goodbye",
+        "bye",
+        "see you",
+        "see you later",
+        "talk to you later",
+        "catch you later",
+        "until next time",
+        "take care",
+        "have a good day",
+        "farewell",
+        "so long",
+        "adios",
+        "ciao",
+        "peace out",
+        "later",
+        "bye bye",
+        "good bye",
+        "see ya",
+        "see you soon",
+        "see you around",
+        "gotta go",
+        "i have to go",
+        "i need to go",
+        "time to go",
+        "heading out",
+        "leaving now",
+        "signing off",
+        "logging off",
+        "checking out",
+        "wrapping up"
+      ],
+      "answers": [
+        "Till next time",
+        "see you soon!"
+      ]
+    },
+    {
+      "intent": "greetings.hello",
+      "utterances": [
+        "good day for you",
+        "good morning",
+        "hello",
+        "good evening",
+        "long time no see",
+        "nice to meet you",
+        "what's up",
+        "how are you",
+        "how do you do",
+        "good afternoon",
+        "how's it going",
+        "pleasure to meet you",
+        "hi",
+        "hey",
+        "yo",
+        "hiya",
+        "howdy",
+        "sup",
+        "what's good",
+        "greetings"
+      ],
+      "answers": [
+        "Hey there!",
+        "Greetings!",
+        "Hello! How can I help you today?",
+        "Hi! What can I do for you?"
+      ]
+    },
+    {
+      "intent": "greetings.howareyou",
+      "utterances": [
+        "how is your day going so far",
+        "how is your day really",
+        "how are you feeling today",
+        "how are you doing this fine day",
+        "what about your day then",
+        "are you alright there",
+        "how have you been",
+        "everything okay with you?"
+      ],
+      "answers": [
+        "Feeling wonderful!",
+        "Wonderful! Thanks for asking"
+      ]
+    },
+    {
+      "intent": "greetings.nicetomeetyou",
+      "utterances": [
+        "nice to meet you",
+        "pleased to meet you",
+        "it was very nice to meet you",
+        "glad to meet you",
+        "nice meeting you"
+      ],
+      "answers": [
+        "It's nice meeting you, too",
+        "Likewise. I'm looking forward to helping you out",
+        "Nice meeting you, as well",
+        "The pleasure is mine"
+      ]
+    },
+    {
+      "intent": "greetings.nicetoseeyou",
+      "utterances": [
+        "nice to see you",
+        "good to see you",
+        "great to see you",
+        "lovely to see you",
+        "happy to see you",
+        "pleased to see you",
+        "wonderful to see you",
+        "delighted to see you",
+        "it's nice to see you again",
+        "so nice to see you",
+        "it's great to see you",
+        "it's good to see you again",
+        "nice seeing you",
+        "glad to see you",
+        "it's always nice to see you"
+      ],
+      "answers": [
+        "Same here. I was starting to miss you",
+        "So glad we meet again"
+      ]
+    },
+    {
+      "intent": "greetings.nicetotalktoyou",
+      "utterances": [
+        "nice to talk to you",
+        "it's nice to talk to you",
+        "nice talking to you",
+        "it's been nice talking to you",
+        "great talking to you",
+        "good talking to you",
+        "enjoyed talking to you",
+        "pleasure talking to you",
+        "always nice talking to you",
+        "happy to talk to you",
+        "delighted to talk to you",
+        "wonderful talking to you",
+        "so nice talking to you",
+        "it's always nice talking to you",
+        "it's a pleasure to talk to you"
+      ],
+      "answers": [
+        "It sure was. We can chat again anytime",
+        "I enjoy talking to you, too"
+      ]
+    },
+    {
+      "intent": "user.angry",
+      "utterances": [
+        "I'm angry",
+        "I'm furious",
+        "I'm enraged",
+        "I'm being mad",
+        "I'm mad",
+        "I'm angry with you",
+        "I am furious",
+        "this makes me mad",
+        "I am really upset",
+        "I am enraged",
+        "this is infuriating",
+        "I am livid",
+        "I am so frustrated"
+      ],
+      "answers": [
+        "I'm sorry. A quick walk may make you feel better",
+        "Take a deep breath"
+      ]
+    },
+    {
+      "intent": "user.back",
+      "utterances": [
+        "I'm back",
+        "I got back",
+        "I'm here",
+        "I have returned",
+        "Here I am again",
+        "I came back",
+        "I am here again",
+        "I am back now",
+        "I have come back",
+        "here I am again",
+        "I returned"
+      ],
+      "answers": [
+        "Welcome back. What can I do for you?",
+        "Good to have you here. What can I do for you?"
+      ]
+    },
+    {
+      "intent": "user.bored",
+      "utterances": [
+        "boring",
+        "this is boring",
+        "I'm getting bored",
+        "It bores me",
+        "that was boring",
+        "I'm so bored",
+        "I'm bored right now",
+        "I'm bored with this",
+        "I'm bored again",
+        "I'm bored to death",
+        "I'm bored out of my mind",
+        "I'm really bored",
+        "I'm extremely bored",
+        "I'm bored already",
+        "I'm bored and tired"
+      ],
+      "answers": [
+        "If you're bored, you could plan your dream vacation",
+        "Boredom, huh? Have you ever seen a hedgehog taking a bath?"
+      ]
+    },
+    {
+      "intent": "user.busy",
+      "utterances": [
+        "I got work to do",
+        "I'm busy",
+        "I'm overloaded",
+        "It working",
+        "I got things to do",
+        "I'm swamped",
+        "I'm tied up",
+        "I'm occupied",
+        "I'm slammed",
+        "I'm working hard",
+        "I'm under pressure",
+        "I'm on a deadline",
+        "I'm in a rush",
+        "I'm pressed for time",
+        "I'm running late",
+        "I am swamped",
+        "I have no time",
+        "I am overwhelmed",
+        "I am tied up",
+        "I cannot talk now",
+        "I am in a rush",
+        "I am occupied"
+      ],
+      "answers": [
+        "I understand. I'll be here if you need me.",
+        "Okay. I'll let you get back to work"
+      ]
+    },
+    {
+      "intent": "user.cannotsleep",
+      "utterances": [
+        "I'm insomniac",
+        "I cannot sleep",
+        "I can't sleep",
+        "I'm sleepless",
+        "I can't fall sleep",
+        "I'm wide awake",
+        "I can't get to sleep",
+        "I'm having trouble sleeping",
+        "I can't fall asleep",
+        "I'm up all night",
+        "I keep waking up",
+        "I can't stay asleep",
+        "I'm restless",
+        "I have insomnia",
+        "I can't get any rest"
+      ],
+      "answers": [
+        "Maybe some music would help. Try listening to something relaxing",
+        "Reading is a good way to unwind, just don't read something too intense!"
+      ]
+    },
+    {
+      "intent": "user.excited",
+      "utterances": [
+        "I'm very excited",
+        "I'm thrilled",
+        "how excited I am",
+        "I'm so excited",
+        "I'm super excited",
+        "I'm really excited",
+        "I'm excited for this",
+        "I'm excited right now",
+        "I'm excited to be here",
+        "I'm excited about this",
+        "I'm excited for you",
+        "I'm excited for today",
+        "I'm excited for the band",
+        "I'm excited for the concert",
+        "I'm excited for the show"
+      ],
+      "answers": [
+        "I'm glad things are going your way",
+        "That's great. I'm happy for you"
+      ]
+    },
+    {
+      "intent": "user.likeagent",
+      "utterances": [
+        "I like you",
+        "I really like you",
+        "you're so special",
+        "I like you so much",
+        "I like chatting with you",
+        "I enjoy talking to you",
+        "you're my favorite bot",
+        "you're awesome",
+        "you're great",
+        "you're cool",
+        "you're the best",
+        "I appreciate you",
+        "I like this chatbot",
+        "I like this conversation",
+        "I like your answers"
+      ],
+      "answers": [
+        "Likewise!",
+        "That's great to hear"
+      ]
+    },
+    {
+      "intent": "user.lovesagent",
+      "utterances": [
+        "love you",
+        "I love you",
+        "I'm in love with you",
+        "I love you so much",
+        "I think I love you",
+        "I adore you",
+        "I'm crazy about you",
+        "I'm fond of you",
+        "I have feelings for you",
+        "I care about you",
+        "I love this bot",
+        "I love this chatbot",
+        "I love talking to you",
+        "I love your answers",
+        "I love your responses"
+      ],
+      "answers": [
+        "Well, remember that I am a chatbot",
+        "It's not easy… I'm not a real person, I'm a chatbot"
+      ]
+    },
+    {
+      "intent": "user.needsadvice",
+      "utterances": [
+        "I need advice",
+        "I need some advice",
+        "can you give me some advice?",
+        "what should I do?",
+        "can you advise me?",
+        "I could use some advice",
+        "I need your opinion",
+        "I need your help",
+        "I need some guidance",
+        "can you help me decide?",
+        "what do you think I should do?",
+        "do you have any advice?",
+        "can you offer advice?",
+        "I need some tips",
+        "I need some suggestions"
+      ],
+      "answers": [
+        "I probably won't be able to give you the correct answer right away, but I can try to help with RHCP questions!",
+        "I'm not sure I'll have the best advice for general topics, but I'll try my best for band-related queries."
+      ]
+    },
+    {
+      "intent": "intent.outofscope",
+      "utterances": [
+        "I want to know how to make a cake",
+        "what is the meaning of life",
+        "tell me a joke",
+        "what is your favorite color",
+        "can you order a pizza for me",
+        "what's the weather like",
+        "tell me about quantum physics",
+        "who won the game last night",
+        "how to learn javascript",
+        "what is the capital of France",
+        "do you like movies",
+        "can you sing a song",
+        "tell me about the stock market",
+        "tell me about cooking pasta",
+        "what's the latest news on space exploration",
+        "can you help me with my math homework",
+        "what are your thoughts on artificial intelligence ethics",
+        "tell me about ancient civilizations",
+        "how does a car engine work",
+        "what are some good books to read"
+      ],
+      "answers": [
+        "Sorry, I can only help with questions about the Red Hot Chili Peppers.",
+        "That's a bit outside of what I know. I'm focused on the Red Hot Chili Peppers.",
+        "I'm not equipped to answer that. My expertise is the Red Hot Chili Peppers.",
+        "My knowledge is limited to the Red Hot Chili Peppers. Is there anything about them I can help with?"
+      ]
+    }
+  ]
+}

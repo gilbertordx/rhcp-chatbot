@@ -172,14 +172,14 @@ Recent performance test results:
 
 ## Recent Improvements
 
-- ✅ Fixed all failing tests (38/38 passing)
-- ✅ Updated to FastAPI lifespan events (removed deprecation warnings)
-- ✅ Fixed datetime deprecation warnings
-- ✅ Added comprehensive test suite with edge cases
-- ✅ Created CLI tool for easy interaction
-- ✅ Added performance testing and benchmarking
-- ✅ Enhanced API documentation
-- ✅ Improved error handling and validation
+- Fixed all failing tests (38/38 passing)
+- Updated to FastAPI lifespan events (removed deprecation warnings)
+- Fixed datetime deprecation warnings
+- Added comprehensive test suite with edge cases
+- Created CLI tool for easy interaction
+- Added performance testing and benchmarking
+- Enhanced API documentation
+- Improved error handling and validation
 
 ## License
 

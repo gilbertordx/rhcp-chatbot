@@ -28,7 +28,7 @@ class PerformanceTester:
         """Initialize the chatbot for testing."""
         print("Initializing chatbot for performance testing...")
         self.chatbot_processor = await initialize_chatbot()
-        print("✅ Chatbot initialized successfully!")
+        print("Chatbot initialized successfully!")
     
     def load_test_queries(self) -> List[Dict[str, Any]]:
         """Load test queries with expected intents."""
@@ -215,10 +215,10 @@ class PerformanceTester:
         category_stats = results["category_stats"]
         
         print("\n" + "="*60)
-        print("🎸 RHCP CHATBOT PERFORMANCE TEST RESULTS")
+        print("RHCP CHATBOT PERFORMANCE TEST RESULTS")
         print("="*60)
         
-        print(f"\n📊 OVERALL STATISTICS:")
+        print(f"\nOVERALL STATISTICS:")
         print(f"   Total Queries Tested: {overall['total_queries']}")
         print(f"   Total Tests Run: {overall['total_tests']}")
         print(f"   Success Rate: {overall['overall_success_rate']:.2%}")
@@ -229,14 +229,14 @@ class PerformanceTester:
         print(f"   Response Time Std Dev: {overall['std_response_time_ms']:.2f} ms")
         print(f"   Average Confidence: {overall['avg_confidence']:.3f}")
         
-        print(f"\n📈 CATEGORY-WISE PERFORMANCE:")
+        print(f"\nCATEGORY-WISE PERFORMANCE:")
         for category, stats in category_stats.items():
             print(f"   {category.upper()}:")
             print(f"     - Avg Response Time: {stats['avg_response_time_ms']:.2f} ms")
             print(f"     - Accuracy: {stats['accuracy']:.2%}")
             print(f"     - Queries: {stats['total_queries']}")
         
-        print(f"\n🏆 TOP PERFORMING QUERIES:")
+        print(f"\nTOP PERFORMING QUERIES:")
         query_stats = results["query_stats"]
         sorted_queries = sorted(
             query_stats.items(), 
@@ -248,7 +248,7 @@ class PerformanceTester:
             print(f"     - Response Time: {stats['avg_response_time_ms']:.2f} ms")
             print(f"     - Accuracy: {stats['accuracy']:.2%}")
         
-        print(f"\n🐌 SLOWEST QUERIES:")
+        print(f"\nSLOWEST QUERIES:")
         sorted_queries_slow = sorted(
             query_stats.items(), 
             key=lambda x: x[1]["avg_response_time_ms"], 
@@ -266,7 +266,7 @@ class PerformanceTester:
         """Save test results to JSON file."""
         with open(filename, 'w') as f:
             json.dump(results, f, indent=2)
-        print(f"📁 Results saved to {filename}")
+        print(f"Results saved to {filename}")
 
 
 async def main():

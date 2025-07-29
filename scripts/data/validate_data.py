@@ -55,16 +55,16 @@ class DataValidator:
                         self.logger.error(f"  - {error}")
                     all_valid = False
                 else:
-                    self.logger.info(f"✅ {file_path} passed validation")
+                    self.logger.info(f"{file_path} passed validation")
                     
             except Exception as e:
                 self.logger.error(f"Error validating {file_path}: {e}")
                 all_valid = False
         
         if all_valid:
-            self.logger.info("✅ All corpus files passed validation")
+            self.logger.info("All corpus files passed validation")
         else:
-            self.logger.error("❌ Some corpus files failed validation")
+            self.logger.error("Some corpus files failed validation")
         
         return all_valid
 
@@ -72,7 +72,7 @@ class DataValidator:
 def main():
     """Main function for standalone execution."""
     try:
-        print("🔍 RHCP Chatbot Data Validation")
+        print("RHCP Chatbot Data Validation")
         print("=" * 40)
         
         # Initialize validator
@@ -82,14 +82,14 @@ def main():
         is_valid = validator.validate_corpus_files()
         
         if is_valid:
-            print("\n✅ All data validation checks passed!")
+            print("\nAll data validation checks passed!")
         else:
-            print("\n❌ Data validation failed!")
+            print("\nData validation failed!")
             print("Check logs for detailed error information.")
             sys.exit(1)
         
     except Exception as e:
-        print(f"❌ Error during validation: {e}")
+        print(f"Error during validation: {e}")
         sys.exit(1)
 
 

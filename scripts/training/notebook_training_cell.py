@@ -28,15 +28,15 @@ import joblib
 import matplotlib.pyplot as plt
 from sklearn.metrics import ConfusionMatrixDisplay
 
-print("🚀 RHCP Chatbot Model Training Pipeline (Notebook Version)")
+print("RHCP Chatbot Model Training Pipeline (Notebook Version)")
 print("=" * 60)
 
 # Simple logger for notebook
 class SimpleLogger:
-    def info(self, msg): print(f"ℹ️  {msg}")
-    def warning(self, msg): print(f"⚠️  {msg}")
-    def error(self, msg): print(f"❌ {msg}")
-    def debug(self, msg): print(f"🔍 {msg}")
+    def info(self, msg): print(f"{msg}")
+    def warning(self, msg): print(f"WARNING: {msg}")
+    def error(self, msg): print(f"ERROR: {msg}")
+    def debug(self, msg): print(f"DEBUG: {msg}")
 
 logger = SimpleLogger()
 
@@ -297,15 +297,15 @@ logger.info(f"Metadata saved: {metadata_path}")
 logger.info(f"Results saved: {results_path}")
 
 # Print final summary
-print(f"\n✅ TRAINING COMPLETED SUCCESSFULLY!")
-print(f"\n📊 PERFORMANCE SUMMARY:")
+print(f"\nTRAINING COMPLETED SUCCESSFULLY!")
+print(f"\nPERFORMANCE SUMMARY:")
 print(f"  Test Accuracy: {test_results['accuracy']:.4f}")
 print(f"  Test Macro F1: {test_results['macro_f1']:.4f}")
 print(f"  CV Accuracy: {cv_results['accuracy']['mean']:.4f} ± {cv_results['accuracy']['std']:.4f}")
 print(f"  CV Macro F1: {cv_results['macro_f1']['mean']:.4f} ± {cv_results['macro_f1']['std']:.4f}")
 
-print(f"\n🎯 Model saved to: {model_path}")
-print(f"🚀 Model is ready for deployment!")
+print(f"\nModel saved to: {model_path}")
+print(f"Model is ready for deployment!")
 
 # Test some predictions
 test_cases = [
@@ -316,7 +316,7 @@ test_cases = [
     'Tell me about quantum physics'
 ]
 
-print(f"\n🧪 TEST PREDICTIONS:")
+print(f"\nTEST PREDICTIONS:")
 predictions = pipeline.predict(test_cases)
 probabilities = pipeline.predict_proba(test_cases)
 
@@ -324,4 +324,4 @@ for i, (query, pred) in enumerate(zip(test_cases, predictions)):
     confidence = np.max(probabilities[i])
     print(f"'{query}' -> '{pred}' (confidence: {confidence:.3f})")
 
-print(f"\n🎸 RHCP Chatbot model training complete!") 
+print(f"\nRHCP Chatbot model training complete!") 
