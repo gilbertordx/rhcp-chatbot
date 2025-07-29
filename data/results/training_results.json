@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-07-28T21:35:06.404461",
+  "timestamp": "2025-07-28T21:58:15.781039",
   "model_path": "data/models/logistic_regression_classifier.joblib",
   "test_evaluation": {
     "accuracy": 0.6386554621848739,

@@ -81,12 +81,23 @@ async def initialize_chatbot():
         (os.path.join(STATIC_DATA_DIR, 'discography.json'), 'discography')
     ]
     
+    missing_files = []
     for file_path, data_key in static_files:
         if os.path.exists(file_path):
-            with open(file_path, 'r', encoding='utf-8') as f:
-                static_data[data_key] = json.load(f)
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    static_data[data_key] = json.load(f)
+                print(f"Loaded static data: {data_key}")
+            except Exception as e:
+                print(f"Error loading {file_path}: {e}")
+                missing_files.append(file_path)
         else:
             print(f"Warning: Static data file {file_path} not found")
+            missing_files.append(file_path)
+    
+    if missing_files:
+        print(f"Missing static data files: {missing_files}")
+        print("Chatbot will operate with limited functionality")
     
     # Check if pre-trained model exists
     model_path = MODEL_FILE
@@ -109,6 +120,16 @@ async def initialize_chatbot():
     
     # Create chatbot processor with memory manager
     processor = ChatbotProcessor(classifier, training_data, static_data, memory_manager)
+    
+    # Validate static data and report any issues
+    validation_issues = processor.validate_static_data()
+    if validation_issues:
+        print("Static data validation issues:")
+        for issue in validation_issues:
+            print(f"  - {issue}")
+        print("Chatbot will operate with limited functionality")
+    else:
+        print("Static data validation passed")
     
     print("Chatbot initialized successfully.")
     return processor

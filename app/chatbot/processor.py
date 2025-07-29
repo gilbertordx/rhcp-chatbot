@@ -8,10 +8,11 @@ class ChatbotProcessor:
     def __init__(self, classifier, training_data, static_data, memory_manager=None):
         self.classifier = classifier
         self.training_data = training_data
-        self.static_data = static_data
+        self.static_data = static_data or {}
         self.memory_manager = memory_manager
 
         # Pre-compile lists of known entities with multiple variations
+        # Use safe defaults if static_data is missing or incomplete
         self.known_members = self._build_member_variations()
         self.known_albums = self._build_album_variations()
         self.known_songs = self._build_song_variations()
@@ -20,8 +21,13 @@ class ChatbotProcessor:
         """Build comprehensive member name variations including nicknames and aliases."""
         members = []
         
+        # Safely access bandInfo with fallback
+        band_info = self.static_data.get('bandInfo', {})
+        current_members = band_info.get('currentMembers', [])
+        former_members = band_info.get('formerMembers', [])
+        
         # Current members
-        for member in self.static_data['bandInfo']['currentMembers']:
+        for member in current_members:
             name = member['name'].lower()
             variations = [name, name.replace("'", ""), name.replace(" ", ""), name.split()[0], name.split()[-1]]
             
@@ -43,7 +49,7 @@ class ChatbotProcessor:
             })
         
         # Former members
-        for member in self.static_data['bandInfo']['formerMembers']:
+        for member in former_members:
             name = member['name'].lower()
             variations = [name, name.replace("'", ""), name.replace(" ", ""), name.split()[0], name.split()[-1]]
             
@@ -66,12 +72,43 @@ class ChatbotProcessor:
         
         return members
 
+    def validate_static_data(self):
+        """Validate that static data is properly loaded and accessible."""
+        issues = []
+        
+        if not self.static_data:
+            issues.append("No static data provided")
+            return issues
+        
+        band_info = self.static_data.get('bandInfo')
+        if not band_info:
+            issues.append("bandInfo not found in static data")
+        else:
+            if not band_info.get('currentMembers'):
+                issues.append("No current members found in bandInfo")
+            if not band_info.get('formerMembers'):
+                issues.append("No former members found in bandInfo")
+        
+        discography = self.static_data.get('discography')
+        if not discography:
+            issues.append("discography not found in static data")
+        else:
+            for album_type in ['studioAlbums', 'compilationAlbums', 'liveAlbums']:
+                if not discography.get(album_type):
+                    issues.append(f"No {album_type} found in discography")
+        
+        return issues
+
     def _build_album_variations(self):
         """Build comprehensive album name variations."""
         albums = []
         
+        # Safely access discography with fallback
+        discography = self.static_data.get('discography', {})
+        
         for album_type in ['studioAlbums', 'compilationAlbums', 'liveAlbums']:
-            for album in self.static_data['discography'][album_type]:
+            album_list = discography.get(album_type, [])
+            for album in album_list:
                 name = album['name'].lower()
                 variations = [name, name.replace("'", ""), name.replace(" ", ""), name.replace("&", "and")]
                 
@@ -114,8 +151,12 @@ class ChatbotProcessor:
         """Build comprehensive song name variations."""
         songs = []
         
+        # Safely access discography with fallback
+        discography = self.static_data.get('discography', {})
+        
         for album_type in ['studioAlbums', 'compilationAlbums', 'liveAlbums']:
-            for album in self.static_data['discography'][album_type]:
+            album_list = discography.get(album_type, [])
+            for album in album_list:
                 if 'tracks' in album and isinstance(album['tracks'], list):
                     for track in album['tracks']:
                         name = track.lower()
