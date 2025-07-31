@@ -181,6 +181,76 @@ Recent performance test results:
 - Enhanced API documentation
 - Improved error handling and validation
 
+## 🛠 Hardening Pass #1
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    PRODUCTION HARDENING                     │
+│                     RHCP Chatbot v2.0                       │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### New Production Features
+
+**🔧 Structured Logging**
+- JSON-formatted logs with correlation IDs
+- Request tracking with latency measurement
+- Debug mode with human-readable output
+- Context-aware logging for chatbot operations
+
+**⚙️ Environment Configuration**
+- Environment-based settings with validation
+- Support for `.env` files (optional)
+- Immutable configuration after initialization
+- Comprehensive validation with actionable errors
+
+**✅ Input Validation & Error Handling**
+- Typed exceptions with detailed context
+- API request validation with Pydantic
+- CLI input sanitization and length limits
+- Consistent error responses with remedies
+
+**🏥 Health & Readiness Endpoints**
+- `/healthz` - Basic health check
+- `/readyz` - Dependency readiness check
+- Database, model, and file system validation
+- Proper HTTP status codes (200/503)
+
+### Quick Setup
+
+```bash
+# Environment variables (optional)
+export RHCP_DEBUG=true
+export RHCP_LOG_LEVEL=DEBUG
+export RHCP_PORT=3000
+
+# Start with debug logging
+python cli.py --message "Hello" --debug
+
+# Start API server
+uvicorn app.main:app --host 0.0.0.0 --port 3000
+
+# Check health
+curl http://localhost:3000/healthz
+curl http://localhost:3000/readyz
+```
+
+### Sample JSON Logs
+
+```json
+{"ts": "2025-07-31T00:23:01.571249Z", "level": "INFO", "msg": "Application started", "module": "main", "function": "startup", "line": 25, "request_id": "req-456", "correlation_id": "corr-789"}
+{"ts": "2025-07-31T00:23:01.572127Z", "level": "INFO", "msg": "Message processed", "module": "chat", "function": "process_chat_message", "line": 65, "request_id": "req-456", "intent": "greetings.hello", "confidence": 0.85, "latency_ms": 12.3}
+```
+
+### Troubleshooting
+
+| Issue | Symptom | Remedy |
+|-------|---------|--------|
+| Environment not loaded | Default values used | Check `.env` file or set `RHCP_*` vars |
+| Invalid input | 422/400 errors | Check message length (max 2000 chars) |
+| Service not ready | 503 from `/readyz` | Check database, model files, dependencies |
+| Debug logs not showing | JSON format still used | Ensure `--debug` flag or `RHCP_DEBUG=true` |
+
 ## License
 
 This project is licensed under the MIT License. 

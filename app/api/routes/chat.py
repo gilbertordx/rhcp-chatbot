@@ -1,13 +1,15 @@
 from fastapi import APIRouter, HTTPException, Request, Depends
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import Optional
 from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.core.auth import get_current_active_user, get_optional_user
 from app.models.user import User
+from app.errors import InvalidInputError, ProcessingError
+from app.infra.logging import get_logger
 
 class ChatMessage(BaseModel):
-    message: str
+    message: str = Field(..., min_length=1, max_length=2000)
     session_id: Optional[str] = None
 
 class SessionResponse(BaseModel):
@@ -30,14 +32,20 @@ async def process_chat_message(
     db: Session = Depends(get_db),
     current_user: Optional[User] = Depends(get_optional_user)
 ):
+    logger = get_logger(__name__)
     user_message = chat_message.message
     session_id = chat_message.session_id
     
-    if not user_message:
-        raise HTTPException(status_code=400, detail="User message is required.")
+    logger.info(f"Processing chat message: {user_message[:50]}{'...' if len(user_message) > 50 else ''}")
 
-    chatbot_processor = request.app.state.chatbot_processor
+    try:
+        chatbot_processor = request.app.state.chatbot_processor
+    except AttributeError:
+        logger.error("Chatbot processor not initialized")
+        raise HTTPException(status_code=503, detail="Chatbot processor is not initialized.")
+    
     if not chatbot_processor:
+        logger.error("Chatbot processor is None")
         raise HTTPException(status_code=503, detail="Chatbot processor is not initialized.")
 
     try:
@@ -59,6 +67,17 @@ async def process_chat_message(
         # Get conversation context
         context = chatbot_processor.memory_manager.get_context(session_id)
         
+        # Log successful processing
+        logger.info(
+            "Message processed successfully",
+            extra={
+                "intent": response.get("intent"),
+                "confidence": response.get("confidence"),
+                "entities_count": len(response.get("entities", [])),
+                "session_id": session_id
+            }
+        )
+        
         # Create complete response
         complete_response = {
             'message': response['message'],
@@ -74,9 +93,7 @@ async def process_chat_message(
         
         return complete_response
     except Exception as e:
-        # For debugging, it's helpful to see the error.
-        print(f"Error processing message: {e}")
-        # In a real app, you'd want more specific error handling and logging
+        logger.error(f"Error processing message: {e}")
         raise HTTPException(status_code=500, detail="An error occurred while processing your message.")
 
 @router.get("/session/{session_id}/context")

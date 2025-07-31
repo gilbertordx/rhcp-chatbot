@@ -14,27 +14,32 @@ from typing import Optional, Dict, Any
 import requests
 from app.chatbot.initializer import initialize_chatbot
 from app.chatbot.memory import ConversationMemory
+from app.config import get_settings
+from app.infra.logging import setup_logging, get_logger
+from app.errors import InvalidInputError
 
 
 class RHCPChatbotCLI:
-    def __init__(self, api_url: Optional[str] = None, use_api: bool = False):
+    def __init__(self, api_url: Optional[str] = None, use_api: bool = False, debug: bool = False):
         self.api_url = api_url or "http://localhost:8000"
         self.use_api = use_api
+        self.debug = debug
         self.chatbot_processor = None
         self.memory_manager = None
         self.session_id = None
         self.auth_token = None
+        self.logger = get_logger(__name__)
         
     async def initialize(self):
         """Initialize the chatbot processor."""
         if not self.use_api:
-            print("Initializing local chatbot...")
+            self.logger.info("Initializing local chatbot")
             self.chatbot_processor = await initialize_chatbot()
             self.memory_manager = ConversationMemory(max_sessions=10, session_timeout_hours=1)
             self.session_id = self.memory_manager.create_session()
-            print("Local chatbot initialized successfully!")
+            self.logger.info("Local chatbot initialized successfully")
         else:
-            print("Using API mode - no local initialization needed")
+            self.logger.info("Using API mode - no local initialization needed")
     
     def authenticate(self, username: str, password: str) -> bool:
         """Authenticate with the API."""
@@ -50,16 +55,26 @@ class RHCPChatbotCLI:
             if response.status_code == 200:
                 data = response.json()
                 self.auth_token = data["access_token"]
-                print(f"Authenticated as {username}")
+                self.logger.info(f"Authenticated as {username}")
             else:
-                print(f"Authentication failed: {response.text}")
+                self.logger.error(f"Authentication failed: {response.text}")
         except requests.exceptions.RequestException as e:
-            print(f"Connection error: {e}")
+            self.logger.error(f"Connection error: {e}")
         
         return self.auth_token is not None
     
     def send_message(self, message: str) -> Dict[str, Any]:
         """Send a message and get response."""
+        # Validate input
+        if not message or not message.strip():
+            raise InvalidInputError("Message cannot be empty or whitespace only")
+        
+        message = message.strip()
+        if len(message) > 2000:
+            raise InvalidInputError("Message too long (max 2000 characters)")
+        
+        self.logger.info(f"Processing message: {message[:50]}{'...' if len(message) > 50 else ''}")
+        
         if self.use_api:
             return self._send_message_api(message)
         else:
@@ -109,7 +124,19 @@ class RHCPChatbotCLI:
                 "entities": []
             }
         
-        return self.chatbot_processor.process_message(message, self.session_id)
+        response = self.chatbot_processor.process_message(message, self.session_id)
+        
+        # Log response with context
+        self.logger.info(
+            "Message processed",
+            extra={
+                "intent": response.get("intent"),
+                "confidence": response.get("confidence"),
+                "entities_count": len(response.get("entities", []))
+            }
+        )
+        
+        return response
     
     def get_history(self) -> list:
         """Get conversation history."""
@@ -231,11 +258,24 @@ def main():
         action="store_true", 
         help="Output response in JSON format"
     )
+    parser.add_argument(
+        "--debug",
+        action="store_true",
+        help="Enable debug mode with human-readable logs"
+    )
     
     args = parser.parse_args()
     
+    # Setup logging
+    settings = get_settings()
+    setup_logging(
+        level="DEBUG" if args.debug else settings.log_level,
+        format_type="human" if args.debug else settings.log_format,
+        debug=args.debug
+    )
+    
     # Create CLI instance
-    cli = RHCPChatbotCLI(api_url=args.api_url, use_api=args.api)
+    cli = RHCPChatbotCLI(api_url=args.api_url, use_api=args.api, debug=args.debug)
     
     # Initialize
     asyncio.run(cli.initialize())
@@ -247,11 +287,15 @@ def main():
     
     # Single message mode
     if args.message:
-        response = cli.send_message(args.message)
-        if args.json:
-            print(json.dumps(response, indent=2))
-        else:
-            cli.print_response(response)
+        try:
+            response = cli.send_message(args.message)
+            if args.json:
+                print(json.dumps(response, indent=2))
+            else:
+                cli.print_response(response)
+        except InvalidInputError as e:
+            print(f"Error: {e.message}")
+            sys.exit(1)
         return
     
     # Interactive mode
