@@ -41,7 +41,7 @@ class Settings:
     bcrypt_rounds: int = 12
     
     # ML Model
-    model_path: str = "data/models/logistic_regression_classifier.joblib"
+    model_path: str = "data/model.bin"
     
     # Data paths
     band_info_path: str = "app/chatbot/data/static/band-info.json"
@@ -62,7 +62,7 @@ class Settings:
             algorithm=os.getenv("RHCP_ALGORITHM", "HS256"),
             access_token_expire_minutes=int(os.getenv("RHCP_ACCESS_TOKEN_EXPIRE_MINUTES", "30")),
             bcrypt_rounds=int(os.getenv("RHCP_BCRYPT_ROUNDS", "12")),
-            model_path=os.getenv("RHCP_MODEL_PATH", "data/models/logistic_regression_classifier.joblib"),
+            model_path=os.getenv("RHCP_MODEL_PATH", "data/model.bin"),
             band_info_path=os.getenv("RHCP_BAND_INFO_PATH", "app/chatbot/data/static/band-info.json"),
             discography_path=os.getenv("RHCP_DISCOGRAPHY_PATH", "app/chatbot/data/static/discography.json"),
         )
@@ -97,10 +97,14 @@ class Settings:
 _settings: Optional[Settings] = None
 
 
-def get_settings() -> Settings:
-    """Get the global settings instance."""
+def get_settings(reload: bool = False) -> Settings:
+    """Get the global settings instance.
+    
+    Args:
+        reload: Force reload settings from environment variables
+    """
     global _settings
-    if _settings is None:
+    if _settings is None or reload:
         _settings = Settings.from_env()
         _settings.validate()
     return _settings

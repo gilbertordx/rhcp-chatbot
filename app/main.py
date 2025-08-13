@@ -1,37 +1,54 @@
-import time
+import os
 import uuid
-from fastapi import FastAPI, Request, HTTPException
+from contextlib import asynccontextmanager
+from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from contextlib import asynccontextmanager
-from app.api.routes import chat, auth
-from app.core.database import create_tables
 from app.chatbot.initializer import initialize_chatbot
-from app.config import get_settings
+from app.chatbot.memory import ConversationMemory
+from app.core.inference import initialize_inference
 from app.infra.logging import setup_logging, get_logger, set_request_context, clear_request_context
+from app.config import get_settings
 from app.errors import RHCPError, ConfigError, ProcessingError
-import uvicorn
+from app.api.routes import auth, chat
+
+# Global settings
+settings = get_settings()
+
+# Global chatbot instances
+chatbot_processor = None
+memory_manager = None
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Startup
-    settings = get_settings()
+    """Application lifespan manager."""
+    global chatbot_processor, memory_manager
+    
+    # Setup logging
     setup_logging(
         level=settings.log_level,
         format_type=settings.log_format,
         debug=settings.debug
     )
-    logger = get_logger(__name__)
     
-    logger.info("Starting RHCP Chatbot", extra={"version": "2.0.0"})
+    logger = get_logger(__name__)
+    logger.info("Starting RHCP Chatbot application")
     
     try:
-        create_tables()
-        logger.info("Database tables created/verified")
-        
+        # Initialize chatbot processor
         chatbot_processor = await initialize_chatbot()
+        
+        # Initialize memory manager
+        memory_manager = ConversationMemory(max_sessions=100, session_timeout_hours=24)
+        
+        # Initialize inference pipeline
+        initialize_inference(chatbot_processor, memory_manager)
+        
+        # Store in app state
         app.state.chatbot_processor = chatbot_processor
-        logger.info("Chatbot initialized successfully")
+        app.state.memory_manager = memory_manager
+        
+        logger.info("Application startup completed successfully")
         
     except Exception as e:
         logger.error(f"Failed to initialize application: {e}")
@@ -39,20 +56,23 @@ async def lifespan(app: FastAPI):
     
     yield
     
-    # Shutdown
-    logger.info("Shutting down RHCP Chatbot")
+    # Cleanup
+    logger.info("Shutting down RHCP Chatbot application")
+    if memory_manager:
+        memory_manager.cleanup_expired_sessions()
 
+# Create FastAPI app
 app = FastAPI(
-    title="RHCP Chatbot",
-    description="A Red Hot Chili Peppers chatbot with authentication and conversation memory",
-    version="2.0.0",
+    title="RHCP Chatbot API",
+    description="A chatbot for Red Hot Chili Peppers information",
+    version="1.0.0",
     lifespan=lifespan
 )
 
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Configure appropriately for production
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -61,166 +81,160 @@ app.add_middleware(
 # Add logging middleware
 @app.middleware("http")
 async def logging_middleware(request: Request, call_next):
-    """Log request/response with timing and request ID."""
-    request_id = str(uuid.uuid4())
-    set_request_context(request_id_val=request_id)
+    """Middleware to log requests and add request context."""
+    request_id_val = str(uuid.uuid4())
     
+    # Set request context
+    set_request_context(request_id_val=request_id_val)
+    
+    # Log request start
     logger = get_logger(__name__)
-    start_time = time.time()
+    logger.info(f"Request started: {request.method} {request.url.path}")
     
-    logger.info(
-        f"Request started: {request.method} {request.url.path}",
-        extra={"request_id": request_id}
-    )
+    # Process request and measure latency
+    import time
+    start_time = time.time()
     
     try:
         response = await call_next(request)
-        process_time = (time.time() - start_time) * 1000
         
+        # Calculate latency
+        latency_ms = (time.time() - start_time) * 1000
+        
+        # Log request completion
         logger.info(
-            f"Request completed: {response.status_code}",
-            extra={
-                "request_id": request_id,
-                "status_code": response.status_code,
-                "latency_ms": round(process_time, 2)
-            }
+            f"Request completed: {request.method} {request.url.path} - {response.status_code}",
+            extra={"latency_ms": latency_ms}
         )
         
         return response
+        
     except Exception as e:
-        process_time = (time.time() - start_time) * 1000
+        # Log request error
+        latency_ms = (time.time() - start_time) * 1000
         logger.error(
-            f"Request failed: {str(e)}",
-            extra={
-                "request_id": request_id,
-                "latency_ms": round(process_time, 2)
-            }
+            f"Request failed: {request.method} {request.url.path} - {str(e)}",
+            extra={"latency_ms": latency_ms}
         )
         raise
     finally:
+        # Clear request context
         clear_request_context()
 
-# Add exception handlers
+# Exception handlers
 @app.exception_handler(RHCPError)
 async def rhcp_exception_handler(request: Request, exc: RHCPError):
     """Handle RHCP-specific exceptions."""
     logger = get_logger(__name__)
-    logger.error(f"RHCP Error: {exc.message}", extra={"details": exc.details})
+    logger.warning(f"RHCP error: {exc.message}", extra=exc.details)
     
     return JSONResponse(
         status_code=400,
-        content={
-            "error": exc.message,
-            "remedy": "Check input and try again"
-        }
+        content={"error": exc.message, "remedy": exc.details.get("remedy", "Please try again")}
     )
 
 @app.exception_handler(Exception)
 async def general_exception_handler(request: Request, exc: Exception):
     """Handle general exceptions."""
     logger = get_logger(__name__)
-    logger.error(f"Unexpected error: {str(exc)}")
+    logger.error(f"Unexpected error: {str(exc)}", exc_info=True)
     
     return JSONResponse(
         status_code=500,
-        content={
-            "error": "Internal server error",
-            "remedy": "Contact support if problem persists"
-        }
+        content={"error": "Internal server error", "remedy": "Please try again later"}
     )
 
-# Include routers
-app.include_router(auth.router, prefix="/api/auth", tags=["authentication"])
-app.include_router(chat.router, prefix="/api/chat", tags=["chat"])
 
-@app.get("/")
-def read_root():
-    return {
-        "message": "RHCP Chatbot is running",
-        "version": "2.0.0",
-        "features": [
-            "Conversation memory with context",
-            "User authentication",
-            "Session management",
-            "Entity recognition",
-            "Intent classification"
-        ],
-        "endpoints": {
-            "auth": "/api/auth",
-            "chat": "/api/chat",
-            "docs": "/docs"
-        }
-    }
 
+# Health check endpoints
 @app.get("/healthz")
-def health_check():
+async def health_check():
     """Basic health check endpoint."""
-    return {"status": "ok", "version": "2.0.0"}
-
+    return {"status": "ok", "version": "1.0.0"}
 
 @app.get("/readyz")
 async def readiness_check():
-    """Readiness check endpoint - verifies critical dependencies."""
-    logger = get_logger(__name__)
+    """Readiness check endpoint."""
+    # Get fresh settings to pick up environment variable changes
+    from app.config import get_settings
+    current_settings = get_settings(reload=True)
     
-    details = {}
     ready = True
-    
-    # Check database
-    try:
-        from app.core.database import engine
-        with engine.connect() as conn:
-            conn.execute("SELECT 1")
-        details["database"] = "ok"
-    except Exception as e:
-        details["database"] = f"error: {str(e)}"
-        ready = False
-    
-    # Check model files
-    settings = get_settings()
-    import os
-    
-    if os.path.exists(settings.model_path):
-        details["model"] = "ok"
-    else:
-        details["model"] = "error: model file not found"
-        ready = False
-    
-    if os.path.exists(settings.band_info_path):
-        details["band_info"] = "ok"
-    else:
-        details["band_info"] = "error: band info file not found"
-        ready = False
-    
-    if os.path.exists(settings.discography_path):
-        details["discography"] = "ok"
-    else:
-        details["discography"] = "error: discography file not found"
-        ready = False
+    details = {}
     
     # Check chatbot processor
-    try:
-        if hasattr(app.state, 'chatbot_processor') and app.state.chatbot_processor:
-            details["chatbot_processor"] = "ok"
-        else:
-            details["chatbot_processor"] = "error: not initialized"
-            ready = False
-    except Exception as e:
-        details["chatbot_processor"] = f"error: {str(e)}"
+    if not chatbot_processor:
         ready = False
-    
-    logger.info(f"Readiness check: {ready}", extra={"details": details})
-    
-    if ready:
-        return {"ready": ready, "details": details}
+        details["chatbot_processor"] = "not initialized"
     else:
-        from fastapi.responses import JSONResponse
+        details["chatbot_processor"] = "ready"
+    
+    # Check memory manager
+    if not memory_manager:
+        ready = False
+        details["memory_manager"] = "not initialized"
+    else:
+        details["memory_manager"] = "ready"
+    
+    # Check model file
+    model_path = current_settings.model_path
+    if not os.path.exists(model_path):
+        ready = False
+        details["model_file"] = f"not found: {model_path}"
+    elif not os.access(model_path, os.R_OK):
+        ready = False
+        details["model_file"] = f"not readable: {model_path}"
+    else:
+        # Check file size > 0
+        try:
+            file_size = os.path.getsize(model_path)
+            if file_size == 0:
+                ready = False
+                details["model_file"] = f"empty file: {model_path} (size: {file_size})"
+            else:
+                details["model_file"] = f"ready: {model_path} (size: {file_size} bytes)"
+        except OSError as e:
+            ready = False
+            details["model_file"] = f"error checking file: {model_path} - {str(e)}"
+    
+    # Check static data files
+    band_info_path = current_settings.band_info_path
+    discography_path = current_settings.discography_path
+    
+    if not os.path.exists(band_info_path):
+        ready = False
+        details["band_info"] = f"not found: {band_info_path}"
+    else:
+        details["band_info"] = "exists"
+    
+    if not os.path.exists(discography_path):
+        ready = False
+        details["discography"] = f"not found: {discography_path}"
+    else:
+        details["discography"] = "exists"
+    
+    # Return appropriate status code
+    if ready:
+        return JSONResponse(content={"ready": True, "details": details})
+    else:
         return JSONResponse(
             status_code=503,
-            content={"ready": ready, "details": details}
+            content={"ready": False, "details": details}
         )
 
+# Include routers
+app.include_router(auth.router, prefix="/api/auth", tags=["authentication"])
+app.include_router(chat.router, prefix="/api", tags=["chat"])
+
 def start():
-    """Launched with `poetry run start` at root level"""
-    settings = get_settings()
-    uvicorn.run("app.main:app", host=settings.host, port=settings.port, reload=True) 
+    """Start the application."""
+    import uvicorn
+    uvicorn.run(
+        "app.main:app",
+        host=settings.host,
+        port=settings.port,
+        reload=settings.debug
+    )
+
+if __name__ == "__main__":
+    start() 
