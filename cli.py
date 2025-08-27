@@ -1,306 +1,366 @@
 #!/usr/bin/env python3
 """
-RHCP Chatbot CLI Tool
+RHCP Chatbot CLI
 
-A command-line interface for interacting with the RHCP chatbot.
-Supports both local processing and API communication.
+A command-line interface for the Red Hot Chili Peppers chatbot.
 """
 
 import argparse
 import asyncio
 import json
 import sys
-from typing import Optional, Dict, Any
-import requests
+from typing import Any
+
 from app.chatbot.initializer import initialize_chatbot
 from app.chatbot.memory import ConversationMemory
 from app.config import get_settings
-from app.infra.logging import setup_logging, get_logger
+from app.core.inference import initialize_inference, run_inference
 from app.errors import InvalidInputError
+from app.infra.logging import get_logger, setup_logging
 
 
 class RHCPChatbotCLI:
-    def __init__(self, api_url: Optional[str] = None, use_api: bool = False, debug: bool = False):
-        self.api_url = api_url or "http://localhost:8000"
+    """Command-line interface for the RHCP chatbot."""
+
+    def __init__(
+        self,
+        api_url: str | None = None,
+        use_api: bool = False,
+        debug: bool = False,
+        json_output: bool = False,
+    ):
+        """Initialize the CLI."""
+        self.api_url = api_url
         self.use_api = use_api
         self.debug = debug
+        self.json_output = json_output
         self.chatbot_processor = None
         self.memory_manager = None
         self.session_id = None
         self.auth_token = None
         self.logger = get_logger(__name__)
-        
+
+        # Command routing - these commands bypass NLU
+        self.commands = {
+            "help": self._show_help,
+            "history": self._show_history,
+            "quit": self._quit_session,
+            "exit": self._quit_session,
+            "bye": self._quit_session,
+            "commands": self._show_commands,
+        }
+
     async def initialize(self):
         """Initialize the chatbot processor."""
+        if self.use_api:
+            self.logger.info("Using API mode")
+            return
+
+        self.logger.info("Initializing local chatbot processor...")
+        self.chatbot_processor = await initialize_chatbot()
+        self.memory_manager = ConversationMemory(
+            max_sessions=10, session_timeout_hours=1
+        )
+        self.session_id = self.memory_manager.create_session()
+
+        # Initialize inference pipeline
+        initialize_inference(self.chatbot_processor, self.memory_manager)
+
+        self.logger.info("Chatbot initialized successfully")
+
+    async def authenticate(self):
+        """Authenticate with the API if using API mode."""
         if not self.use_api:
-            self.logger.info("Initializing local chatbot")
-            self.chatbot_processor = await initialize_chatbot()
-            self.memory_manager = ConversationMemory(max_sessions=10, session_timeout_hours=1)
-            self.session_id = self.memory_manager.create_session()
-            self.logger.info("Local chatbot initialized successfully")
-        else:
-            self.logger.info("Using API mode - no local initialization needed")
-    
-    def authenticate(self, username: str, password: str) -> bool:
-        """Authenticate with the API."""
-        if not self.use_api:
-            return True
-            
-        try:
-            response = requests.post(
-                f"{self.api_url}/api/auth/login",
-                json={"username": username, "password": password}
-            )
-            
-            if response.status_code == 200:
-                data = response.json()
-                self.auth_token = data["access_token"]
-                self.logger.info(f"Authenticated as {username}")
-            else:
-                self.logger.error(f"Authentication failed: {response.text}")
-        except requests.exceptions.RequestException as e:
-            self.logger.error(f"Connection error: {e}")
-        
-        return self.auth_token is not None
-    
-    def send_message(self, message: str) -> Dict[str, Any]:
-        """Send a message and get response."""
-        # Validate input
+            return
+
+        # TODO: Implement API authentication
+        self.logger.info("API authentication not yet implemented")
+
+    def send_message(self, message: str) -> dict[str, Any]:
+        """Send a message and get a response."""
+        # Input validation
         if not message or not message.strip():
-            raise InvalidInputError("Message cannot be empty or whitespace only")
-        
+            raise InvalidInputError("Message cannot be empty or whitespace")
+
         message = message.strip()
         if len(message) > 2000:
             raise InvalidInputError("Message too long (max 2000 characters)")
-        
-        self.logger.info(f"Processing message: {message[:50]}{'...' if len(message) > 50 else ''}")
-        
+
+        # Command routing - check if this is a CLI command
+        command = message.lower()
+        if command in self.commands:
+            return self.commands[command]()
+
+        self.logger.info(
+            f"Processing message: {message[:50]}{'...' if len(message) > 50 else ''}"
+        )
+
         if self.use_api:
             return self._send_message_api(message)
         else:
             return self._send_message_local(message)
-    
-    def _send_message_api(self, message: str) -> Dict[str, Any]:
-        """Send message via API."""
-        headers = {"Content-Type": "application/json"}
-        if self.auth_token:
-            headers["Authorization"] = f"Bearer {self.auth_token}"
-        
-        data = {"message": message}
-        if self.session_id:
-            data["session_id"] = self.session_id
-        
-        try:
-            response = requests.post(
-                f"{self.api_url}/api/chat",
-                headers=headers,
-                json=data
-            )
-            
-            if response.status_code == 200:
-                return response.json()
-            else:
-                return {
-                    "message": f"API Error: {response.status_code} - {response.text}",
-                    "intent": "error",
-                    "confidence": 0.0,
-                    "entities": []
-                }
-        except requests.exceptions.RequestException as e:
-            return {
-                "message": f"Connection Error: {e}",
-                "intent": "error",
-                "confidence": 0.0,
-                "entities": []
-            }
-    
-    def _send_message_local(self, message: str) -> Dict[str, Any]:
-        """Send message using local processor."""
+
+    def _send_message_local(self, message: str) -> dict[str, Any]:
+        """Send message via local processor using unified inference pipeline."""
         if not self.chatbot_processor:
-            return {
-                "message": "Chatbot not initialized",
-                "intent": "error",
-                "confidence": 0.0,
-                "entities": []
-            }
-        
-        response = self.chatbot_processor.process_message(message, self.session_id)
-        
-        # Log response with context
-        self.logger.info(
-            "Message processed",
-            extra={
-                "intent": response.get("intent"),
-                "confidence": response.get("confidence"),
-                "entities_count": len(response.get("entities", []))
-            }
-        )
-        
-        return response
-    
-    def get_history(self) -> list:
-        """Get conversation history."""
-        if not self.use_api:
-            if self.memory_manager and self.session_id:
-                return self.memory_manager.get_conversation_history(self.session_id)
-            return []
-        else:
-            return self._get_history_api()
-    
-    def _get_history_api(self) -> list:
-        """Get history via API."""
-        if not self.auth_token or not self.session_id:
-            return []
-        
-        headers = {"Authorization": f"Bearer {self.auth_token}"}
-        
-        try:
-            response = requests.get(
-                f"{self.api_url}/api/chat/history/{self.session_id}",
-                headers=headers
+            raise RuntimeError("Chatbot processor not initialized")
+
+        # Use unified inference pipeline
+        response = run_inference(message, self.session_id)
+
+        # Convert to dict for CLI compatibility
+        result = response.model_dump()
+
+        # Add CLI-specific fields
+        result["message"] = result["final_message"]  # For backward compatibility
+        result["intent"] = result["intent"]
+        result["confidence"] = result["confidence"]
+        result["entities"] = [e.dict() for e in result["entities"]]
+
+        # Debug mode: show top-3 intents and probabilities
+        if self.debug:
+            classifications = self.chatbot_processor.get_classifications(
+                message.lower()
             )
-            
-            if response.status_code == 200:
-                data = response.json()
-                return data.get("history", [])
-            else:
-                return []
-        except requests.exceptions.RequestException:
-            return []
-    
-    def print_response(self, response: Dict[str, Any]):
-        """Print a formatted response."""
-        print(f"\n{response['message']}")
-        print(f"Intent: {response['intent']} (confidence: {response.get('confidence', 0):.2f})")
-        
-        if response.get('entities'):
-            print("Entities:")
-            for entity in response['entities']:
-                print(f"   - {entity['type']}: {entity['value'].get('name', entity['value'])}")
-        
-        print("-" * 50)
-    
-    def interactive_mode(self):
-        """Run interactive chat mode."""
-        print("\nWelcome to RHCP Chatbot CLI!")
-        print("Type 'quit', 'exit', or 'bye' to end the conversation")
-        print("Type 'history' to see conversation history")
-        print("Type 'help' for available commands")
-        print("=" * 50)
-        
-        while True:
-            try:
-                user_input = input("\nYou: ").strip()
-                
-                if not user_input:
-                    continue
-                
-                if user_input.lower() in ['quit', 'exit', 'bye']:
-                    print("Goodbye! Thanks for chatting about RHCP!")
-                    break
-                
-                if user_input.lower() == 'history':
-                    history = self.get_history()
-                    if history:
-                        print("\nConversation History:")
-                        for i, entry in enumerate(history[-5:], 1):  # Show last 5 messages
-                            print(f"{i}. You: {entry['user_message']}")
-                            print(f"   Bot: {entry['bot_response']['message'][:100]}...")
-                    else:
-                        print("No conversation history yet.")
-                    continue
-                
-                if user_input.lower() == 'help':
-                    print("\nAvailable Commands:")
-                    print("  - Type any question about RHCP")
-                    print("  - 'history' - Show conversation history")
-                    print("  - 'quit', 'exit', 'bye' - End conversation")
-                    print("  - 'help' - Show this help")
-                    continue
-                
-                # Send message and get response
-                response = self.send_message(user_input)
-                self.print_response(response)
-                
-            except KeyboardInterrupt:
-                print("\nGoodbye! Thanks for chatting about RHCP!")
-                break
-            except Exception as e:
-                print(f"Error: {e}")
+            if classifications:
+                self.logger.info(
+                    "┌─────────────────────────────────────────────────────────────┐"
+                )
+                self.logger.info(
+                    "│                    Top 3 Intents                            │"
+                )
+                self.logger.info(
+                    "├─────────────────────────────────────────────────────────────┤"
+                )
+                for i, classification in enumerate(classifications[:3], 1):
+                    label = classification["label"]
+                    value = classification["value"]
+                    self.logger.info(f"│ {i}. {label:<30} {value:.3f} │")
+                self.logger.info(
+                    "└─────────────────────────────────────────────────────────────┘"
+                )
+
+        return result
+
+    def _send_message_api(self, message: str) -> dict[str, Any]:
+        """Send message via API."""
+        # TODO: Implement API communication
+        self.logger.info("API mode not yet implemented")
+        return {
+            "message": "API mode not yet implemented",
+            "intent": "unknown",
+            "confidence": 0.0,
+            "entities": [],
+        }
+
+    def _show_help(self) -> dict[str, Any]:
+        """Show help information."""
+        help_text = """
+RHCP Chatbot Help
+=================
+
+This chatbot can answer questions about the Red Hot Chili Peppers, including:
+- Band members and their biographies
+- Albums and their details
+- Songs and their information
+- Band history and formation
+
+Commands:
+- help: Show this help message
+- history: Show conversation history
+- commands: List available commands
+- quit/exit/bye: End the session
+
+Examples:
+- "Who is in the band?"
+- "Tell me about Californication"
+- "What year was RHCP formed?"
+- "Who wrote Under the Bridge?"
+        """.strip()
+
+        return {
+            "message": help_text,
+            "intent": "command.help",
+            "confidence": 1.0,
+            "entities": [],
+        }
+
+    def _show_history(self) -> dict[str, Any]:
+        """Show conversation history."""
+        if not self.memory_manager or not self.session_id:
+            return {
+                "message": "No conversation history available.",
+                "intent": "command.history",
+                "confidence": 1.0,
+                "entities": [],
+            }
+
+        history = self.memory_manager.get_conversation_history(
+            self.session_id, max_messages=10
+        )
+
+        if not history:
+            return {
+                "message": "No conversation history yet.",
+                "intent": "command.history",
+                "confidence": 1.0,
+                "entities": [],
+            }
+
+        history_text = "Conversation History:\n"
+        for i, entry in enumerate(history[-10:], 1):  # Last 10 messages
+            user_msg = entry.get("user_message", "")
+            bot_msg = entry.get("bot_message", "")
+            intent = entry.get("intent", "unknown")
+            conf = entry.get("confidence", 0.0)
+
+            history_text += f"\nTurn {i}:\n"
+            history_text += f"  You: {user_msg}\n"
+            history_text += f"  Bot: {bot_msg}\n"
+            history_text += f"  Intent: {intent} ({conf:.3f})\n"
+
+        return {
+            "message": history_text,
+            "intent": "command.history",
+            "confidence": 1.0,
+            "entities": [],
+        }
+
+    def _quit_session(self) -> dict[str, Any]:
+        """Quit the session."""
+        return {
+            "message": "Goodbye! Thanks for chatting about RHCP. Come back anytime!",
+            "intent": "command.quit",
+            "confidence": 1.0,
+            "entities": [],
+        }
+
+    def _show_commands(self) -> dict[str, Any]:
+        """Show available commands."""
+        commands_text = """
+Available Commands:
+==================
+- help: Show help information
+- history: Show conversation history
+- commands: List available commands
+- quit/exit/bye: End the session
+
+You can also ask questions about RHCP members, albums, songs, and history!
+        """.strip()
+
+        return {
+            "message": commands_text,
+            "intent": "command.list",
+            "confidence": 1.0,
+            "entities": [],
+        }
+
+    def print_response(self, response: dict[str, Any]):
+        """Print the response in the appropriate format."""
+        if self.json_output:
+            # Print JSON response
+            print(json.dumps(response, indent=2))
+        else:
+            # Print human-readable response
+            print(f"\n{response['message']}")
+
+            if self.debug:
+                print(
+                    f"\n[DEBUG] Intent: {response['intent']} (confidence: {response['confidence']:.3f})"
+                )
+                if response.get("entities"):
+                    print(f"[DEBUG] Entities: {len(response['entities'])} found")
+                    for entity in response["entities"]:
+                        print(
+                            f"  - {entity.get('type', 'unknown')}: {entity.get('value', {}).get('name', 'unknown')}"
+                        )
 
 
-def main():
-    parser = argparse.ArgumentParser(description="RHCP Chatbot CLI Tool")
+async def main():
+    """Main CLI function."""
+    parser = argparse.ArgumentParser(description="RHCP Chatbot CLI")
+    parser.add_argument("--message", "-m", help="Send a single message and exit")
+    parser.add_argument("--api-url", help="API URL for remote mode")
     parser.add_argument(
-        "--api", 
-        action="store_true", 
-        help="Use API mode instead of local processing"
-    )
-    parser.add_argument(
-        "--api-url", 
-        default="http://localhost:8000",
-        help="API base URL (default: http://localhost:8000)"
-    )
-    parser.add_argument(
-        "--username", 
-        help="Username for API authentication"
-    )
-    parser.add_argument(
-        "--password", 
-        help="Password for API authentication"
-    )
-    parser.add_argument(
-        "--message", 
-        help="Send a single message and exit"
-    )
-    parser.add_argument(
-        "--json", 
-        action="store_true", 
-        help="Output response in JSON format"
-    )
-    parser.add_argument(
-        "--debug",
+        "--use-api",
         action="store_true",
-        help="Enable debug mode with human-readable logs"
+        help="Use API mode instead of local processing",
     )
-    
+    parser.add_argument("--debug", action="store_true", help="Enable debug mode")
+    parser.add_argument(
+        "--json", action="store_true", help="Output responses in JSON format"
+    )
+
     args = parser.parse_args()
-    
+
     # Setup logging
     settings = get_settings()
     setup_logging(
         level="DEBUG" if args.debug else settings.log_level,
-        format_type="human" if args.debug else settings.log_format,
-        debug=args.debug
+        format_type=settings.log_format,
+        debug=args.debug,
     )
-    
+
     # Create CLI instance
-    cli = RHCPChatbotCLI(api_url=args.api_url, use_api=args.api, debug=args.debug)
-    
-    # Initialize
-    asyncio.run(cli.initialize())
-    
-    # Authenticate if using API and credentials provided
-    if args.api and args.username and args.password:
-        if not cli.authenticate(args.username, args.password):
-            sys.exit(1)
-    
-    # Single message mode
-    if args.message:
-        try:
-            response = cli.send_message(args.message)
-            if args.json:
-                print(json.dumps(response, indent=2))
-            else:
+    cli = RHCPChatbotCLI(
+        api_url=args.api_url,
+        use_api=args.use_api,
+        debug=args.debug,
+        json_output=args.json,
+    )
+
+    try:
+        # Initialize
+        await cli.initialize()
+        await cli.authenticate()
+
+        if args.message:
+            # Single message mode
+            try:
+                response = cli.send_message(args.message)
                 cli.print_response(response)
-        except InvalidInputError as e:
-            print(f"Error: {e.message}")
-            sys.exit(1)
-        return
-    
-    # Interactive mode
-    cli.interactive_mode()
+            except InvalidInputError as e:
+                print(f"Error: {e.message}")
+                sys.exit(1)
+        else:
+            # Interactive mode
+            print("RHCP Chatbot CLI")
+            print("Type 'help' for commands, 'quit' to exit")
+            print("=" * 50)
+
+            while True:
+                try:
+                    user_input = input("\nYou: ").strip()
+                    if not user_input:
+                        continue
+
+                    response = cli.send_message(user_input)
+                    cli.print_response(response)
+
+                    # Check if user wants to quit
+                    if response.get("intent") == "command.quit":
+                        break
+
+                except KeyboardInterrupt:
+                    print("\nGoodbye!")
+                    break
+                except InvalidInputError as e:
+                    print(f"Error: {e.message}")
+                except Exception as e:
+                    print(f"Unexpected error: {e}")
+                    if args.debug:
+                        import traceback
+
+                        traceback.print_exc()
+
+    except Exception as e:
+        print(f"Failed to initialize chatbot: {e}")
+        if args.debug:
+            import traceback
+
+            traceback.print_exc()
+        sys.exit(1)
 
 
 if __name__ == "__main__":
-    main() 
+    asyncio.run(main())

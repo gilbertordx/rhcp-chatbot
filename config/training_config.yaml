@@ -12,7 +12,7 @@ data:
   # Training data files
   training_files:
     - "data/processed/base-corpus.json"
-    - "data/processed/rhcp-corpus.json"
+    - "data/processed/rhcp-corpus-v2.json"
   
   # Data validation
   min_samples_per_intent: 5
