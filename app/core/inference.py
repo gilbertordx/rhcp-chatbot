@@ -3,6 +3,7 @@ from typing import Any, Literal
 from app.chatbot.memory import ConversationMemory
 from app.chatbot.processor import ChatbotProcessor
 from app.infra.logging import get_logger
+from app.knowledge.resolver import get_knowledge_resolver
 from app.schemas import Entity, ResponseModel
 
 # Type alias for valid intents
@@ -117,6 +118,7 @@ def canonicalize_entities(raw_entities: list[dict[str, Any]]) -> list[Entity]:
         List of validated Entity objects
     """
     canonical_entities = []
+    knowledge_resolver = get_knowledge_resolver()
 
     for raw_entity in raw_entities:
         try:
@@ -126,13 +128,40 @@ def canonicalize_entities(raw_entities: list[dict[str, Any]]) -> list[Entity]:
                 logger.warning(f"Skipping invalid entity type: {entity_type}")
                 continue
 
-            # Create validated Entity
-            entity = Entity(
-                type=entity_type,
-                value=raw_entity.get("value", {}),
-                confidence=raw_entity.get("confidence", 0.5),
-            )
-            canonical_entities.append(entity)
+            # Get the raw value from the entity
+            raw_value = raw_entity.get("value", {})
+            if isinstance(raw_value, dict):
+                span = raw_value.get("text", "")
+            else:
+                span = str(raw_value)
+
+            # Use knowledge resolver to get canonical entity
+            canonical_entity = None
+            if entity_type == "member":
+                canonical_entity = knowledge_resolver.resolve_member(span)
+            elif entity_type == "album":
+                canonical_entity = knowledge_resolver.resolve_album(span)
+            elif entity_type == "song":
+                canonical_entity = knowledge_resolver.resolve_song(span)
+
+            # Create validated Entity with resolved data
+            if canonical_entity:
+                entity = Entity(
+                    type=entity_type,
+                    value=canonical_entity,
+                    confidence=raw_entity.get("confidence", 0.5),
+                )
+                canonical_entities.append(entity)
+                logger.debug(f"Resolved entity '{span}' to canonical '{canonical_entity.get('name', canonical_entity.get('title', span))}'")
+            else:
+                # Fallback to original entity if resolution fails
+                entity = Entity(
+                    type=entity_type,
+                    value=raw_value,
+                    confidence=raw_entity.get("confidence", 0.5),
+                )
+                canonical_entities.append(entity)
+                logger.debug(f"Could not resolve entity '{span}', using original")
 
         except Exception as e:
             logger.warning(f"Failed to canonicalize entity {raw_entity}: {e}")

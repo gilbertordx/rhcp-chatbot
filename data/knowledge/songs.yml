@@ -1,0 +1,284 @@
+# RHCP Songs Knowledge Base
+# Version: 1.0.0
+# Last Updated: 2024-08-27
+
+songs:
+  - title: "Under the Bridge"
+    canonical: "under the bridge"
+    aliases:
+      - "under the bridge"
+      - "utb"
+      - "bridge"
+    year: 1991
+    album: "Blood Sugar Sex Magik"
+    track_no: 12
+    notes: "Iconic ballad about loneliness and addiction"
+    writers: ["Anthony Kiedis", "John Frusciante", "Flea", "Chad Smith"]
+
+  - title: "Give It Away"
+    canonical: "give it away"
+    aliases:
+      - "give it away"
+      - "give it"
+      - "away"
+    year: 1991
+    album: "Blood Sugar Sex Magik"
+    track_no: 1
+    notes: "Funk-rock anthem, first single from BSSM"
+    writers: ["Anthony Kiedis", "John Frusciante", "Flea", "Chad Smith"]
+
+  - title: "Californication"
+    canonical: "californication"
+    aliases:
+      - "californication"
+      - "cali"
+      - "californication song"
+    year: 1999
+    album: "Californication"
+    track_no: 6
+    notes: "Title track, commentary on Hollywood culture"
+    writers: ["Anthony Kiedis", "John Frusciante", "Flea", "Chad Smith"]
+
+  - title: "Scar Tissue"
+    canonical: "scar tissue"
+    aliases:
+      - "scar tissue"
+      - "scar"
+      - "tissue"
+    year: 1999
+    album: "Californication"
+    track_no: 2
+    notes: "Melodic rock song, major hit single"
+    writers: ["Anthony Kiedis", "John Frusciante", "Flea", "Chad Smith"]
+
+  - title: "By the Way"
+    canonical: "by the way"
+    aliases:
+      - "by the way"
+      - "btw"
+      - "by the way song"
+    year: 2002
+    album: "By the Way"
+    track_no: 1
+    notes: "Title track, melodic rock style"
+    writers: ["Anthony Kiedis", "John Frusciante", "Flea", "Chad Smith"]
+
+  - title: "Dani California"
+    canonical: "dani california"
+    aliases:
+      - "dani california"
+      - "dani"
+      - "california"
+    year: 2006
+    album: "Stadium Arcadium"
+    track_no: 1
+    notes: "Opening track, story song about Dani"
+    writers: ["Anthony Kiedis", "John Frusciante", "Flea", "Chad Smith"]
+
+  - title: "Snow (Hey Oh)"
+    canonical: "snow hey oh"
+    aliases:
+      - "snow hey oh"
+      - "snow"
+      - "hey oh"
+      - "snow (hey oh)"
+    year: 2006
+    album: "Stadium Arcadium"
+    track_no: 7
+    notes: "Melodic rock with distinctive guitar intro"
+    writers: ["Anthony Kiedis", "John Frusciante", "Flea", "Chad Smith"]
+
+  - title: "Dark Necessities"
+    canonical: "dark necessities"
+    aliases:
+      - "dark necessities"
+      - "dark"
+      - "necessities"
+    year: 2016
+    album: "The Getaway"
+    track_no: 1
+    notes: "Lead single, bass-driven groove"
+    writers: ["Anthony Kiedis", "Josh Klinghoffer", "Flea", "Chad Smith"]
+
+  - title: "Black Summer"
+    canonical: "black summer"
+    aliases:
+      - "black summer"
+      - "black"
+      - "summer"
+    year: 2022
+    album: "Unlimited Love"
+    track_no: 1
+    notes: "Lead single, return of John Frusciante"
+    writers: ["Anthony Kiedis", "John Frusciante", "Flea", "Chad Smith"]
+
+  - title: "The Zephyr Song"
+    canonical: "the zephyr song"
+    aliases:
+      - "the zephyr song"
+      - "zephyr song"
+      - "zephyr"
+    year: 2002
+    album: "By the Way"
+    track_no: 4
+    notes: "Melodic rock with atmospheric sound"
+    writers: ["Anthony Kiedis", "John Frusciante", "Flea", "Chad Smith"]
+
+  - title: "Can't Stop"
+    canonical: "cant stop"
+    aliases:
+      - "cant stop"
+      - "can't stop"
+      - "cant"
+      - "stop"
+    year: 2002
+    album: "By the Way"
+    track_no: 3
+    notes: "Funk-rock with distinctive bass line"
+    writers: ["Anthony Kiedis", "John Frusciante", "Flea", "Chad Smith"]
+
+  - title: "Otherside"
+    canonical: "otherside"
+    aliases:
+      - "otherside"
+      - "other side"
+      - "other"
+      - "side"
+    year: 1999
+    album: "Californication"
+    track_no: 4
+    notes: "Melodic rock about addiction and recovery"
+    writers: ["Anthony Kiedis", "John Frusciante", "Flea", "Chad Smith"]
+
+  - title: "Breaking the Girl"
+    canonical: "breaking the girl"
+    aliases:
+      - "breaking the girl"
+      - "breaking"
+      - "girl"
+    year: 1991
+    album: "Blood Sugar Sex Magik"
+    track_no: 8
+    notes: "Acoustic-driven ballad"
+    writers: ["Anthony Kiedis", "John Frusciante", "Flea", "Chad Smith"]
+
+  - title: "Soul to Squeeze"
+    canonical: "soul to squeeze"
+    aliases:
+      - "soul to squeeze"
+      - "soul"
+      - "squeeze"
+    year: 1993
+    album: "Coneheads Soundtrack"
+    track_no: 1
+    notes: "B-side from BSSM sessions, later released on Greatest Hits"
+    writers: ["Anthony Kiedis", "John Frusciante", "Flea", "Chad Smith"]
+
+  - title: "Fortune Faded"
+    canonical: "fortune faded"
+    aliases:
+      - "fortune faded"
+      - "fortune"
+      - "faded"
+    year: 2003
+    album: "Greatest Hits"
+    track_no: 1
+    notes: "New track recorded for Greatest Hits compilation"
+    writers: ["Anthony Kiedis", "John Frusciante", "Flea", "Chad Smith"]
+
+  - title: "Hump de Bump"
+    canonical: "hump de bump"
+    aliases:
+      - "hump de bump"
+      - "hump"
+      - "bump"
+    year: 2006
+    album: "Stadium Arcadium"
+    track_no: 15
+    notes: "Funk-rock with playful lyrics"
+    writers: ["Anthony Kiedis", "John Frusciante", "Flea", "Chad Smith"]
+
+  - title: "Tell Me Baby"
+    canonical: "tell me baby"
+    aliases:
+      - "tell me baby"
+      - "tell me"
+      - "baby"
+    year: 2006
+    album: "Stadium Arcadium"
+    track_no: 8
+    notes: "Melodic rock with catchy chorus"
+    writers: ["Anthony Kiedis", "John Frusciante", "Flea", "Chad Smith"]
+
+  - title: "The Adventures of Rain Dance Maggie"
+    canonical: "the adventures of rain dance maggie"
+    aliases:
+      - "the adventures of rain dance maggie"
+      - "rain dance maggie"
+      - "rain dance"
+      - "maggie"
+    year: 2011
+    album: "I'm with You"
+    track_no: 1
+    notes: "Lead single, first with Josh Klinghoffer"
+    writers: ["Anthony Kiedis", "Josh Klinghoffer", "Flea", "Chad Smith"]
+
+  - title: "Look Around"
+    canonical: "look around"
+    aliases:
+      - "look around"
+      - "look"
+      - "around"
+    year: 2011
+    album: "I'm with You"
+    track_no: 2
+    notes: "Second single from I'm with You"
+    writers: ["Anthony Kiedis", "Josh Klinghoffer", "Flea", "Chad Smith"]
+
+  - title: "Goodbye Angels"
+    canonical: "goodbye angels"
+    aliases:
+      - "goodbye angels"
+      - "goodbye"
+      - "angels"
+    year: 2016
+    album: "The Getaway"
+    track_no: 8
+    notes: "Emotional ballad with Josh Klinghoffer"
+    writers: ["Anthony Kiedis", "Josh Klinghoffer", "Flea", "Chad Smith"]
+
+  - title: "Go Robot"
+    canonical: "go robot"
+    aliases:
+      - "go robot"
+      - "go"
+      - "robot"
+    year: 2016
+    album: "The Getaway"
+    track_no: 4
+    notes: "Funk-disco influenced track"
+    writers: ["Anthony Kiedis", "Josh Klinghoffer", "Flea", "Chad Smith"]
+
+  - title: "Poster Child"
+    canonical: "poster child"
+    aliases:
+      - "poster child"
+      - "poster"
+      - "child"
+    year: 2022
+    album: "Unlimited Love"
+    track_no: 3
+    notes: "Funk-rock with John Frusciante back on guitar"
+    writers: ["Anthony Kiedis", "John Frusciante", "Flea", "Chad Smith"]
+
+  - title: "Tippa My Tongue"
+    canonical: "tippa my tongue"
+    aliases:
+      - "tippa my tongue"
+      - "tippa"
+      - "tongue"
+    year: 2022
+    album: "Return of the Dream Canteen"
+    track_no: 1
+    notes: "Lead single from second 2022 album"
+    writers: ["Anthony Kiedis", "John Frusciante", "Flea", "Chad Smith"]

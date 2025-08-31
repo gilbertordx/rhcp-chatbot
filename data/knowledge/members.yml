@@ -1,0 +1,135 @@
+# RHCP Band Members Knowledge Base
+# Version: 1.0.0
+# Last Updated: 2024-08-27
+
+members:
+  - name: "Anthony Kiedis"
+    canonical: "anthony kiedis"
+    aliases:
+      - "anthony"
+      - "kiedis"
+      - "tony"
+      - "ant"
+      - "ak"
+    roles: ["vocals", "lyrics"]
+    join_year: 1983
+    leave_years: []
+    notes: "Founding member, lead vocalist and lyricist"
+    active: true
+
+  - name: "Michael Peter Balzary"
+    canonical: "flea"
+    aliases:
+      - "flea"
+      - "michael balzary"
+      - "balzary"
+      - "mike"
+      - "michael peter balzary"
+    roles: ["bass", "trumpet", "backing vocals"]
+    join_year: 1983
+    leave_years: []
+    notes: "Founding member, bassist, occasional trumpet player"
+    active: true
+
+  - name: "John Anthony Frusciante"
+    canonical: "john frusciante"
+    aliases:
+      - "john"
+      - "frusciante"
+      - "fruciante"
+      - "johnny"
+      - "jf"
+      - "john anthony frusciante"
+    roles: ["guitar", "backing vocals", "keyboards"]
+    join_year: 1988
+    leave_years: [1992, 2009]
+    notes: "Lead guitarist, rejoined in 2019"
+    active: true
+
+  - name: "Chad Gaylord Smith"
+    canonical: "chad smith"
+    aliases:
+      - "chad"
+      - "smith"
+      - "chad g"
+      - "cs"
+      - "chad gaylord smith"
+    roles: ["drums", "percussion"]
+    join_year: 1988
+    leave_years: []
+    notes: "Drummer, joined after Jack Irons left"
+    active: true
+
+  - name: "Hillel Slovak"
+    canonical: "hillel slovak"
+    aliases:
+      - "hillel"
+      - "slovak"
+      - "h"
+    roles: ["guitar"]
+    join_year: 1983
+    leave_years: [1984, 1985]
+    notes: "Original guitarist, died in 1988"
+    active: false
+
+  - name: "Jack Irons"
+    canonical: "jack irons"
+    aliases:
+      - "jack"
+      - "irons"
+      - "ji"
+    roles: ["drums"]
+    join_year: 1983
+    leave_years: [1988]
+    notes: "Original drummer, left after Hillel's death"
+    active: false
+
+  - name: "Cliff Martinez"
+    canonical: "cliff martinez"
+    aliases:
+      - "cliff"
+      - "martinez"
+      - "cm"
+    roles: ["drums"]
+    join_year: 1983
+    leave_years: [1986]
+    notes: "Drummer between Jack Irons and D.H. Peligro"
+    active: false
+
+  - name: "D.H. Peligro"
+    canonical: "dh peligro"
+    aliases:
+      - "dh"
+      - "peligro"
+      - "d.h."
+      - "d.h. peligro"
+    roles: ["drums"]
+    join_year: 1986
+    leave_years: [1988]
+    notes: "Drummer before Chad Smith joined"
+    active: false
+
+  - name: "Dave Navarro"
+    canonical: "dave navarro"
+    aliases:
+      - "dave"
+      - "navarro"
+      - "dn"
+    roles: ["guitar"]
+    join_year: 1993
+    leave_years: [1998]
+    notes: "Guitarist during One Hot Minute era"
+    active: false
+
+  - name: "Josh Klinghoffer"
+    canonical: "josh klinghoffer"
+    aliases:
+      - "josh"
+      - "klinghoffer"
+      - "jk"
+      - "kling"
+    roles: ["guitar", "backing vocals", "keyboards"]
+    join_year: 2009
+    leave_years: [2019]
+    notes: "Guitarist between Frusciante eras"
+    active: false

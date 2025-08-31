@@ -1,0 +1,168 @@
+# RHCP Albums Knowledge Base
+# Version: 1.0.0
+# Last Updated: 2024-08-27
+
+albums:
+  - title: "The Red Hot Chili Peppers"
+    canonical: "the red hot chili peppers"
+    aliases:
+      - "rhcp"
+      - "debut"
+      - "first album"
+      - "self titled"
+    year: 1984
+    label: "EMI"
+    lineup_hint: "Anthony, Flea, Hillel, Jack"
+    notes: "Debut album, punk-funk style"
+    tracks: 11
+
+  - title: "Freaky Styley"
+    canonical: "freaky styley"
+    aliases:
+      - "freaky"
+      - "styley"
+      - "second album"
+    year: 1985
+    label: "EMI"
+    lineup_hint: "Anthony, Flea, Hillel, Jack"
+    notes: "Produced by George Clinton, funk influence"
+    tracks: 13
+
+  - title: "The Uplift Mofo Party Plan"
+    canonical: "the uplift mofo party plan"
+    aliases:
+      - "uplift mofo"
+      - "mofo party plan"
+      - "uplift"
+      - "third album"
+    year: 1987
+    label: "EMI"
+    lineup_hint: "Anthony, Flea, Hillel, Jack"
+    notes: "Last album with Hillel Slovak"
+    tracks: 12
+
+  - title: "Mother's Milk"
+    canonical: "mothers milk"
+    aliases:
+      - "mothers milk"
+      - "mother's"
+      - "milk"
+      - "fourth album"
+    year: 1989
+    label: "EMI"
+    lineup_hint: "Anthony, Flea, John, Chad"
+    notes: "First album with John Frusciante and Chad Smith"
+    tracks: 13
+
+  - title: "Blood Sugar Sex Magik"
+    canonical: "blood sugar sex magik"
+    aliases:
+      - "bssm"
+      - "blood sugar"
+      - "sex magik"
+      - "fifth album"
+      - "blood sugar sex magic"
+    year: 1991
+    label: "Warner Bros."
+    lineup_hint: "Anthony, Flea, John, Chad"
+    notes: "Breakthrough album, produced by Rick Rubin"
+    tracks: 17
+
+  - title: "One Hot Minute"
+    canonical: "one hot minute"
+    aliases:
+      - "ohm"
+      - "one hot"
+      - "minute"
+      - "sixth album"
+    year: 1995
+    label: "Warner Bros."
+    lineup_hint: "Anthony, Flea, Dave, Chad"
+    notes: "Only album with Dave Navarro"
+    tracks: 13
+
+  - title: "Californication"
+    canonical: "californication"
+    aliases:
+      - "cali"
+      - "californication"
+      - "seventh album"
+    year: 1999
+    label: "Warner Bros."
+    lineup_hint: "Anthony, Flea, John, Chad"
+    notes: "Return of John Frusciante, massive success"
+    tracks: 15
+
+  - title: "By the Way"
+    canonical: "by the way"
+    aliases:
+      - "btw"
+      - "by the way"
+      - "eighth album"
+    year: 2002
+    label: "Warner Bros."
+    lineup_hint: "Anthony, Flea, John, Chad"
+    notes: "Melodic rock direction, less funk"
+    tracks: 16
+
+  - title: "Stadium Arcadium"
+    canonical: "stadium arcadium"
+    aliases:
+      - "stadium"
+      - "arcadium"
+      - "ninth album"
+      - "double album"
+    year: 2006
+    label: "Warner Bros."
+    lineup_hint: "Anthony, Flea, John, Chad"
+    notes: "Double album, 28 tracks total"
+    tracks: 28
+
+  - title: "I'm with You"
+    canonical: "im with you"
+    aliases:
+      - "im with you"
+      - "i'm with you"
+      - "tenth album"
+      - "with you"
+    year: 2011
+    label: "Warner Bros."
+    lineup_hint: "Anthony, Flea, Josh, Chad"
+    notes: "First album with Josh Klinghoffer"
+    tracks: 14
+
+  - title: "The Getaway"
+    canonical: "the getaway"
+    aliases:
+      - "getaway"
+      - "eleventh album"
+    year: 2016
+    label: "Warner Bros."
+    lineup_hint: "Anthony, Flea, Josh, Chad"
+    notes: "Produced by Danger Mouse"
+    tracks: 13
+
+  - title: "Unlimited Love"
+    canonical: "unlimited love"
+    aliases:
+      - "unlimited love"
+      - "twelfth album"
+      - "ul"
+    year: 2022
+    label: "Warner Bros."
+    lineup_hint: "Anthony, Flea, John, Chad"
+    notes: "Return of John Frusciante"
+    tracks: 17
+
+  - title: "Return of the Dream Canteen"
+    canonical: "return of the dream canteen"
+    aliases:
+      - "return of the dream canteen"
+      - "dream canteen"
+      - "thirteenth album"
+      - "rotdc"
+    year: 2022
+    label: "Warner Bros."
+    lineup_hint: "Anthony, Flea, John, Chad"
+    notes: "Second album of 2022, recorded same sessions as Unlimited Love"
+    tracks: 17
