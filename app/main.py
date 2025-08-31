@@ -228,6 +228,27 @@ async def readiness_check():
     else:
         details["discography"] = "exists"
 
+    # Check FTS database
+    fts_db_path = "data/rhcp_fts.sqlite"
+    if not os.path.exists(fts_db_path):
+        ready = False
+        details["fts_database"] = f"not found: {fts_db_path}"
+    elif not os.access(fts_db_path, os.R_OK):
+        ready = False
+        details["fts_database"] = f"not readable: {fts_db_path}"
+    else:
+        try:
+            # Try to validate the database
+            import sqlite3
+            with sqlite3.connect(fts_db_path) as conn:
+                cursor = conn.cursor()
+                cursor.execute("SELECT COUNT(*) FROM facts")
+                fact_count = cursor.fetchone()[0]
+                details["fts_database"] = f"ready: {fts_db_path} ({fact_count} facts)"
+        except Exception as e:
+            ready = False
+            details["fts_database"] = f"error validating: {fts_db_path} - {str(e)}"
+
     # Return appropriate status code
     if ready:
         return JSONResponse(content={"ready": True, "details": details})

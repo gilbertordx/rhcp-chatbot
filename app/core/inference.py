@@ -202,10 +202,14 @@ def build_response(
     if final_intent == "unknown":
         final_message = "I'm not sure what you mean. Let's talk about RHCP! What would you like to know about the Red Hot Chili Peppers?"
     else:
-        # Use the processor to generate contextual response
-        final_message = chatbot_processor._generate_contextual_response(
-            "", final_intent, [e.dict() for e in canonical_entities], session_id
-        )
+        # Use factual retrieval for entity-specific queries to reduce hallucination
+        if canonical_entities and final_intent in ["member.biography", "album.info", "song.info"]:
+            final_message = _build_factual_response(final_intent, canonical_entities)
+        else:
+            # Use the processor to generate contextual response
+            final_message = chatbot_processor._generate_contextual_response(
+                "", final_intent, [e.dict() for e in canonical_entities], session_id
+            )
 
     # Create ResponseModel
     response = ResponseModel(
@@ -219,6 +223,228 @@ def build_response(
 
     logger.info(f"Final response: {final_intent} ({final_confidence:.3f})")
     return response
+
+
+def _build_factual_response(intent: IntentType, entities: list[Entity]) -> str:
+    """
+    Build a factual response using retrieved facts from the knowledge base.
+    
+    Args:
+        intent: The resolved intent
+        entities: List of canonical entities
+        
+    Returns:
+        Factual response message
+    """
+    try:
+        from app.knowledge.search import get_facts_by_canonical
+        
+        if not entities:
+            return "I don't have enough information to answer that question."
+        
+        # Get facts for the first entity (most relevant)
+        entity = entities[0]
+        entity_type = entity.type
+        entity_value = entity.value
+        
+        # Extract canonical name from entity value
+        if isinstance(entity_value, dict):
+            if entity_type == "member":
+                canonical = entity_value.get("canonical", entity_value.get("name", ""))
+            elif entity_type == "album":
+                canonical = entity_value.get("canonical", entity_value.get("title", ""))
+            elif entity_type == "song":
+                canonical = entity_value.get("canonical", entity_value.get("title", ""))
+            else:
+                canonical = str(entity_value)
+        else:
+            canonical = str(entity_value)
+        
+        if not canonical:
+            return "I don't have enough information to answer that question."
+        
+        # Retrieve facts for this entity
+        facts = get_facts_by_canonical(canonical, entity_type)
+        
+        if not facts:
+            return f"I don't have specific information about {canonical}."
+        
+        # Build factual response based on intent and entity type
+        if intent == "member.biography":
+            return _build_member_response(facts, canonical)
+        elif intent == "album.info":
+            return _build_album_response(facts, canonical)
+        elif intent == "song.info":
+            return _build_song_response(facts, canonical)
+        else:
+            return _build_generic_response(facts, canonical, entity_type)
+            
+    except Exception as e:
+        logger.warning(f"Failed to build factual response: {e}")
+        # Fallback to generic response
+        return f"I have information about {entities[0].value if entities else 'this topic'}, but I'm having trouble retrieving the details right now."
+
+
+def _build_member_response(facts: list, canonical: str) -> str:
+    """Build a factual response for member queries."""
+    # Extract key facts
+    name = ""
+    roles = []
+    join_year = None
+    active = None
+    notes = ""
+    
+    for fact in facts:
+        if fact.field == "name":
+            name = fact.value
+        elif fact.field == "role":
+            roles.append(fact.value)
+        elif fact.field == "join_year":
+            join_year = fact.value
+        elif fact.field == "active":
+            active = fact.value
+        elif fact.field == "notes":
+            notes = fact.value
+    
+    # Build response
+    response_parts = []
+    
+    if name:
+        response_parts.append(f"{name}")
+    
+    if roles:
+        response_parts.append(f"plays {', '.join(roles)}")
+    
+    if join_year:
+        response_parts.append(f"joined in {join_year}")
+    
+    if active is not None:
+        status = "currently active" if active.lower() == "true" else "not currently active"
+        response_parts.append(f"is {status}")
+    
+    if notes:
+        response_parts.append(f"Note: {notes}")
+    
+    if response_parts:
+        return " is ".join(response_parts) + "."
+    else:
+        return f"I have information about {canonical} but the details are incomplete."
+
+
+def _build_album_response(facts: list, canonical: str) -> str:
+    """Build a factual response for album queries."""
+    # Extract key facts
+    title = ""
+    year = None
+    label = ""
+    tracks = None
+    notes = ""
+    
+    for fact in facts:
+        if fact.field == "title":
+            title = fact.value
+        elif fact.field == "year":
+            year = fact.value
+        elif fact.field == "label":
+            label = fact.value
+        elif fact.field == "tracks":
+            tracks = fact.value
+        elif fact.field == "notes":
+            notes = fact.value
+    
+    # Build response
+    response_parts = []
+    
+    if title:
+        response_parts.append(f"{title}")
+    
+    if year:
+        response_parts.append(f"released in {year}")
+    
+    if label:
+        response_parts.append(f"on {label}")
+    
+    if tracks:
+        response_parts.append(f"has {tracks} tracks")
+    
+    if notes:
+        response_parts.append(f"Note: {notes}")
+    
+    if response_parts:
+        return " is ".join(response_parts) + "."
+    else:
+        return f"I have information about {canonical} but the details are incomplete."
+
+
+def _build_song_response(facts: list, canonical: str) -> str:
+    """Build a factual response for song queries."""
+    # Extract key facts
+    title = ""
+    year = None
+    album = ""
+    track_no = None
+    notes = ""
+    
+    for fact in facts:
+        if fact.field == "title":
+            title = fact.value
+        elif fact.field == "year":
+            year = fact.value
+        elif fact.field == "album":
+            album = fact.value
+        elif fact.field == "track_no":
+            track_no = fact.value
+        elif fact.field == "notes":
+            notes = fact.value
+    
+    # Build response
+    response_parts = []
+    
+    if title:
+        response_parts.append(f"{title}")
+    
+    if year:
+        response_parts.append(f"released in {year}")
+    
+    if album:
+        response_parts.append(f"from the album {album}")
+    
+    if track_no:
+        response_parts.append(f"track {track_no}")
+    
+    if notes:
+        response_parts.append(f"Note: {notes}")
+    
+    if response_parts:
+        return " is ".join(response_parts) + "."
+    else:
+        return f"I have information about {canonical} but the details are incomplete."
+
+
+def _build_generic_response(facts: list, canonical: str, entity_type: str) -> str:
+    """Build a generic factual response."""
+    # Group facts by field for better organization
+    field_values = {}
+    for fact in facts:
+        if fact.field not in field_values:
+            field_values[fact.field] = []
+        field_values[fact.field].append(fact.value)
+    
+    response_parts = [f"Here's what I know about {canonical}:"]
+    
+    for field, values in field_values.items():
+        if field in ["name", "title"]:  # Skip redundant fields
+            continue
+        unique_values = list(set(values))
+        if len(unique_values) == 1:
+            response_parts.append(f"{field}: {unique_values[0]}")
+        else:
+            response_parts.append(f"{field}: {', '.join(unique_values)}")
+    
+    if len(response_parts) > 1:
+        return " ".join(response_parts)
+    else:
+        return f"I have basic information about {canonical} but not many details."
 
 
 def run_inference(message: str, session_id: str | None = None) -> ResponseModel:
