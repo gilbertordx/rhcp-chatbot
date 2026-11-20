@@ -1,5 +1,11 @@
 # rhcp-chatbot
 
+> **Rust remaster on this branch.** The whole app (NLP pipeline, classifier and its training, API,
+> login/JWT, CLI) is rewritten in Rust under [`rust/`](rust), with a guide for learning Rust from it
+> in [`docs/RUST_LEARNING.md`](docs/RUST_LEARNING.md), which also lists what the original app really
+> does. The Python code below is unchanged. Quick start:
+> `cargo build --release --manifest-path rust/Cargo.toml` then `rust/target/release/rhcp-chatbot chat`.
+
 Python chatbot for Red Hot Chili Peppers trivia. Early learning project exploring NLP, intent classification, and entity recognition. Rough around the edges, but functional.
 
 ## What It Does

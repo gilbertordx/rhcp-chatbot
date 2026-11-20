@@ -135,3 +135,5 @@ logs/*.log
 .Trashes
 ehthumbs.db
 Thumbs.db 
+# Rust remaster
+rust/target/
