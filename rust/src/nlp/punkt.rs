@@ -38,18 +38,25 @@ pub struct PunktParams {
     ortho_context: HashMap<String, u32>,
 }
 
-/// Where NLTK keeps its data, in the order NLTK looks: `NLTK_DATA`
-/// (a `:`-separated list), then `~/nltk_data`, then the system folders.
+/// Where NLTK keeps its data, in the order NLTK looks: `NLTK_DATA` (a list separated by `:` on
+/// Linux/macOS and `;` on Windows), then `~/nltk_data`, then the system folders.
+/// On Windows there is usually no `HOME`, so `USERPROFILE` and `APPDATA` are tried too.
 pub fn nltk_data_dirs() -> Vec<PathBuf> {
-    let mut dirs = Vec::new();
-    if let Ok(paths) = std::env::var("NLTK_DATA") {
-        dirs.extend(paths.split(':').filter(|p| !p.is_empty()).map(PathBuf::from));
+    let mut dirs: Vec<PathBuf> = Vec::new();
+    if let Some(paths) = std::env::var_os("NLTK_DATA") {
+        dirs.extend(std::env::split_paths(&paths).filter(|p| !p.as_os_str().is_empty()));
     }
-    if let Ok(home) = std::env::var("HOME") {
-        dirs.push(Path::new(&home).join("nltk_data"));
+    for var in ["HOME", "USERPROFILE", "APPDATA"] {
+        if let Some(base) = std::env::var_os(var).filter(|v| !v.is_empty()) {
+            let dir = Path::new(&base).join("nltk_data");
+            if !dirs.contains(&dir) {
+                dirs.push(dir);
+            }
+        }
     }
     dirs.push(PathBuf::from("/usr/share/nltk_data"));
     dirs.push(PathBuf::from("/usr/local/share/nltk_data"));
+    dirs.push(PathBuf::from(r"C:\nltk_data"));
     dirs
 }
 

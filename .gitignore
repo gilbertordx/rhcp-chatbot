@@ -137,3 +137,7 @@ ehthumbs.db
 Thumbs.db 
 # Rust remaster
 rust/target/
+
+# local test files made by launch/ menu
+data/dev_auth.db
+data/models/classifier_retrained.json
